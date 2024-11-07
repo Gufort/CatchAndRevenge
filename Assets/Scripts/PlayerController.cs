@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : SoundMaster
 {
     public float speed;
     public Animator animator;
     private Vector2 direction;
     private Rigidbody2D rb;
+     private bool isMoving = false;
+
     void Start()
     {
-     rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -22,6 +24,24 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", direction.y);
         animator.SetFloat("Speed", direction.sqrMagnitude);
 
+        if (direction.sqrMagnitude > 0)
+        {
+            if (!isMoving)
+            {
+                PlaySound(sounds[0], volume: 0.4f, loop: true, p1:0.9f, p2:1f);
+                isMoving = true;
+            }
+        }
+        else
+        {
+            if (isMoving)
+            {
+                StopSound();
+                isMoving = false;
+            }
+        }
+        
+
         if (direction.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
@@ -32,7 +52,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate(){
-        rb.MovePosition(rb.position+direction*speed*Time.fixedDeltaTime);
+    void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
     }
 }
