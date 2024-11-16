@@ -8,10 +8,12 @@ public class PlayerController : SoundMaster
     public Animator animator;
     private Vector2 direction;
     private Rigidbody2D rb;
-     private bool isMoving = false;
+    private bool isMoving = false;
+    public VectorValue pos;
 
     void Start()
     {
+        transform.position = pos.initialValue;
         rb = GetComponent<Rigidbody2D>();
     }
 
