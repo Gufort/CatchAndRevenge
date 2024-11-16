@@ -8,12 +8,17 @@ public class KeyTrigger : MonoBehaviour
     private bool trigger;
 
     private void OnTriggerEnter2D(Collider2D other){
-        panel.SetActive(true);
-        trigger = true;
+         if (other.CompareTag("Player"))
+        {
+            panel.SetActive(true);
+            trigger = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D other){
-        panel.SetActive(false);
-        trigger = false;
+        if(other.CompareTag("Player")){
+             panel.SetActive(false);
+            trigger = false;
+        }
     }
 
 
