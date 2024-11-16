@@ -2801,7 +2801,7 @@ Transform:
   m_GameObject: {fileID: 1495080250}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.005066, y: 0.6612539, z: -10.010944}
+  m_LocalPosition: {x: 6.009767, y: 0.6612539, z: -10.010944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3171,6 +3171,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1782823933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3955121223373900131, guid: 15b9435996636fc4f9de7682e000493d, type: 3}
+  m_PrefabInstance: {fileID: 275020811705376900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1782823936 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1078474954207971343, guid: 15b9435996636fc4f9de7682e000493d, type: 3}
+  m_PrefabInstance: {fileID: 275020811705376900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1782823940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782823933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efcf2578e1c23a478eba852b257d3af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1782823936}
+  attack_pointer: {fileID: 0}
+  attack_damage: 40
+  attack_range: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1824307926
 GameObject:
   m_ObjectHideFlags: 0
@@ -3442,7 +3471,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3955121223373900131, guid: 15b9435996636fc4f9de7682e000493d, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1782823940}
   m_SourcePrefab: {fileID: 100100000, guid: 15b9435996636fc4f9de7682e000493d, type: 3}
 --- !u!1001 &6239610155749250646
 PrefabInstance:
