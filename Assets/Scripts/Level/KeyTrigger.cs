@@ -26,7 +26,7 @@ public class KeyTrigger : MonoBehaviour
         panel.SetActive(false);
     }
 
-    private void Update()
+   private void Update()
     {
         if (trigger && Input.GetKeyDown(KeyCode.E))
         {
