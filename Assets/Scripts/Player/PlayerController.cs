@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class PlayerController : SoundMaster
 {
+    public static PlayerController instance{get;private set;}
     public float speed;
     public Animator animator;
     private Vector2 direction;
     private Rigidbody2D rb;
     private bool isMoving = false;
     public VectorValue pos;
-     public Transform attackCollider;
+    public Transform attackCollider;
+
+    private void Awake() {
+        instance = this;
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Start()
     {
         transform.position = pos.initialValue;
-        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
