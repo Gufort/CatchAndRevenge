@@ -77,13 +77,13 @@ public class EnemyScript : MonoBehaviour
             {
                 navMeshAgent.ResetPath();
                 navMeshAgent.speed = chasing_speed;
-                ChasingTarget(); // Начинаем преследование сразу
+                ChasingTarget();
             }
             else if (new_state == State.Roaming)
             {
-                roaming_time = roaming_timer_max; // Сброс таймера
+                roaming_time = roaming_timer_max;
                 navMeshAgent.speed = walk_speed;
-                Roaming(); // Начинаем бродяжничество сразу
+                Roaming();
             }
         }
     }
@@ -96,7 +96,7 @@ public class EnemyScript : MonoBehaviour
                 roaming_time -= Time.deltaTime;
                 if (roaming_time <= 0)
                 {
-                    Roaming(); // Обновляем позицию
+                    Roaming();
                 }
                 break;
 
@@ -105,11 +105,9 @@ public class EnemyScript : MonoBehaviour
                 break;
 
             case State.Attacking:
-                // Логика атаки
                 break;
 
             case State.Death:
-                // Логика смерти
                 break;
 
             default:
@@ -126,7 +124,7 @@ public class EnemyScript : MonoBehaviour
     {
         roam_pos = GetRoamingPos();
         navMeshAgent.SetDestination(roam_pos);
-        roaming_time = roaming_timer_max; // Сброс таймера после перемещения
+        roaming_time = roaming_timer_max;
     }
 
     private UnityEngine.Vector3 GetRoamingPos()
