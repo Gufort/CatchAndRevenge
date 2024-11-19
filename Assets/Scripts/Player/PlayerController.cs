@@ -61,15 +61,23 @@ public class PlayerController : SoundMaster
         }
         else if (direction.x < 0)
         {
-             transform.localScale = new Vector3(-1, 1, 1);
             attackCollider.rotation = Quaternion.Euler(0, 0, 180);
             attackCollider.position = new Vector2(transform.position.x - 1f, transform.position.y);
         }
         else if (direction.x > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
             attackCollider.rotation = Quaternion.Euler(0, 0, 0);
             attackCollider.position = new Vector2(transform.position.x + 1f, transform.position.y);
+        }
+
+        if (direction.x < 0)
+        {
+             transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        else if (direction.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
