@@ -14,6 +14,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float chasing_dist = 4f;
     [SerializeField] private float chasing_speed_mult = 2f;
 
+    public Animator animator;
     private float walk_speed;
     private float chasing_speed;
     private float roaming_time;
@@ -43,8 +44,27 @@ public class EnemyScript : MonoBehaviour
 
     void Update()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        animator.SetFloat("Horizontal", horizontal);
+        animator.SetFloat("Vertical", vertical);
+
         CheckDistanceToPlayer();
         StateHandler();
+
+        UnityEngine.Vector3 moveDirection = new UnityEngine.Vector3(horizontal, 0, vertical);
+        transform.Translate(moveDirection * Time.deltaTime);
+
+        if (moveDirection.x < 0)
+        {
+            transform.localScale = new UnityEngine.Vector3(-1, 1, 1);
+        }
+
+        else if (moveDirection.x > 0)
+        {
+            transform.localScale = new UnityEngine.Vector3(1, 1, 1);
+        }
     }
 
     private void CheckDistanceToPlayer()
