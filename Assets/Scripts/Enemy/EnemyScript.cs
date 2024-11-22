@@ -46,6 +46,7 @@ public class EnemyScript : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        UnityEngine.Vector3 moveDirection = new UnityEngine.Vector3(horizontal, 0, vertical);
 
         animator.SetFloat("Horizontal", horizontal);
         animator.SetFloat("Vertical", vertical);
@@ -53,19 +54,18 @@ public class EnemyScript : MonoBehaviour
         CheckDistanceToPlayer();
         StateHandler();
 
-        UnityEngine.Vector3 moveDirection = new UnityEngine.Vector3(horizontal, 0, vertical);
-        transform.Translate(moveDirection * Time.deltaTime);
-
-        if (moveDirection.x < 0)
+        if (horizontal < 0)
         {
             transform.localScale = new UnityEngine.Vector3(-1, 1, 1);
         }
-
-        else if (moveDirection.x > 0)
+        else if (horizontal > 0)
         {
             transform.localScale = new UnityEngine.Vector3(1, 1, 1);
         }
     }
+
+
+
 
     private void CheckDistanceToPlayer()
     {
@@ -114,6 +114,16 @@ public class EnemyScript : MonoBehaviour
         {
             case State.Roaming:
                 roaming_time -= Time.deltaTime;
+
+                if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance && !navMeshAgent.pathPending)
+                {
+                    animator.SetFloat("Speed", 0);
+                }
+                else
+                {
+                    animator.SetFloat("Speed", navMeshAgent.speed);
+                }
+
                 if (roaming_time <= 0)
                 {
                     Roaming();
@@ -122,6 +132,7 @@ public class EnemyScript : MonoBehaviour
 
             case State.Chasing:
                 ChasingTarget();
+                animator.SetFloat("Speed", navMeshAgent.speed);
                 break;
 
             case State.Attacking:
@@ -132,9 +143,11 @@ public class EnemyScript : MonoBehaviour
 
             default:
             case State.Idle:
+                animator.SetFloat("Speed", 0);
                 break;
         }
     }
+
 
     private void ChasingTarget(){
         navMeshAgent.SetDestination(PlayerController.instance.transform.position);
