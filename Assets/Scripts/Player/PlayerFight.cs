@@ -7,6 +7,8 @@ public class PlayerFight : SoundMaster
     [SerializeField] private int damage = 25;
     [SerializeField] private float dash_dist = 2f;
     [SerializeField] private float dash_time = 0.3f;
+    [SerializeField] private float attackDelay = 0.5f;
+    private float lastAttackTime;
     private bool is_dash = false;
     private float dash_start_time;
     public Animator animator;
@@ -26,10 +28,11 @@ public class PlayerFight : SoundMaster
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Vertical", direction.y);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+         if (Input.GetKeyDown(KeyCode.Space) && Time.time >= lastAttackTime + attackDelay)
         {
             PlaySound(sounds[0], volume: 0.4f, loop: false, p1: 0.5f, p2: 0.7f);
             Attack();
+            lastAttackTime = Time.time;
         }
 
         if (is_dash) Dash();
