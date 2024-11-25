@@ -14,6 +14,8 @@ public class PlayerFight : SoundMaster
     public Animator animator;
     public PolygonCollider2D attack_pointer;
     private Vector2 direction;
+    private bool isAttacking = false;
+    private HashSet<EnemyHP> damagedEnemies = new HashSet<EnemyHP>();
 
     void Start()
     {
@@ -28,7 +30,7 @@ public class PlayerFight : SoundMaster
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Vertical", direction.y);
 
-         if (Input.GetKeyDown(KeyCode.Space) && Time.time >= lastAttackTime + attackDelay)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= lastAttackTime + attackDelay)
         {
             PlaySound(sounds[0], volume: 0.4f, loop: false, p1: 0.5f, p2: 0.7f);
             Attack();
@@ -40,17 +42,19 @@ public class PlayerFight : SoundMaster
 
     void Attack()
     {
+        isAttacking = true;
+        damagedEnemies.Clear();
         ColliderOn();
         is_dash = true;
         dash_start_time = Time.time;
         animator.SetTrigger("Attack");
-        ColliderOn();
         Invoke("ColliderOff", 0.5f);
     }
 
     public void ColliderOff()
     {
         attack_pointer.enabled = false;
+        isAttacking = false;
     }
 
     private void ColliderOn()
@@ -76,10 +80,13 @@ public class PlayerFight : SoundMaster
 
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.transform.TryGetComponent(out EnemyHP enemy))
+        if (isAttacking && collider2D.transform.TryGetComponent(out EnemyHP enemy))
         {
-            enemy.TakeDamage(damage);
+            if (!damagedEnemies.Contains(enemy))
+            {
+                enemy.TakeDamage(damage);
+                damagedEnemies.Add(enemy);
+            }
         }
     }
 }
-
