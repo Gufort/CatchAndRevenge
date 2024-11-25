@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public Text dialogueText;
-    public Text nameText;
     public Animator animator;
     private Queue<string> sentences;
     public GameObject dialogueBox;
@@ -21,7 +20,6 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Starting convesation! ---> " + dialogue.name);
         dialogueBox.SetActive(true);
         animator.SetBool("IsOpen", true);
-        nameText.text = dialogue.name;
         if (sentences == null)
         {
             sentences = new Queue<string>();
@@ -57,6 +55,9 @@ public class DialogueManager : MonoBehaviour
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
+            yield return null;
+            yield return null;
+            yield return null;
             yield return null;
         }
     }
