@@ -1627,6 +1627,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1721542310}
   nameText: {fileID: 1762875022}
   animator: {fileID: 1722721625}
+  dialogueBox: {fileID: 1722721621}
 --- !u!4 &973084879
 Transform:
   m_ObjectHideFlags: 0
@@ -2834,6 +2835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce5716b9c2debe349589249313ef6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alreadyTriggered: 0
   dialogue:
     name: "\u0421\u044D\u0440 \u0424\u043E\u043D \u0413\u0443\u0444\u043E\u0440\u0442"
     sentences:
@@ -4307,7 +4309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1722721622
 RectTransform:
   m_ObjectHideFlags: 0
