@@ -18,7 +18,7 @@ public class EnemyScript : MonoBehaviour
 
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private float _attackingDistance = 1f;
-    private float _attackRate = 2f;
+    [SerializeField] private float _attackRate = 2f;
     private float _nextTimeAttack = 0f;
 
     private Animator animator;
@@ -137,6 +137,14 @@ public class EnemyScript : MonoBehaviour
     private void AttackingTarget() {
         if (Time.time > _nextTimeAttack) {
             OnAttack?.Invoke(this, EventArgs.Empty);
+            
+            Vector3 playerPosition = PlayerController.instance.transform.position;
+            Vector3 direction = (playerPosition - transform.position).normalized;
+
+            animator.SetFloat("Horizontal", direction.x);
+            animator.SetFloat("Vertical", direction.y);
+
+
             _nextTimeAttack = Time.time + _attackRate;
         }
     }
