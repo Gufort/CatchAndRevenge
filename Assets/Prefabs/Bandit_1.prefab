@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 89355853406610098}
   - component: {fileID: 7323792070709155502}
   m_Layer: 0
-  m_Name: Enemy_1
+  m_Name: Bandit_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec626ad6c6be3f14b85bc670a9af080a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 100
+  _enemySO: {fileID: 0}
   curr_hp: 0
   _enemy: {fileID: 2172077673470124115}
   _capsuleCollider: {fileID: 0}

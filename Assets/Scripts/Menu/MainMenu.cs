@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private VectorValue pos;
     public void QuitGame()
     {   
         Debug.Log("Игра закрыта");
@@ -13,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public void PlayNewGame()
     {
         PlayerPrefs.DeleteAll();
+        pos.initialValue = Vector3.zero;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
