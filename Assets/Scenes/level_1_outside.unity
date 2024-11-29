@@ -1962,6 +1962,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73fea2cb81ce186d96266f8f380542c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialogueID: 1
+  isAutostart: 0
   dt: {fileID: 1455979629}
 --- !u!61 &1061631375
 BoxCollider2D:
@@ -5139,6 +5141,10 @@ PrefabInstance:
     - target: {fileID: 947446293962906085, guid: 9aa1d913f83a82a4faa3572cc238bff4, type: 3}
       propertyPath: position.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 947446293962906085, guid: 9aa1d913f83a82a4faa3572cc238bff4, type: 3}
+      propertyPath: level_number
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2254245034169209873, guid: 9aa1d913f83a82a4faa3572cc238bff4, type: 3}
       propertyPath: m_Name

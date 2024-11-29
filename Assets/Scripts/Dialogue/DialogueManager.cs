@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextSentence()
     {
         Debug.Log("Called Display Next Sentence and sentences count is: " + sentences.Count() + " is sentences null? " + (sentences == null));
-        if (sentences.Count == 0)
+        if (isDialogueEnd())
         {
             EndDialogue();
             return;
@@ -49,13 +49,17 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
+    public bool isDialogueEnd()
+    {
+        return (sentences.Count() == 0);
+    }
+
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
             yield return null;
             yield return null;
             yield return null;
