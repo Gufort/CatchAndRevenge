@@ -70,6 +70,11 @@ public class EnemyScript : MonoBehaviour
         animator.SetFloat("Vertical", vertical);
     }
 
+    public void SetDeath(){
+        _navMeshAgent.ResetPath();
+        _currentState = State.Death;
+    }
+
     private void StateHandler() {
         switch (_currentState) {
             case State.Roaming:

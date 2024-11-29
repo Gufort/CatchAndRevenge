@@ -349,6 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_hp: 100
   curr_hp: 0
+  _enemy: {fileID: 2172077673470124115}
+  _capsuleCollider: {fileID: 0}
   _polygonCollider: {fileID: 1030059619847672594}
 --- !u!114 &89355853406610098
 MonoBehaviour:

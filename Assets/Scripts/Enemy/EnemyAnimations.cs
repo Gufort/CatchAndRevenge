@@ -10,6 +10,7 @@ public class EnemyAnimations : MonoBehaviour
     private string IS_RUNNING = "IsRunning";
     private string CHASING_SPEED = "ChasingSpeed";
     private string ATTACK = "Attack";
+    private string IS_DIE = "IsDie";
 
     void Awake(){
         animator = GetComponent<Animator>();
@@ -17,6 +18,7 @@ public class EnemyAnimations : MonoBehaviour
 
     void Start(){
         _enemy1.OnAttack += _enemy1_OnAttack;
+        _enemy2.OnDeath += enemy2_OnDeath;
     }
 
     void OnDestroy(){
@@ -39,5 +41,9 @@ public class EnemyAnimations : MonoBehaviour
 
     private void _enemy1_OnAttack(object sender, System.EventArgs e){
         animator.SetTrigger(ATTACK);
+    }
+
+    private void enemy2_OnDeath(object sender, System.EventArgs e){
+        animator.SetBool(IS_DIE, true);
     }
 }
