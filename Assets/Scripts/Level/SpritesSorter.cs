@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+
 public class SpritesSorter : MonoBehaviour
 {
     private bool trigger = false;
@@ -22,19 +23,13 @@ public class SpritesSorter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) 
-        {
-            trigger = true;
-            UpdateSortingOrder();
-        }
+        trigger = true;
+        UpdateSortingOrder();
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            trigger = false;
-            UpdateSortingOrder();
-        }
+        trigger = false;
+        UpdateSortingOrder();
     }
 }
