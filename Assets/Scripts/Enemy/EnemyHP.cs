@@ -67,4 +67,10 @@ public class EnemyHP : MonoBehaviour
     {
         _polygonCollider.enabled = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D other){
+        if(other.transform.TryGetComponent(out PlayerController player)){
+            player.TakeDamage(transform, _enemySO.damage);
+        }
+    }
 }

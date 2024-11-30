@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerController : SoundMaster
 {
+    [SerializeField] private int max_hp;
     public static PlayerController instance{get;private set;}
     public float speed;
     public Animator animator;
     private Vector2 direction;
     private Rigidbody2D rb;
     private bool isMoving = false;
+    private int curr_hp;
     public VectorValue pos;
     public Transform attackCollider;
 
@@ -21,6 +23,7 @@ public class PlayerController : SoundMaster
     void Start()
     {
         transform.position = pos.initialValue;
+        curr_hp = max_hp;
     }
 
     void Update()
@@ -79,6 +82,11 @@ public class PlayerController : SoundMaster
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+    }
+
+    public void TakeDamage(Transform source, int damage){
+        curr_hp = Mathf.Max(0,curr_hp-=damage);
+        Debug.Log($"Current Health - {curr_hp}");
     }
 
     void FixedUpdate()
