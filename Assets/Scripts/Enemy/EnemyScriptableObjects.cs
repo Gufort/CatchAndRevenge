@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EnemyScriptableObjects : ScriptableObject
 {
+    public int damage = 10;
     public string enemy_name;
-    public int enemy_curr_hp;
-    public bool isDead = false;
+    public int enemy_curr_hp = 100;
 }
