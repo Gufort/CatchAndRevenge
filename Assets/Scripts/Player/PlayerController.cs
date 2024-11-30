@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerController : SoundMaster
 {
     [SerializeField] private int max_hp;
+    [SerializeField] private float _damageRecoveryTime = 0.5f;
+    [SerializeField] private bool _canTakeDamage;
+    static public int curr_hp_to_renderer;
+
     public static PlayerController instance{get;private set;}
     public float speed;
     public Animator animator;
@@ -22,18 +26,22 @@ public class PlayerController : SoundMaster
 
     void Start()
     {
+        _canTakeDamage = true;
         transform.position = pos.initialValue;
         curr_hp = max_hp;
     }
 
     void Update()
     {
+        if(curr_hp == 0) curr_hp = 100;
+        curr_hp_to_renderer = curr_hp;
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
 
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Vertical", direction.y);
         animator.SetFloat("Speed", direction.sqrMagnitude);
+
 
         if (direction.sqrMagnitude > 0)
         {
@@ -83,13 +91,22 @@ public class PlayerController : SoundMaster
             transform.localScale = new Vector3(1, 1, 1);
         }
     }
-
     public void TakeDamage(Transform source, int damage){
-        curr_hp = Mathf.Max(0,curr_hp-=damage);
-        Debug.Log($"Current Health - {curr_hp}");
+        if(_canTakeDamage){
+            _canTakeDamage = false;
+            curr_hp = Mathf.Max(0,curr_hp-=damage);
+            Debug.Log($"Current Health - {curr_hp}");
+
+            StartCoroutine(DamageRecoveryRoutine());
+        }
     }
 
-    void FixedUpdate()
+    private IEnumerator DamageRecoveryRoutine(){
+        yield return new WaitForSeconds(_damageRecoveryTime);
+        _canTakeDamage = true;
+    }
+
+    private void FixedUpdate()
     {
         rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
     }
