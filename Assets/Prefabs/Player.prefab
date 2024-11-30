@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2421462240160090724}
-  - component: {fileID: 6396008779864337971}
-  - component: {fileID: 2368526105107175614}
   - component: {fileID: 9178958884224308059}
   - component: {fileID: 6276234996156510431}
   - component: {fileID: 1078474954207971343}
   - component: {fileID: 6514729557046851033}
   - component: {fileID: 5610514143642832359}
+  - component: {fileID: 6396008779864337971}
+  - component: {fileID: 2368526105107175614}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -39,41 +39,6 @@ Transform:
   - {fileID: 3477817568969469177}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6396008779864337971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3955121223373900131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aa536fc98fb0c641a5bf75d5d68f0cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 8300000, guid: 07d8322429e32bd44a3b2e503b827660, type: 3}
-  speed: 6
-  animator: {fileID: 1078474954207971343}
-  pos: {fileID: 11400000, guid: 9691c5b417cb4e0469a1a863a5862ee9, type: 2}
-  attackCollider: {fileID: 3477817568969469177}
---- !u!114 &2368526105107175614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3955121223373900131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7efcf2578e1c23a478eba852b257d3af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 8300000, guid: 8a327c94ef7bb074996aae1f61ca5cb5, type: 3}
-  damage: 25
-  animator: {fileID: 1078474954207971343}
-  attack_pointer: {fileID: 7407508028900393132}
 --- !u!58 &9178958884224308059
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -305,6 +270,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6396008779864337971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955121223373900131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa536fc98fb0c641a5bf75d5d68f0cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 07d8322429e32bd44a3b2e503b827660, type: 3}
+  max_hp: 0
+  _damageRecoveryTime: 0.5
+  _canTakeDamage: 0
+  speed: 6
+  animator: {fileID: 1078474954207971343}
+  pos: {fileID: 11400000, guid: 9691c5b417cb4e0469a1a863a5862ee9, type: 2}
+  attackCollider: {fileID: 3477817568969469177}
+--- !u!114 &2368526105107175614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955121223373900131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efcf2578e1c23a478eba852b257d3af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 8a327c94ef7bb074996aae1f61ca5cb5, type: 3}
+  damage: 25
+  dash_dist: 2
+  dash_time: 0.3
+  attackDelay: 0.5
+  animator: {fileID: 1078474954207971343}
+  attack_pointer: {fileID: 7407508028900393132}
 --- !u!1 &6653028190732666055
 GameObject:
   m_ObjectHideFlags: 0

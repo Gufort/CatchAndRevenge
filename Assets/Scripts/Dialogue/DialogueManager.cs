@@ -8,8 +8,15 @@ public class DialogueManager : MonoBehaviour
 {
     public Text dialogueText;
     public Animator animator;
-    private Queue<string> sentences;
     public GameObject dialogueBox;
+    public Image dialogueImage;
+    private Queue<string> sentences;
+    private int sizeDif = 120;
+    private int sizeDifImage = 500;
+    private bool isFirst = true;
+    private bool isTrueDialogue = false;
+    private Sprite sprite1;
+    private Sprite sprite2;
     private void Start()
     {
         sentences = new Queue<string>();
@@ -17,7 +24,13 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log("Starting convesation! ---> " + dialogue.name);
+        if (dialogue.nameSecond == "")
+            Debug.Log("Starting convesation! ---> " + dialogue.name);
+        else Debug.Log("Starting convesation! ---> " + dialogue.name + " and " + dialogue.nameSecond);
+        isTrueDialogue = dialogue.twoPerson;
+        sprite1 = dialogue.sprite;
+        sprite2 = dialogue.spriteSecond;
+        dialogueImage.sprite = sprite1;
         dialogueBox.SetActive(true);
         animator.SetBool("IsOpen", true);
         if (sentences == null)
@@ -47,6 +60,30 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = sentence;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
+        if (isTrueDialogue)
+        {
+            Debug.Log("Called Change DialogueBox pos!");
+            ChangeDialoguePos();
+        }
+    }
+
+    private void ChangeDialoguePos()
+    {
+        RectTransform rectTransformT = dialogueText.GetComponent<RectTransform>();
+        RectTransform rectTransformI = dialogueImage.GetComponent<RectTransform>();
+        if (isFirst){
+            rectTransformT.anchoredPosition = new Vector3(sizeDif, 0, 0); 
+            rectTransformI.anchoredPosition = new Vector3(-sizeDifImage, 0, 0);
+            Debug.Log($"DialogueBox pos moved for {sizeDif}!");
+            dialogueImage.overrideSprite = sprite2;
+        }
+        else {
+            rectTransformT.anchoredPosition = new Vector3(-sizeDif, 0, 0);
+            rectTransformI.anchoredPosition = new Vector3(sizeDifImage, 0, 0);
+            Debug.Log($"DialobueBox pos moved for {-sizeDif}!");
+            dialogueImage.overrideSprite = sprite1;
+        }
+        isFirst = !isFirst;
     }
 
     public bool isDialogueEnd()
