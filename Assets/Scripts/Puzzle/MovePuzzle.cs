@@ -1,33 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class MovePuzzle : MonoBehaviour
+public class MovePuzzle : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    // Start is called before the first frame update
     bool move;
-    Vector2 mousePos;
+    Vector2 offset;
+    public Image form; 
+    bool finish = false;
+    public static bool end = false;
+    public GameObject CompletePanelActivate;
 
-    private void OnMouseDown()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            move = true;
-        }
-    }
     void Start()
     {
-        
+        finish = false;
+        end = false;
     }
 
-    // Update is called once per frame
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (!finish)
+        {
+            move = true;
+            offset = (Vector2)this.GetComponent<RectTransform>().position - (Vector2)Input.mousePosition;
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        move = false;
+
+        if (Vector2.Distance((Vector2)this.GetComponent<RectTransform>().position, (Vector2)form.GetComponent<RectTransform>().position) <= 10f && !finish)
+        {
+            this.GetComponent<RectTransform>().position = form.GetComponent<RectTransform>().position;
+            finish = true;
+            Debug.Log("Add puzzle element");
+            PuzzleComplete.AddElement();
+            if (PuzzleComplete.curElement == 16)
+            {
+                Debug.Log("Finish Puzzle");
+                CompletePanelActivate.SetActive(true);
+                end = true;
+            }
+        }
+    }
+
     void Update()
     {
-        if(move == true)
+        if (move && !finish)
         {
-            mousePos = Input.mousePosition;
+            Vector2 cursorPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            this.GetComponent<RectTransform>().position = cursorPosition + offset;
+        }
 
-            this.gameObject.transform.localPosition = new Vector2(mousePos.x, mousePos.y);
+        if (finish)
+        {
+            move = false;
         }
     }
 }
