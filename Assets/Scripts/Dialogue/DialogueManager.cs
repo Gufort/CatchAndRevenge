@@ -10,6 +10,9 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public GameObject dialogueBox;
     public Image dialogueImage;
+    public bool freezePersons = false;
+    public PlayerController player;
+    public EnemyScript[] enemies;
     private Queue<string> sentences;
     private int sizeDif = 120;
     private int sizeDifImage = 500;
@@ -44,6 +47,16 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("Loaded new sentence -> " + sentence + " Total: " + sentences.Count());
 
         }
+        if (freezePersons)
+        {
+            player.enabled = false;
+            if (isTrueDialogue)
+            {
+                foreach(EnemyScript enemy in enemies)
+                    enemy.enabled = false;
+            }
+        }
+        
         DisplayNextSentence();
     }
 
@@ -75,13 +88,13 @@ public class DialogueManager : MonoBehaviour
             rectTransformT.anchoredPosition = new Vector3(sizeDif, 0, 0); 
             rectTransformI.anchoredPosition = new Vector3(-sizeDifImage, 0, 0);
             Debug.Log($"DialogueBox pos moved for {sizeDif}!");
-            dialogueImage.overrideSprite = sprite2;
+            dialogueImage.overrideSprite = sprite1;
         }
         else {
             rectTransformT.anchoredPosition = new Vector3(-sizeDif, 0, 0);
             rectTransformI.anchoredPosition = new Vector3(sizeDifImage, 0, 0);
             Debug.Log($"DialobueBox pos moved for {-sizeDif}!");
-            dialogueImage.overrideSprite = sprite1;
+            dialogueImage.overrideSprite = sprite2;
         }
         isFirst = !isFirst;
     }
@@ -108,5 +121,14 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("End of Conversation!");
         animator.SetBool("IsOpen", false);
         dialogueBox.SetActive(false);
+        if (freezePersons)
+        {
+            player.enabled = true;
+            if (isTrueDialogue)
+            {
+                foreach(EnemyScript enemy in enemies)
+                    enemy.enabled = true;
+            }
+        }
     }
 }
