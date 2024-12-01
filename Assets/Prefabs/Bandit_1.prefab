@@ -245,16 +245,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.2999649, y: -0.94141275}
-      - {x: 0.8949754, y: -0.8476807}
-      - {x: 1.0550461, y: -0.612765}
-      - {x: 1.1583481, y: -0.19040775}
-      - {x: 1.1135788, y: 0.5246102}
-      - {x: 0.51491547, y: 0.9923376}
-      - {x: 0.64409256, y: 0.43022722}
-      - {x: 0.5922699, y: 0.13409272}
-      - {x: 0.58486557, y: 0.008235514}
-      - {x: 0.5996704, y: -0.10281497}
+    - - {x: 0.13632417, y: -1.0686889}
+      - {x: 0.9313401, y: -0.96586573}
+      - {x: 1.3550539, y: -0.80367917}
+      - {x: 1.3869884, y: -0.4590751}
+      - {x: 1.449265, y: -0.19040775}
+      - {x: 1.3135841, y: 0.6427952}
+      - {x: 1.1307034, y: 0.9833703}
+      - {x: 0.9509821, y: 1.0866385}
+      - {x: 0.11490464, y: 1.1559783}
+      - {x: 0.47136056, y: 0.48477417}
+      - {x: 0.5013584, y: 0.088636965}
+      - {x: 0.53031874, y: -0.019038022}
+      - {x: 0.53603244, y: -0.2391823}
       - {x: 0.4960289, y: -0.5396135}
   m_UseDelaunayMesh: 0
 --- !u!195 &6894269551876150962
@@ -312,16 +315,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1bc738f00d840e4fbe246eb93e293e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dm: {fileID: 0}
   _startingState: 1
   _roamingDistanceMax: 7
   _roamingDistanceMin: 3
   _roamingTimerMax: 2
+  _ChasingDist: 4
   _isChasing: 1
-  _chasingDistance: 10
   _chasingSpeedMultiplier: 2
   _isAttacking: 1
   _attackingDistance: 3
   _attackRate: 1
+  isDialogueEnded: 0
 --- !u!114 &2120257272505013053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,10 +353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemySO: {fileID: 0}
   curr_hp: 0
-  _player: {fileID: 6396008779864337971, guid: 15b9435996636fc4f9de7682e000493d, type: 3}
   _enemy: {fileID: 2172077673470124115}
   _capsuleCollider: {fileID: 0}
-  _boxCollider: {fileID: 0}
   _polygonCollider: {fileID: 1030059619847672594}
 --- !u!114 &89355853406610098
 MonoBehaviour:

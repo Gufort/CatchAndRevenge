@@ -7,19 +7,20 @@ using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
+    [SerializeField] private DialogueManager _dm;
     [SerializeField] private State _startingState;
     [SerializeField] private float _roamingDistanceMax = 7f;
     [SerializeField] private float _roamingDistanceMin = 3f;
     [SerializeField] private float _roamingTimerMax = 2f;
-
+    [SerializeField] private float _ChasingDist = 4f;
     [SerializeField] private bool _isChasing = false;
-    [SerializeField] private float _chasingDistance = 4f;
     [SerializeField] private float _chasingSpeedMultiplier = 2f;
 
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private float _attackingDistance = 1f;
     [SerializeField] private float _attackRate = 2f;
     private float _nextTimeAttack = 0f;
+    private float _chasingDistance;
 
     private Animator animator;
     private NavMeshAgent _navMeshAgent;
@@ -36,6 +37,8 @@ public class EnemyScript : MonoBehaviour
     private Vector3 _lastPosition;
 
     public event EventHandler OnAttack;
+
+    public bool isDialogueEnded;
 
     public bool IsRunning {
         get {
@@ -58,6 +61,10 @@ public class EnemyScript : MonoBehaviour
     }
 
     private void Update() {
+        isDialogueEnded = _dm.isDialogueEnd();
+        if(isDialogueEnded) _chasingDistance = _ChasingDist;
+        else _chasingDistance = 0f;
+
         MovementDirectionHandler();
         StateHandler();
 
@@ -95,8 +102,8 @@ public class EnemyScript : MonoBehaviour
                 break;
             case State.Death:
                 break;
-            default:
             case State.Idle:
+                CheckCurrentState();
                 break;
         }
     }
@@ -112,14 +119,16 @@ public class EnemyScript : MonoBehaviour
 
     private void CheckCurrentState() {
         float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
-        State newState = State.Roaming;
-
-        if (_isChasing && distanceToPlayer <= _chasingDistance) {
-            newState = State.Chasing;
-        }
+        State newState = _currentState;
 
         if (_isAttacking && distanceToPlayer <= _attackingDistance) {
             newState = State.Attacking;
+        }
+        else if (_isChasing && distanceToPlayer <= _chasingDistance) {
+            newState = State.Chasing;
+        }
+        else if (newState != State.Idle) {
+            newState = State.Roaming;
         }
 
         if (newState != _currentState) {
@@ -134,7 +143,6 @@ public class EnemyScript : MonoBehaviour
             else if (newState == State.Attacking) {
                 _navMeshAgent.ResetPath();
             }
-
             _currentState = newState;
         }
     }
