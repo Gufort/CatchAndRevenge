@@ -1952,6 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 610031679}
+  volumeSlider: {fileID: 351381630}
 --- !u!82 &610031679
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3095,6 +3096,7 @@ MonoBehaviour:
   dialogueImage: {fileID: 1908266402}
   freezePersons: 1
   player: {fileID: 275020811705376901}
+  playerAnimator: {fileID: 275020811705376902}
   enemies:
   - {fileID: 4106914049375859781}
   - {fileID: 634372854}
@@ -7206,6 +7208,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa536fc98fb0c641a5bf75d5d68f0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &275020811705376902 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1078474954207971343, guid: 15b9435996636fc4f9de7682e000493d, type: 3}
+  m_PrefabInstance: {fileID: 275020811705376900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4106914049375859780
 PrefabInstance:
   m_ObjectHideFlags: 0

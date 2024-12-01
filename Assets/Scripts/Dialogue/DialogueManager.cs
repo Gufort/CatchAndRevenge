@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     public Image dialogueImage;
     public bool freezePersons = false;
     public PlayerController player;
+    public Animator playerAnimator;
     public EnemyScript[] enemies;
     private Queue<string> sentences;
     private int sizeDif = 120;
@@ -49,6 +50,7 @@ public class DialogueManager : MonoBehaviour
         }
         if (freezePersons)
         {
+            playerAnimator.enabled = false;
             player.enabled = false;
             if (isTrueDialogue)
             {
@@ -123,6 +125,7 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
         if (freezePersons)
         {
+            playerAnimator.enabled = true;
             player.enabled = true;
             if (isTrueDialogue)
             {

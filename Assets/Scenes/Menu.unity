@@ -642,6 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 604347205}
+  volumeSlider: {fileID: 1495863361}
 --- !u!82 &604347205
 AudioSource:
   m_ObjectHideFlags: 0
