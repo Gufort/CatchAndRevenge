@@ -3105,6 +3105,8 @@ MonoBehaviour:
   freezePersons: 1
   player: {fileID: 275020811705376901}
   playerAnimator: {fileID: 275020811705376902}
+  playerFight: {fileID: 275020811705376903}
+  soundMaster: {fileID: 275020811705376901}
   enemies:
   - {fileID: 4106914049375859781}
   - {fileID: 634372854}
@@ -7225,6 +7227,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 1078474954207971343, guid: 15b9435996636fc4f9de7682e000493d, type: 3}
   m_PrefabInstance: {fileID: 275020811705376900}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &275020811705376903 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2368526105107175614, guid: 15b9435996636fc4f9de7682e000493d, type: 3}
+  m_PrefabInstance: {fileID: 275020811705376900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efcf2578e1c23a478eba852b257d3af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4106914049375859780
 PrefabInstance:
   m_ObjectHideFlags: 0

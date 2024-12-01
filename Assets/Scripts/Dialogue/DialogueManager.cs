@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     public bool freezePersons = false;
     public PlayerController player;
     public Animator playerAnimator;
+    public PlayerFight playerFight;
+    public SoundMaster soundMaster;
     public EnemyScript[] enemies;
     private Queue<string> sentences;
     private int sizeDif = 120;
@@ -52,6 +54,9 @@ public class DialogueManager : MonoBehaviour
         {
             playerAnimator.enabled = false;
             player.enabled = false;
+            playerFight.enabled = false;
+            soundMaster.StopSound();
+            soundMaster.enabled = false;
             if (isTrueDialogue)
             {
                 foreach(EnemyScript enemy in enemies)
@@ -127,6 +132,8 @@ public class DialogueManager : MonoBehaviour
         {
             playerAnimator.enabled = true;
             player.enabled = true;
+            playerFight.enabled = true;
+            soundMaster.enabled = true;
             if (isTrueDialogue)
             {
                 foreach(EnemyScript enemy in enemies)
