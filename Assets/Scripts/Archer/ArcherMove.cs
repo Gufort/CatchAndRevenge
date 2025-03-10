@@ -61,6 +61,13 @@ public class ArcherMove : MonoBehaviour
 
         animator.SetFloat("Horizontal", horizontal);
         animator.SetFloat("Vertical", vertical);
+
+        if(IsRunning){
+            animator.SetBool("IsRunning", true);
+        }
+        if(vertical == 0 && horizontal == 0) {
+            animator.SetBool("IsRunning", false);
+        }
     }
 
     public void SetDeath(){
