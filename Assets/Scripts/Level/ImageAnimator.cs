@@ -1,39 +1,60 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ImageAnimator : MonoBehaviour
 {
-    public Sprite[] frames; // Массив спрайтов для анимации
-    public float frameDelay = 0.7f; // Задержка между кадрами
+    public Sprite[] frames; 
+    public float frameDelay = 0.7f; 
+    public float fadeDuration = 1.0f;
 
-    private Image imageComponent; // Компонент Image
+    public static bool animationFinished = false;
 
-    public AudioClip soundClip; // Аудиоклип для проигрывания
-    private AudioSource audioSource; // Компонент AudioSource
+    public Image imageComponent; 
+    public AudioClip soundClip;
+    private AudioSource audioSource; 
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>(); // Получаем компонент AudioSource
-        imageComponent = GetComponent<Image>(); // Получаем компонент Image
-        StartCoroutine(PlayAnimation()); // Запускаем корутину для анимации
+        audioSource = GetComponent<AudioSource>();
+        imageComponent = GetComponent<Image>(); 
+        imageComponent.color = new Color(imageComponent.color.r, imageComponent.color.g, imageComponent.color.b, 0);
+        StartCoroutine(PlayAnimation());
     }
 
     private IEnumerator PlayAnimation()
     {
+        yield return StartCoroutine(FadeIn());
+
         for (int i = 0; i < frames.Length; i++)
         {
-            imageComponent.sprite = frames[i]; // Устанавливаем текущий кадр
-            // Проигрываем звук
+            imageComponent.sprite = frames[i];
+
             if (audioSource != null && soundClip != null)
             {
-                audioSource.clip = soundClip; // Устанавливаем аудиоклип
-                audioSource.Play(); // Проигрываем звук
+                audioSource.clip = soundClip;
+                audioSource.Play();
             }
-            yield return new WaitForSeconds(frameDelay); // Ждем перед переходом к следующему кадру
+            yield return new WaitForSeconds(frameDelay); 
+        }
+        animationFinished = true;
+        yield return new WaitForSeconds(5);
+        imageComponent.enabled = false;
+    }
+
+    private IEnumerator FadeIn()
+    {
+        float elapsedTime = 0f;
+        Color startColor = imageComponent.color;
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 1f); 
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            imageComponent.color = Color.Lerp(startColor, endColor, elapsedTime / fadeDuration); 
+            yield return null; 
         }
 
-        imageComponent.enabled = false; // Прячем Image после завершения анимации
+        imageComponent.color = endColor; 
     }
 }

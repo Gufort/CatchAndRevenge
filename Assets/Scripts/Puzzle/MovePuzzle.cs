@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class MovePuzzle : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+    public AudioClip soundClip;
+    private AudioSource audioSource;
+
     bool move;
     Vector2 offset;
     public Image form;
@@ -17,6 +20,7 @@ public class MovePuzzle : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         finish = false;
         end = false;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -40,6 +44,11 @@ public class MovePuzzle : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             finish = true;
             Debug.Log("Add puzzle element");
             PuzzleComplete.AddElement();
+            if (audioSource != null && soundClip != null)
+            {
+                audioSource.clip = soundClip;
+                audioSource.Play();
+            }
             if (PuzzleComplete.curElement == 16)
             {
                 Debug.Log("Finish Puzzle");
