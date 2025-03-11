@@ -8,7 +8,7 @@ public class KeyTrigger : MonoBehaviour
     private bool trigger;
 
     private void OnTriggerEnter2D(Collider2D other){
-         if (other.CompareTag("Player"))
+        if ((MovePuzzle.end) && (other.CompareTag("Player")))
         {
             panel.SetActive(true);
             trigger = true;
