@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3025685818739935135}
   - component: {fileID: 1961166576735389977}
-  - component: {fileID: 2105700495744278006}
   m_Layer: 0
   m_Name: House_Trigger
   m_TagString: Untagged
@@ -69,19 +68,6 @@ CircleCollider2D:
   m_Offset: {x: 0.8567414, y: 0}
   serializedVersion: 2
   m_Radius: 1.3567414
---- !u!114 &2105700495744278006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316271220489396562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453f679ba5cd60042b1318ea8bd65131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 7246450657578527664}
 --- !u!1 &5841445772333652723
 GameObject:
   m_ObjectHideFlags: 0

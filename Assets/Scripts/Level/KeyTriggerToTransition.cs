@@ -1,21 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class KeyTrigger : MonoBehaviour
+public class KeyTriggerToTransition : MonoBehaviour
 {
     public GameObject panel;
-    public GameObject imageComponent; 
-    public GameObject canvas;
     private bool trigger;
 
     private void OnTriggerEnter2D(Collider2D other){
-        if ((MovePuzzle.end) && (other.CompareTag("Player")))
+         if (other.CompareTag("Player"))
         {
             panel.SetActive(true);
             trigger = true;
-            canvas.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D other){
@@ -30,12 +26,10 @@ public class KeyTrigger : MonoBehaviour
         panel.SetActive(false);
     }
 
-   private void Update(){
+   private void Update()
+    {
         if (trigger && Input.GetKeyDown(KeyCode.E))
         {
-            imageComponent.SetActive(true);
-        }
-        if (ImageAnimator.animationFinished) {
             LevelChange.FadeToLevel();
         }
     }
