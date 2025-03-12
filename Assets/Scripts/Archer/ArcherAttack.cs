@@ -6,7 +6,7 @@ using UnityEngine;
 public class ArcherAttack : MonoBehaviour
 {
     [Header("Настройки атаки: \n")]
-    [SerializeField] private float _attackRange = 10f;
+    [SerializeField] private float _attackRange = 15f;
     [SerializeField] private float _attackCoolDown = 5f;
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private GameObject _prefabArrow;
@@ -25,11 +25,14 @@ public class ArcherAttack : MonoBehaviour
 
         Vector2 direction = (PlayerController.instance.transform.position - _attackPoint.position).normalized;
         arrow.setDirection(direction);
+
     }
 
-    private void tryAttack(){
+    public void tryAttack(){
         float distanceToPlayer = UnityEngine.Vector2.Distance(transform.position, PlayerController.instance.transform.position);
         if(distanceToPlayer <= _attackRange && Time.time >= _lastShotTime + _attackCoolDown)
             Attack();
     }
+
+    public float getAttackRange() { return _attackRange; }
 }

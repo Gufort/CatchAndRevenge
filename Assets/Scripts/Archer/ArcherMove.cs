@@ -11,11 +11,11 @@ public class ArcherMove : MonoBehaviour
     [SerializeField] private float _roamingDistanceMax = 7f;
     [SerializeField] private float _roamingDistanceMin = 3f;
     [SerializeField] private float _roamingTimerMax = 2f;
-    [SerializeField] private float _ChasingDist = 4f;
     [SerializeField] private bool _isChasing = false;
     [SerializeField] private float _chasingSpeedMultiplier = 2f;
 
     private float _chasingDistance;
+
 
     private Animator animator;
     private NavMeshAgent _navMeshAgent;
@@ -27,9 +27,13 @@ public class ArcherMove : MonoBehaviour
     private float _roamingSpeed;
     private float _chasingSpeed;
 
+
     private float _nextCheckDirectionTime = 0f;
     private float _checkDirectionDuration = 0.1f;
     private Vector3 _lastPosition;
+
+    [SerializeField] private bool _isAttacking;
+    private ArcherAttack archerAttack;
 
     public bool IsRunning {
         get {
@@ -38,9 +42,14 @@ public class ArcherMove : MonoBehaviour
         set { IsRunning = value; }
     }
 
-    private enum State { Idle, Roaming, Chasing, Death }
+    private enum State { Idle,
+    Roaming,
+    Chasing,
+    Attack,
+    Death }
 
     private void Awake() {
+        archerAttack = GetComponent<ArcherAttack>();
         animator = GetComponent<Animator>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.updateRotation = false;
@@ -79,6 +88,7 @@ public class ArcherMove : MonoBehaviour
     private void StateHandler() {
         switch (_currentState) {
             case State.Roaming:
+                Debug.Log("State - Roaming");
                 _roamingTimer -= Time.deltaTime;
                 if (_roamingTimer < 0) {
                     Roaming();
@@ -86,13 +96,25 @@ public class ArcherMove : MonoBehaviour
                 }
                 CheckCurrentState();
                 break;
+
             case State.Chasing:
+                Debug.Log("State - Chasing");
                 ChasingTarget();
                 CheckCurrentState();
                 break;
-            case State.Death:
+
+            case State.Attack:
+                Debug.Log("State - Attack");
+                archerAttack.tryAttack();
+                CheckCurrentState();
                 break;
+
+            case State.Death:
+                Debug.Log("State - Death");
+                break;
+
             case State.Idle:
+                Debug.Log("State - Idle");
                 CheckCurrentState();
                 break;
         }
@@ -110,7 +132,11 @@ public class ArcherMove : MonoBehaviour
     private void CheckCurrentState() {
         float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
         State newState = _currentState;
-        if (_isChasing && distanceToPlayer <= _chasingDistance) {
+
+        if (_isAttacking && distanceToPlayer <= archerAttack.getAttackRange()) {
+            newState = State.Attack;
+        }
+        else if (_isChasing && distanceToPlayer <= _chasingDistance) {
             newState = State.Chasing;
         }
         else if (newState != State.Idle) {
@@ -126,6 +152,9 @@ public class ArcherMove : MonoBehaviour
                 _roamingTimer = 0f;
                 _navMeshAgent.speed = _roamingSpeed;
             } 
+            else if (newState == State.Attack) {
+                _navMeshAgent.ResetPath();
+            }
             _currentState = newState;
         }
     }
@@ -135,6 +164,9 @@ public class ArcherMove : MonoBehaviour
             if (IsRunning) {
                 ChangeFacingDirection(_lastPosition, transform.position);
             } 
+             else if (_currentState == State.Attack) {
+                ChangeFacingDirection(transform.position, PlayerController.instance.transform.position);
+            }
             _lastPosition = transform.position;
             _nextCheckDirectionTime = Time.time + _checkDirectionDuration;
         }

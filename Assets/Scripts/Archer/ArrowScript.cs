@@ -9,15 +9,17 @@ public class ArrowScript : MonoBehaviour
     [SerializeField] private float _speed = 25f;
     [SerializeField] private float _timer = 5f;
     private UnityEngine.Vector2 _direction;
+    private PlayerController _player;
 
     private void Start()
     {
         Destroy(gameObject, _timer);
+         _player = PlayerController.instance;
     }
 
     private void Update()
     {
-        transform.position = _direction*_speed*Time.deltaTime;
+       transform.position += (UnityEngine.Vector3)(_direction * _speed * Time.deltaTime);
     }
 
     public void setDirection(UnityEngine.Vector2 direction){
@@ -28,6 +30,7 @@ public class ArrowScript : MonoBehaviour
     {
         if(collision.CompareTag("Player")){
             Destroy(gameObject);
+            _player.TakeDamage(gameObject.transform, 20);
         }
     }
 }
