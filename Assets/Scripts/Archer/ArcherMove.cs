@@ -6,6 +6,7 @@ using GameUtils;
 
 public class ArcherMove : MonoBehaviour
 {
+    [Header("Настройки передвижения лучника: \n")]
     [SerializeField] private State _startingState;
     [SerializeField] private float _roamingDistanceMax = 7f;
     [SerializeField] private float _roamingDistanceMin = 3f;
