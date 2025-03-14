@@ -88,7 +88,6 @@ public class ArcherMove : MonoBehaviour
     private void StateHandler() {
         switch (_currentState) {
             case State.Roaming:
-                Debug.Log("State - Roaming");
                 _roamingTimer -= Time.deltaTime;
                 if (_roamingTimer < 0) {
                     Roaming();
@@ -98,23 +97,19 @@ public class ArcherMove : MonoBehaviour
                 break;
 
             case State.Chasing:
-                Debug.Log("State - Chasing");
                 ChasingTarget();
                 CheckCurrentState();
                 break;
 
             case State.Attack:
-                Debug.Log("State - Attack");
                 archerAttack.tryAttack();
                 CheckCurrentState();
                 break;
 
             case State.Death:
-                Debug.Log("State - Death");
                 break;
 
             case State.Idle:
-                Debug.Log("State - Idle");
                 CheckCurrentState();
                 break;
         }

@@ -245,7 +245,7 @@ MonoBehaviour:
   _roamingTimerMax: 5
   _isChasing: 1
   _chasingSpeedMultiplier: 2
-  _onlyIdle: 1
+  _isAttacking: 1
 --- !u!114 &2397016840250076424
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -35,4 +35,6 @@ public class ArcherAttack : MonoBehaviour
     }
 
     public float getAttackRange() { return _attackRange; }
+
+    
 }
