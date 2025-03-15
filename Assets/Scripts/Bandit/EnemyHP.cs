@@ -72,6 +72,11 @@ public class EnemyHP : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other){
         if(other.transform.TryGetComponent(out PlayerController player) && !_isDead){
             player.TakeDamage(transform, _enemySO.damage);
+            Vector3 playerPosition = PlayerController.instance.transform.position;
+            Vector3 direction = (playerPosition - transform.position).normalized;
+
+            UnityEngine.Vector2 pushDirection = direction; 
+            player.transform.position += (UnityEngine.Vector3)(pushDirection * 0.5f);
         }
     }
 }

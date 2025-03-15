@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerFight : SoundMaster
 {
+    [Header("Настройка характеристик персонажа: \n")]
     [SerializeField] private int damage = 25;
     [SerializeField] private float dash_dist = 2f;
     [SerializeField] private float dash_time = 0.3f;
     [SerializeField] private float attackDelay = 0.5f;
+    [SerializeField] private float _delayBeforePushAway = 0.5f;
+    [SerializeField] private float _pushDistance = 0.5f; 
+    [SerializeField] private float _pushSpeed = 2.5f; 
     private float lastAttackTime;
     private bool is_dash = false;
     private float dash_start_time;
@@ -80,6 +84,30 @@ public class PlayerFight : SoundMaster
         }
     }
 
+    private IEnumerator DelayBeforePushAwayAndPush(Transform Transform, Vector2 pushDirection)
+    {
+        yield return new WaitForSeconds(_delayBeforePushAway);
+        StartCoroutine(PushAway(Transform, pushDirection));
+    }
+
+    private IEnumerator PushAway(Transform enemyTransform, Vector2 pushDirection)
+    {
+
+        float elapsedTime = 0f;
+
+        Vector3 startPosition = enemyTransform.position;
+        Vector3 targetPosition = startPosition + (Vector3)(pushDirection * _pushDistance);
+
+        while (elapsedTime < _pushDistance / _pushSpeed)
+        {
+            enemyTransform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime * _pushSpeed) / _pushDistance);
+            elapsedTime += Time.deltaTime;
+            yield return null; 
+        }
+
+        enemyTransform.position = targetPosition; 
+    }
+
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (isAttacking && collider2D.transform.TryGetComponent(out EnemyHP enemy))
@@ -88,13 +116,20 @@ public class PlayerFight : SoundMaster
             {
                 enemy.TakeDamage(damage);
                 damagedBandits.Add(enemy);
+
+                Vector2 pushDirection = (enemy.transform.position - transform.position).normalized; 
+                StartCoroutine(DelayBeforePushAwayAndPush(enemy.transform, pushDirection));
             }
         }
+
         else if(isAttacking && collider2D.transform.TryGetComponent(out ArcherHP archer)){
             if (!damagedArchers.Contains(archer))
             {
                 archer.TakeDamage(damage);
                 damagedArchers.Add(archer);
+
+                Vector2 pushDirection = (archer.transform.position - transform.position).normalized; 
+                StartCoroutine(DelayBeforePushAwayAndPush(archer.transform, pushDirection));
             }
         }
     }

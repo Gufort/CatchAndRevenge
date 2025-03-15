@@ -9,9 +9,9 @@ public class ArcherAnimation : MonoBehaviour
     [SerializeField] private ArcherMove _archerMove;
     [SerializeField] private ArcherHP _archerHP;
     private Animator _animator;
-    private string IS_RUNNING = "IsRunning";
-    private string CHASING_SPEED = "ChasingSpeed";
-    private string ATTACK = "Attack";
+    //private string IS_RUNNING = "IsRunning";
+    //private string CHASING_SPEED = "ChasingSpeed";
+    //private string ATTACK = "Attack";
     private string IS_DIE = "IsDie";
 
     private void Awake(){
