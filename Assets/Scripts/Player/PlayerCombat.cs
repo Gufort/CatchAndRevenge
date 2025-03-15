@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     private EnemyHP enemy;
+    private ArcherHP archer;
     public Animator animator;
     public Transform attack_pointer;
     public int attack_damage = 40;
@@ -20,6 +21,9 @@ public class PlayerCombat : MonoBehaviour
         int damage = 25;
         Debug.Log($"Attack! Damage: {damage}");
         enemy.TakeDamage(damage);
+
+        archer.TakeDamage(damage);
+        Debug.Log($"Attack! Damage: {damage}");
     }
     void OnDrawGizmosSelector(){
         if(attack_pointer == null) return;

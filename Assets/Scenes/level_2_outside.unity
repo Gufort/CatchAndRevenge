@@ -4867,6 +4867,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1072276140 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8789234746567279705, guid: 5d2fed9b5697e444ea8fb0c533fb1603, type: 3}
+  m_PrefabInstance: {fileID: 1051265708593251386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1076318605
 GameObject:
   m_ObjectHideFlags: 0
@@ -7860,6 +7865,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8990308814430880845, guid: 5d2fed9b5697e444ea8fb0c533fb1603, type: 3}
   m_PrefabInstance: {fileID: 1051265708593251386}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &1609122543 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6148176339269901588, guid: 5d2fed9b5697e444ea8fb0c533fb1603, type: 3}
+  m_PrefabInstance: {fileID: 1051265708593251386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &1609122544 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1910595431226950984, guid: 5d2fed9b5697e444ea8fb0c533fb1603, type: 3}
+  m_PrefabInstance: {fileID: 1051265708593251386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1609122547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072276140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e18b0dbe5693946a94ddd827f62a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _archerMove: {fileID: 0}
+  _archerHP: {fileID: 0}
 --- !u!1 &1760754138
 GameObject:
   m_ObjectHideFlags: 0
@@ -8880,6 +8909,18 @@ PrefabInstance:
       propertyPath: _startingState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4046945867855072508, guid: 5d2fed9b5697e444ea8fb0c533fb1603, type: 3}
+      propertyPath: _archerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f22a4294af091141b896a68f272cabf, type: 2}
+    - target: {fileID: 4046945867855072508, guid: 5d2fed9b5697e444ea8fb0c533fb1603, type: 3}
+      propertyPath: _boxCollider2D
+      value: 
+      objectReference: {fileID: 1609122543}
+    - target: {fileID: 4046945867855072508, guid: 5d2fed9b5697e444ea8fb0c533fb1603, type: 3}
+      propertyPath: _capsuleCollider2D
+      value: 
+      objectReference: {fileID: 1609122544}
     - target: {fileID: 8789234746567279705, guid: 5d2fed9b5697e444ea8fb0c533fb1603, type: 3}
       propertyPath: m_Name
       value: Archer_1
@@ -8927,7 +8968,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8789234746567279705, guid: 5d2fed9b5697e444ea8fb0c533fb1603, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1609122547}
   m_SourcePrefab: {fileID: 100100000, guid: 5d2fed9b5697e444ea8fb0c533fb1603, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

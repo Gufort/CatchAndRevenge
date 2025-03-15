@@ -15,7 +15,8 @@ public class PlayerFight : SoundMaster
     public PolygonCollider2D attack_pointer;
     private Vector2 direction;
     private bool isAttacking = false;
-    private HashSet<EnemyHP> damagedEnemies = new HashSet<EnemyHP>();
+    private HashSet<EnemyHP> damagedBandits = new HashSet<EnemyHP>();
+    private HashSet<ArcherHP> damagedArchers = new HashSet<ArcherHP>();
 
     void Start()
     {
@@ -43,7 +44,8 @@ public class PlayerFight : SoundMaster
     void Attack()
     {
         isAttacking = true;
-        damagedEnemies.Clear();
+        damagedBandits.Clear();
+        damagedArchers.Clear();
         ColliderOn();
         is_dash = true;
         dash_start_time = Time.time;
@@ -82,10 +84,17 @@ public class PlayerFight : SoundMaster
     {
         if (isAttacking && collider2D.transform.TryGetComponent(out EnemyHP enemy))
         {
-            if (!damagedEnemies.Contains(enemy))
+            if (!damagedBandits.Contains(enemy))
             {
                 enemy.TakeDamage(damage);
-                damagedEnemies.Add(enemy);
+                damagedBandits.Add(enemy);
+            }
+        }
+        else if(isAttacking && collider2D.transform.TryGetComponent(out ArcherHP archer)){
+            if (!damagedArchers.Contains(archer))
+            {
+                archer.TakeDamage(damage);
+                damagedArchers.Add(archer);
             }
         }
     }

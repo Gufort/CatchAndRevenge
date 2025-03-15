@@ -44,12 +44,13 @@ GameObject:
   - component: {fileID: 8200622299605331010}
   - component: {fileID: 1910595431226950984}
   - component: {fileID: 6148176339269901588}
+  - component: {fileID: 7297002211882798178}
   - component: {fileID: 124985397755971719}
   - component: {fileID: 2251614186254679942}
   - component: {fileID: 3799344590230635568}
   - component: {fileID: 2397016840250076424}
-  - component: {fileID: 7297002211882798178}
   - component: {fileID: 8335121259891160832}
+  - component: {fileID: 4046945867855072508}
   m_Layer: 0
   m_Name: Archer_1
   m_TagString: Untagged
@@ -232,85 +233,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 1.8768104}
   m_EdgeRadius: 0
---- !u!195 &124985397755971719
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8789234746567279705}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.8
-  m_Speed: 2
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2.48
-  m_BaseOffset: 1.24
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!95 &2251614186254679942
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8789234746567279705}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1362c2b9ac5a1034db6e6064d5cc1518, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3799344590230635568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8789234746567279705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3809aa3532b7f4ea8c415e4dc2f5d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startingState: 0
-  _roamingDistanceMax: 7
-  _roamingDistanceMin: 3
-  _roamingTimerMax: 5
-  _isChasing: 1
-  _chasingSpeedMultiplier: 2
-  _isAttacking: 1
---- !u!114 &2397016840250076424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8789234746567279705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac20096b2d35f904bac9e72ba2931c95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackRange: 10
-  _attackCoolDown: 5
-  _attackPoint: {fileID: 5217906668214308781}
-  _prefabArrow: {fileID: 2573243890336743097, guid: 198fbbddb7035e14997b8a29023dd898, type: 3}
-  _soundClip: {fileID: 8300000, guid: 02a9e98104d241d4fbccc93f73946b42, type: 3}
 --- !u!82 &7297002211882798178
 AudioSource:
   m_ObjectHideFlags: 0
@@ -407,6 +329,85 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!195 &124985397755971719
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789234746567279705}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.8
+  m_Speed: 2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2.48
+  m_BaseOffset: 1.24
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!95 &2251614186254679942
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789234746567279705}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1362c2b9ac5a1034db6e6064d5cc1518, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3799344590230635568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789234746567279705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3809aa3532b7f4ea8c415e4dc2f5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startingState: 0
+  _roamingDistanceMax: 7
+  _roamingDistanceMin: 3
+  _roamingTimerMax: 5
+  _isChasing: 1
+  _chasingSpeedMultiplier: 2
+  _isAttacking: 1
+--- !u!114 &2397016840250076424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789234746567279705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac20096b2d35f904bac9e72ba2931c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackRange: 10
+  _attackCoolDown: 5
+  _attackPoint: {fileID: 5217906668214308781}
+  _prefabArrow: {fileID: 2573243890336743097, guid: 198fbbddb7035e14997b8a29023dd898, type: 3}
+  _soundClip: {fileID: 8300000, guid: 02a9e98104d241d4fbccc93f73946b42, type: 3}
 --- !u!114 &8335121259891160832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,3 +420,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66c86c6f0e7f1049a057813b431a41a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4046945867855072508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789234746567279705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe7275c45b4d424886fb775da6ace24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _archerSO: {fileID: 0}
+  _currentHP: 0
+  _archerMove: {fileID: 0}
+  _capsuleCollider2D: {fileID: 0}
+  _boxCollider2D: {fileID: 0}
