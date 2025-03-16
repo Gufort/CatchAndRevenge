@@ -76,7 +76,7 @@ public class EnemyHP : MonoBehaviour
             Vector3 direction = (playerPosition - transform.position).normalized;
 
             UnityEngine.Vector2 pushDirection = direction; 
-            player.transform.position += (UnityEngine.Vector3)(pushDirection * 0.5f);
+            player.transform.position += (UnityEngine.Vector3)(pushDirection * 0.1f);
         }
     }
 }
