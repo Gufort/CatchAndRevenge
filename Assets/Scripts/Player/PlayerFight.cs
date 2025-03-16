@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerFight : SoundMaster
 {
+    [Header("Настройка характеристик персонажа: \n")]
     [SerializeField] private int damage = 25;
     [SerializeField] private float dash_dist = 2f;
     [SerializeField] private float dash_time = 0.3f;
     [SerializeField] private float attackDelay = 0.5f;
+    [SerializeField] private float _delayBeforePushAway = 0.5f;
+    [SerializeField] private float _pushDistance = 0.5f; 
+    [SerializeField] private float _pushSpeed = 2.5f; 
     private float lastAttackTime;
     private bool is_dash = false;
     private float dash_start_time;
@@ -15,7 +19,8 @@ public class PlayerFight : SoundMaster
     public PolygonCollider2D attack_pointer;
     private Vector2 direction;
     private bool isAttacking = false;
-    private HashSet<EnemyHP> damagedEnemies = new HashSet<EnemyHP>();
+    private HashSet<EnemyHP> damagedBandits = new HashSet<EnemyHP>();
+    private HashSet<ArcherHP> damagedArchers = new HashSet<ArcherHP>();
 
     void Start()
     {
@@ -30,20 +35,21 @@ public class PlayerFight : SoundMaster
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Vertical", direction.y);
 
+
         if (Input.GetKeyDown(KeyCode.Space) && Time.time >= lastAttackTime + attackDelay)
         {
             PlaySound(sounds[0], volume: 0.4f, loop: false, p1: 0.5f, p2: 0.7f);
             Attack();
             lastAttackTime = Time.time;
         }
-
         if (is_dash) Dash();
     }
 
     void Attack()
     {
         isAttacking = true;
-        damagedEnemies.Clear();
+        damagedBandits.Clear();
+        damagedArchers.Clear();
         ColliderOn();
         is_dash = true;
         dash_start_time = Time.time;
@@ -78,14 +84,52 @@ public class PlayerFight : SoundMaster
         }
     }
 
+    private IEnumerator DelayBeforePushAwayAndPush(Transform Transform, Vector2 pushDirection)
+    {
+        yield return new WaitForSeconds(_delayBeforePushAway);
+        StartCoroutine(PushAway(Transform, pushDirection));
+    }
+
+    private IEnumerator PushAway(Transform enemyTransform, Vector2 pushDirection)
+    {
+
+        float elapsedTime = 0f;
+
+        Vector3 startPosition = enemyTransform.position;
+        Vector3 targetPosition = startPosition + (Vector3)(pushDirection * _pushDistance);
+
+        while (elapsedTime < _pushDistance / _pushSpeed)
+        {
+            enemyTransform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime * _pushSpeed) / _pushDistance);
+            elapsedTime += Time.deltaTime;
+            yield return null; 
+        }
+
+        enemyTransform.position = targetPosition; 
+    }
+
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (isAttacking && collider2D.transform.TryGetComponent(out EnemyHP enemy))
         {
-            if (!damagedEnemies.Contains(enemy))
+            if (!damagedBandits.Contains(enemy))
             {
                 enemy.TakeDamage(damage);
-                damagedEnemies.Add(enemy);
+                damagedBandits.Add(enemy);
+
+                Vector2 pushDirection = (enemy.transform.position - transform.position).normalized; 
+                StartCoroutine(DelayBeforePushAwayAndPush(enemy.transform, pushDirection));
+            }
+        }
+
+        else if(isAttacking && collider2D.transform.TryGetComponent(out ArcherHP archer)){
+            if (!damagedArchers.Contains(archer))
+            {
+                archer.TakeDamage(damage);
+                damagedArchers.Add(archer);
+
+                Vector2 pushDirection = (archer.transform.position - transform.position).normalized; 
+                StartCoroutine(DelayBeforePushAwayAndPush(archer.transform, pushDirection));
             }
         }
     }

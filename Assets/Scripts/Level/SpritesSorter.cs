@@ -23,13 +23,17 @@ public class SpritesSorter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        trigger = true;
-        UpdateSortingOrder();
+        if (other.transform.TryGetComponent(out PlayerController player)){
+            trigger = true;
+            UpdateSortingOrder();
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        trigger = false;
-        UpdateSortingOrder();
+        if (other.transform.TryGetComponent(out PlayerController player)){
+            trigger = false;
+            UpdateSortingOrder();
+        }
     }
 }

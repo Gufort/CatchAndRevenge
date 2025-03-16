@@ -7,6 +7,7 @@ using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
+    [Header("Настройки характеристик бандита: \n")]
     [SerializeField] private DialogueManager _dm;
     [SerializeField] private State _startingState;
     [SerializeField] private float _roamingDistanceMax = 7f;
@@ -19,6 +20,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private float _attackingDistance = 1f;
     [SerializeField] private float _attackRate = 2f;
+    private PlayerController _player;
     private float _nextTimeAttack = 0f;
     private float _chasingDistance;
 
@@ -58,6 +60,11 @@ public class EnemyScript : MonoBehaviour
 
         _roamingSpeed = _navMeshAgent.speed;
         _chasingSpeed = _navMeshAgent.speed * _chasingSpeedMultiplier;
+    }
+
+    private void Start()
+    {
+        _player = PlayerController.instance;
     }
 
     private void Update() {
@@ -156,8 +163,6 @@ public class EnemyScript : MonoBehaviour
 
             animator.SetFloat("Horizontal", direction.x);
             animator.SetFloat("Vertical", direction.y);
-
-
             _nextTimeAttack = Time.time + _attackRate;
         }
     }

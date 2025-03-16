@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f3f74fb51cb3742aee988b2ffae0e8, type: 3}
   m_Name: Bandit_1
   m_EditorClassIdentifier: 
+  damage: 20
   enemy_name: Bandit_1
   enemy_curr_hp: 100
-  isDead: 0
