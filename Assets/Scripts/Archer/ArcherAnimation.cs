@@ -28,5 +28,4 @@ public class ArcherAnimation : MonoBehaviour
     private void  _archer_OnDeath(object sender, System.EventArgs e){
         _animator.SetBool(IS_DIE, true);
     }
-
 }

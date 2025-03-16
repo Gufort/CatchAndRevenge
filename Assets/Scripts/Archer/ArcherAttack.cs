@@ -12,6 +12,7 @@ public class ArcherAttack : MonoBehaviour
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private GameObject _prefabArrow;
     [SerializeField] private AudioClip _soundClip;
+    private Animator _animator;
     private bool _isAttacking = false;
     private AudioSource _audioSource;
     private float _lastShotTime = 0f;
@@ -21,6 +22,7 @@ public class ArcherAttack : MonoBehaviour
     {
         _archerMove = GetComponent<ArcherMove>();
         _audioSource = GetComponent<AudioSource>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Attack(){
@@ -29,7 +31,12 @@ public class ArcherAttack : MonoBehaviour
         ArrowScript arrow = current_arrow.GetComponent<ArrowScript>();
 
         Vector2 direction = (PlayerController.instance.transform.position - _attackPoint.position).normalized;
+
+        _animator.SetFloat("HorizontalAttack", direction.x);
+        _animator.SetFloat("VerticalAttack", direction.y);
+
         arrow.setDirection(direction);
+        _animator.SetBool("Attack", false);
     }
 
     private IEnumerator WaitForSoundAndAttack()
@@ -42,6 +49,7 @@ public class ArcherAttack : MonoBehaviour
     public void tryAttack(){
         float distanceToPlayer = UnityEngine.Vector2.Distance(transform.position, PlayerController.instance.transform.position);
         if(distanceToPlayer <= _attackRange && Time.time >= _lastShotTime + _attackCoolDown && !_isAttacking){
+            _animator.SetBool("Attack", true);
             _isAttacking = true;
             _audioSource.clip = _soundClip;
             _audioSource.Play();

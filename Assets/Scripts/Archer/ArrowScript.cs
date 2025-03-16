@@ -26,6 +26,10 @@ public class ArrowScript : MonoBehaviour
     private void Update()
     {
        transform.position += (UnityEngine.Vector3)(_direction * _speed * Time.deltaTime);
+
+        UnityEngine.Vector3 directionToPlayer = _player.transform.position - transform.position;
+        float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+        transform.rotation = UnityEngine.Quaternion.Euler(new UnityEngine.Vector3(0, 0, angle));
     }
 
     public void setDirection(UnityEngine.Vector2 direction){

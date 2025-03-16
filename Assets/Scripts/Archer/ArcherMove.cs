@@ -34,7 +34,6 @@ public class ArcherMove : MonoBehaviour
     private Vector3 _lastPosition;
 
     [SerializeField] private bool _isAttacking;
-    private event EventHandler OnAttack;
     private ArcherAttack archerAttack;
 
     public bool IsRunning {
@@ -105,7 +104,6 @@ public class ArcherMove : MonoBehaviour
 
             case State.Attack:
                 archerAttack.tryAttack();
-                AttackingTarget();
                 CheckCurrentState();
                 break;
 
@@ -178,17 +176,6 @@ public class ArcherMove : MonoBehaviour
             _navMeshAgent.SetDestination(_roamPosition);
         }
     }
-
-    private void AttackingTarget() {
-            OnAttack?.Invoke(this, EventArgs.Empty);
-            
-            Vector3 playerPosition = PlayerController.instance.transform.position;
-            Vector3 direction = (playerPosition - transform.position).normalized;
-
-            animator.SetFloat("Horizontal", direction.x);
-            animator.SetFloat("Vertical", direction.y);
-    }
-
     private Vector3 GetRoamingPosition() {
         return _startingPosition + Utils.GetRandomDir() * UnityEngine.Random.Range(_roamingDistanceMin, _roamingDistanceMax);
     }
