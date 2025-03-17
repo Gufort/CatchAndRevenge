@@ -12,6 +12,7 @@ public class EnemyHP : MonoBehaviour
     [SerializeField] EnemyScript _enemy;
     [SerializeField] CapsuleCollider2D _capsuleCollider;
     [SerializeField] PolygonCollider2D _polygonCollider;
+    [SerializeField] BoxCollider2D _boxCollider2D;
     public event EventHandler OnDeath;
     public static int curr_hp_to_renderer;
     private bool _isDead = false;
@@ -21,6 +22,7 @@ public class EnemyHP : MonoBehaviour
         _enemy = GetComponent<EnemyScript>();
         _capsuleCollider = GetComponent<CapsuleCollider2D>();
         _polygonCollider = GetComponent<PolygonCollider2D>();
+        _boxCollider2D = GetComponent<BoxCollider2D>();
         curr_hp = PlayerPrefs.GetInt(_enemySO.enemy_name + "_curr_hp", _enemySO.enemy_curr_hp);
         curr_hp_to_renderer = curr_hp;
 
@@ -50,6 +52,7 @@ public class EnemyHP : MonoBehaviour
             _isDead = true;
             _polygonCollider.enabled = false;
             _capsuleCollider.enabled = false;
+            _boxCollider2D.enabled = false;
             
             _enemy.SetDeath();
             OnDeath?.Invoke(this, EventArgs.Empty);

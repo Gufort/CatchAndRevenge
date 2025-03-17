@@ -384,12 +384,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3809aa3532b7f4ea8c415e4dc2f5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingState: 0
+  _startingState: 2
   _roamingDistanceMax: 7
   _roamingDistanceMin: 3
   _roamingTimerMax: 5
   _isChasing: 1
   _chasingSpeedMultiplier: 2
+  _chasingDistance: 12
+  _maxDistanceToPlayer: 5
   _isAttacking: 1
 --- !u!114 &2397016840250076424
 MonoBehaviour:

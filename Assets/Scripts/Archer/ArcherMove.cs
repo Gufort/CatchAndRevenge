@@ -14,8 +14,8 @@ public class ArcherMove : MonoBehaviour
     [SerializeField] private float _roamingTimerMax = 2f;
     [SerializeField] private bool _isChasing = false;
     [SerializeField] private float _chasingSpeedMultiplier = 2f;
-
-    private float _chasingDistance;
+    [SerializeField] private float _chasingDistance = 10f;
+    [SerializeField] private float _maxDistanceToPlayer = 4f;
 
 
     private Animator animator;
@@ -121,8 +121,16 @@ public class ArcherMove : MonoBehaviour
     }
 
     private void ChasingTarget() {
-        _navMeshAgent.SetDestination(PlayerController.instance.transform.position);
-        ChangeFacingDirection(transform.position, PlayerController.instance.transform.position);
+          Vector3 playerPosition = PlayerController.instance.transform.position;
+    float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
+
+        if (distanceToPlayer > _maxDistanceToPlayer) {
+            _navMeshAgent.SetDestination(playerPosition); 
+        } else {
+            _navMeshAgent.ResetPath();
+        }
+
+        ChangeFacingDirection(transform.position, playerPosition);
     }
 
     private void CheckCurrentState() {
@@ -132,7 +140,7 @@ public class ArcherMove : MonoBehaviour
         if (_isAttacking && distanceToPlayer <= archerAttack.getAttackRange()) {
             newState = State.Attack;
         }
-        else if (_isChasing && distanceToPlayer <= _chasingDistance) {
+        else if (_isChasing && distanceToPlayer <= _chasingDistance && !archerAttack.waitForAttack()) {
             newState = State.Chasing;
         }
         else if (newState != State.Idle) {

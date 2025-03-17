@@ -46,6 +46,9 @@ public class ArcherAttack : MonoBehaviour
         _isAttacking = false; 
     }
 
+    public bool waitForAttack(){
+        return _isAttacking;
+    }
     public void tryAttack(){
         float distanceToPlayer = UnityEngine.Vector2.Distance(transform.position, PlayerController.instance.transform.position);
         if(distanceToPlayer <= _attackRange && Time.time >= _lastShotTime + _attackCoolDown && !_isAttacking){
