@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,10 +18,12 @@ public class DialogueManager : MonoBehaviour
     public SoundMaster soundMaster;
     public EnemyScript[] enemies;
     private Queue<string> sentences;
+    private Queue<int> order;
     private int sizeDif = 120;
     private int sizeDifImage = 500;
-    private bool isFirst = true;
+    private bool toRight = true;
     private bool isTrueDialogue = false;
+    private int lastPerson = 0;
     private Sprite sprite1;
     private Sprite sprite2;
     private void Start()
@@ -30,9 +33,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        if (dialogue.nameSecond == "")
-            Debug.Log("Starting convesation! ---> " + dialogue.name);
-        else Debug.Log("Starting convesation! ---> " + dialogue.name + " and " + dialogue.nameSecond);
+        //if (dialogue.nameSecond == "")
+        //    Debug.Log("Starting convesation! ---> " + dialogue.name);
+        //else Debug.Log("Starting convesation! ---> " + dialogue.name + " and " + dialogue.nameSecond);
         isTrueDialogue = dialogue.twoPerson;
         sprite1 = dialogue.sprite;
         sprite2 = dialogue.spriteSecond;
@@ -48,8 +51,24 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
             Debug.Log("Loaded new sentence -> " + sentence + " Total: " + sentences.Count());
-
         }
+        if (isTrueDialogue)
+        {
+            if (dialogue.order.Length > 0){
+                lastPerson = dialogue.order[0];
+                if (lastPerson == 1) ChangeDialoguePos();
+                if (order== null)
+                {
+                    order = new Queue<int>();
+                }
+                foreach(int o in dialogue.order)
+                {
+                    order.Enqueue(o);
+                }
+            }
+        }
+        
+
         if (freezePersons)
         {
             playerAnimator.enabled = false;
@@ -76,22 +95,30 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = sentences.Dequeue();
+        int cur = 0;
+        if (isTrueDialogue)
+            cur = order.Dequeue();
+            Debug.Log("Get name of cur Person: " + name + " the last Person name was: " + lastPerson);
         Debug.Log(sentence);
         dialogueText.text = sentence;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
         if (isTrueDialogue)
         {
-            Debug.Log("Called Change DialogueBox pos!");
-            ChangeDialoguePos();
+            if (lastPerson != cur)
+            {
+               Debug.Log("Called Change DialogueBox pos!"); 
+               ChangeDialoguePos();
+            }
         }
+        lastPerson = cur;
     }
 
     private void ChangeDialoguePos()
     {
         RectTransform rectTransformT = dialogueText.GetComponent<RectTransform>();
         RectTransform rectTransformI = dialogueImage.GetComponent<RectTransform>();
-        if (isFirst){
+        if (!toRight){
             rectTransformT.anchoredPosition = new Vector3(sizeDif, 0, 0); 
             rectTransformI.anchoredPosition = new Vector3(-sizeDifImage, 0, 0);
             Debug.Log($"DialogueBox pos moved for {sizeDif}!");
@@ -103,7 +130,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log($"DialobueBox pos moved for {-sizeDif}!");
             dialogueImage.overrideSprite = sprite2;
         }
-        isFirst = !isFirst;
+        toRight = !toRight;
     }
 
     public bool isDialogueEnd()
@@ -117,7 +144,6 @@ public class DialogueManager : MonoBehaviour
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
             yield return null;
             yield return null;
         }
