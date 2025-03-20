@@ -8,10 +8,9 @@ using UnityEngine;
 public class Dialogue
 {
     public bool twoPerson = false;
-    public string name;
     public Sprite sprite;
-    public string nameSecond = "";
     public Sprite spriteSecond;
+    public int[] order;
     [TextArea(3, 10)]
     public string[] sentences;
 }
