@@ -534,6 +534,8 @@ MonoBehaviour:
   freezePersons: 0
   player: {fileID: 0}
   playerAnimator: {fileID: 0}
+  playerFight: {fileID: 0}
+  soundMaster: {fileID: 0}
   enemies: []
 --- !u!4 &612809473
 Transform:
@@ -1482,10 +1484,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     twoPerson: 0
-    name: Test
     sprite: {fileID: 21300000, guid: 00dc666dcaf44104ca4db4f3824ecf06, type: 3}
-    nameSecond: Test1
     spriteSecond: {fileID: 21300000, guid: 20ec1657c1bcb0246b71465734e89d34, type: 3}
+    order: 
     sentences:
     - "\u0414\u0443\u043C\u0430\u044E, \u043C\u043D\u043E\u0433\u0438\u0435 \u0438\u0437
       \u0432\u0430\u0441 \u0437\u0430\u0434\u0430\u0432\u0430\u043B\u0438\u0441\u044C
@@ -2026,6 +2027,7 @@ GameObject:
   - component: {fileID: 1788645994}
   - component: {fileID: 1788645993}
   - component: {fileID: 1788645992}
+  - component: {fileID: 1788645995}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -2114,6 +2116,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788645990}
   m_CullTransparentMesh: 1
+--- !u!114 &1788645995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788645990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157ea0c37b5f56cffa139393d8d2f705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dm: {fileID: 612809472}
+  sceneTransition: 1
+  dialogueEndCheck: {fileID: 1734646920}
 --- !u!1 &1824497469
 GameObject:
   m_ObjectHideFlags: 0

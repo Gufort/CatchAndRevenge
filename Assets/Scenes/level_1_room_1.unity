@@ -3467,10 +3467,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     twoPerson: 0
-    name: Gg
     sprite: {fileID: 21300000, guid: 20ec1657c1bcb0246b71465734e89d34, type: 3}
-    nameSecond: 
     spriteSecond: {fileID: 0}
+    order: 
     sentences:
     - "\u0421\u043D\u043E\u0432\u0430 \u0440\u0430\u0437\u0431\u043E\u0439\u043D\u0438\u043A\u0438!"
     - "\u0418 \u0447\u0442\u043E \u0436\u0435 \u0432\u044B \u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435
@@ -5036,6 +5035,7 @@ GameObject:
   - component: {fileID: 724638883}
   - component: {fileID: 724638882}
   - component: {fileID: 724638881}
+  - component: {fileID: 724638884}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -5124,6 +5124,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724638879}
   m_CullTransparentMesh: 1
+--- !u!114 &724638884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724638879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157ea0c37b5f56cffa139393d8d2f705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dm: {fileID: 271815387}
+  sceneTransition: 0
+  dialogueEndCheck: {fileID: 0}
 --- !u!1 &740004555
 GameObject:
   m_ObjectHideFlags: 0
@@ -6453,10 +6468,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     twoPerson: 0
-    name: Gg
     sprite: {fileID: 21300000, guid: 20ec1657c1bcb0246b71465734e89d34, type: 3}
-    nameSecond: 
     spriteSecond: {fileID: 0}
+    order: 
     sentences:
     - "\u0412\u0441\u0435 \u0440\u0430\u0437\u043D\u0435\u0441\u043B\u0438... \u041D\u0438\u0447\u0435\u0433\u043E
       \u043D\u0430 \u0441\u0432\u043E\u0435\u043C \u043C\u0435\u0441\u0442\u0435
@@ -10447,10 +10461,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     twoPerson: 0
-    name: Gg
     sprite: {fileID: 21300000, guid: 20ec1657c1bcb0246b71465734e89d34, type: 3}
-    nameSecond: 
     spriteSecond: {fileID: 0}
+    order: 
     sentences:
     - "\u0412\u0441\u0435\u2026 \u0420\u0430\u0437\u0433\u0440\u043E\u043C\u043B\u0435\u043D\u043E.  "
     - "\u0412\u0435\u0449\u0438 \u0440\u0430\u0437\u0431\u0440\u043E\u0441\u0430\u043D\u044B,
@@ -11571,7 +11584,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12396181, y: 0.057448953}
+  m_Offset: {x: 0.12396181, y: 0.23299408}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11582,7 +11595,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1435497, y: 1.5361297}
+  m_Size: {x: 2.1435497, y: 1.8872199}
   m_EdgeRadius: 0
 --- !u!4 &1634583740
 Transform:
@@ -11593,7 +11606,7 @@ Transform:
   m_GameObject: {fileID: 1634583737}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.179, y: -0.584, z: 2.1270287}
+  m_LocalPosition: {x: 7.471, y: -0.584, z: 2.1270287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
