@@ -7,6 +7,7 @@ public class PlayerController : SoundMaster
     [SerializeField] private int max_hp;
     [SerializeField] private float _damageRecoveryTime = 0.5f;
     [SerializeField] private bool _canTakeDamage;
+    private PlayerDeath _playerDeath;
     static public int curr_hp_to_renderer;
 
     public static PlayerController instance{get;private set;}
@@ -15,13 +16,14 @@ public class PlayerController : SoundMaster
     private Vector2 direction;
     private Rigidbody2D rb;
     private bool isMoving = false;
-    private int curr_hp;
+    public int curr_hp;
     public VectorValue pos;
     public Transform attackCollider;
 
     private void Awake() {
         instance = this;
         rb = GetComponent<Rigidbody2D>();
+        _playerDeath = GetComponent<PlayerDeath>();
     }
 
     void Start()
@@ -33,7 +35,10 @@ public class PlayerController : SoundMaster
 
     void Update()
     {
-        if(curr_hp == 0) curr_hp = 100;
+        if(curr_hp <= 0) {
+            _playerDeath.playerDie(); 
+        }
+
         curr_hp_to_renderer = curr_hp;
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");

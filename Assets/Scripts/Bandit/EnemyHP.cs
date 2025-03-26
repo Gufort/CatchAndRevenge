@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
 public class EnemyHP : MonoBehaviour
@@ -13,6 +14,7 @@ public class EnemyHP : MonoBehaviour
     [SerializeField] CapsuleCollider2D _capsuleCollider;
     [SerializeField] PolygonCollider2D _polygonCollider;
     [SerializeField] BoxCollider2D _boxCollider2D;
+    private NavMeshAgent _navMeshAgent;
     public event EventHandler OnDeath;
     public static int curr_hp_to_renderer;
     private bool _isDead = false;
@@ -53,6 +55,7 @@ public class EnemyHP : MonoBehaviour
             _polygonCollider.enabled = false;
             _capsuleCollider.enabled = false;
             _boxCollider2D.enabled = false;
+            _navMeshAgent.enabled = false;
             
             _enemy.SetDeath();
             OnDeath?.Invoke(this, EventArgs.Empty);
