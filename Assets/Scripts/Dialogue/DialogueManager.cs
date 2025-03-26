@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     private int lastPerson = 0;
     private Sprite sprite1;
     private Sprite sprite2;
+    public bool isTrueEnd = false;
     private void Start()
     {
         sentences = new Queue<string>();
@@ -40,6 +41,7 @@ public class DialogueManager : MonoBehaviour
         sprite1 = dialogue.sprite;
         sprite2 = dialogue.spriteSecond;
         dialogueImage.sprite = sprite1;
+        isTrueEnd = false;
         dialogueBox.SetActive(true);
         animator.SetBool("IsOpen", true);
         if (sentences == null)
@@ -71,9 +73,10 @@ public class DialogueManager : MonoBehaviour
 
         if (freezePersons)
         {
-            playerAnimator.enabled = false;
-            player.enabled = false;
-            playerFight.enabled = false;
+            playerAnimator.SetFloat("Horizontal", 0);
+            playerAnimator.SetFloat("Vertical", 0);
+            playerAnimator.SetFloat("Speed", 0);
+            player.canMove = false;
             soundMaster.StopSound();
             soundMaster.enabled = false;
             if (isTrueDialogue)
@@ -91,6 +94,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Called Display Next Sentence and sentences count is: " + sentences.Count() + " is sentences null? " + (sentences == null));
         if (isDialogueEnd())
         {
+            isTrueEnd = true;
             EndDialogue();
             return;
         }
@@ -138,6 +142,7 @@ public class DialogueManager : MonoBehaviour
         return (sentences.Count() == 0);
     }
 
+
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
@@ -156,9 +161,7 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
         if (freezePersons)
         {
-            playerAnimator.enabled = true;
-            player.enabled = true;
-            playerFight.enabled = true;
+            player.canMove = true;
             soundMaster.enabled = true;
             if (isTrueDialogue)
             {

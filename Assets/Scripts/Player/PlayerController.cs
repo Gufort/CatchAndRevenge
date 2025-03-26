@@ -18,6 +18,7 @@ public class PlayerController : SoundMaster
     private int curr_hp;
     public VectorValue pos;
     public Transform attackCollider;
+    public bool canMove = true;
 
     private void Awake() {
         instance = this;
@@ -33,62 +34,69 @@ public class PlayerController : SoundMaster
 
     void Update()
     {
-        if(curr_hp == 0) curr_hp = 100;
-        curr_hp_to_renderer = curr_hp;
-        direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
-
-        animator.SetFloat("Horizontal", direction.x);
-        animator.SetFloat("Vertical", direction.y);
-        animator.SetFloat("Speed", direction.sqrMagnitude);
-
-
-        if (direction.sqrMagnitude > 0)
+        if (canMove)
         {
-            if (!isMoving)
+            if (curr_hp == 0) curr_hp = 100;
+            curr_hp_to_renderer = curr_hp;
+            direction.x = Input.GetAxisRaw("Horizontal");
+            direction.y = Input.GetAxisRaw("Vertical");
+
+            animator.SetFloat("Horizontal", direction.x);
+            animator.SetFloat("Vertical", direction.y);
+            animator.SetFloat("Speed", direction.sqrMagnitude);
+
+
+            if (direction.sqrMagnitude > 0)
             {
-                PlaySound(sounds[0], volume: 0.4f, loop: true, p1:0.9f, p2:1f);
-                isMoving = true;
+                if (!isMoving)
+                {
+                    PlaySound(sounds[0], volume: 0.4f, loop: true, p1: 0.9f, p2: 1f);
+                    isMoving = true;
+                }
+            }
+            else
+            {
+                if (isMoving)
+                {
+                    StopSound();
+                    isMoving = false;
+                }
+            }
+
+            if (direction.y > 0)
+            {
+                attackCollider.rotation = Quaternion.Euler(0, 0, 90);
+                attackCollider.position = new Vector2(transform.position.x, transform.position.y + 1f);
+            }
+            else if (direction.y < 0)
+            {
+                attackCollider.rotation = Quaternion.Euler(0, 0, -90);
+                attackCollider.position = new Vector2(transform.position.x, transform.position.y - 1f);
+            }
+            else if (direction.x < 0)
+            {
+                attackCollider.rotation = Quaternion.Euler(0, 0, 180);
+                attackCollider.position = new Vector2(transform.position.x - 1f, transform.position.y);
+            }
+            else if (direction.x > 0)
+            {
+                attackCollider.rotation = Quaternion.Euler(0, 0, 0);
+                attackCollider.position = new Vector2(transform.position.x + 1f, transform.position.y);
+            }
+
+            if (direction.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+
+            else if (direction.x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
             }
         }
         else
         {
-            if (isMoving)
-            {
-                StopSound();
-                isMoving = false;
-            }
-        }
-
-        if (direction.y > 0)
-        {
-            attackCollider.rotation = Quaternion.Euler(0, 0, 90);
-            attackCollider.position = new Vector2(transform.position.x, transform.position.y + 1f);
-        }
-        else if (direction.y < 0)
-        {
-            attackCollider.rotation = Quaternion.Euler(0, 0, -90);
-            attackCollider.position = new Vector2(transform.position.x, transform.position.y - 1f);
-        }
-        else if (direction.x < 0)
-        {
-            attackCollider.rotation = Quaternion.Euler(0, 0, 180);
-            attackCollider.position = new Vector2(transform.position.x - 1f, transform.position.y);
-        }
-        else if (direction.x > 0)
-        {
-            attackCollider.rotation = Quaternion.Euler(0, 0, 0);
-            attackCollider.position = new Vector2(transform.position.x + 1f, transform.position.y);
-        }
-
-        if (direction.x < 0)
-        {
-             transform.localScale = new Vector3(-1, 1, 1);
-        }
-
-        else if (direction.x > 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
+            return;
         }
     }
     public void TakeDamage(Transform source, int damage){
