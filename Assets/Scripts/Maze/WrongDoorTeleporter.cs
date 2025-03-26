@@ -1,36 +1,30 @@
+﻿using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-using Cinemachine;
 using UnityEngine;
 
-public class TeleportPlayer : MonoBehaviour
+public class WrongDoorTeleporter : MonoBehaviour
 {
-    public Vector2 teleport;
+    private Vector2 teleport = new Vector2(0.0f, 0.0f);
     public GameObject player;
     private bool trigger = false;
     public CinemachineConfiner confiner;
     public PolygonCollider2D newBounds;
-
-    public AudioClip soundClip;
-    private AudioSource audioSource;
+    static public bool dialogTrigger = false;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         if (confiner != null)
         {
             confiner.m_BoundingShape2D = newBounds;
         }
     }
+
     public void Teleport()
     {
         player.transform.position = teleport;
-        if (audioSource != null && soundClip != null)
-        {
-            audioSource.clip = soundClip;
-            audioSource.Play();
-        }
-        Debug.Log("Игрок телепортирован");
+        dialogTrigger = true;
+        Debug.Log("Игрок телепортирован в начало");
 
         if (confiner != null && newBounds != null)
         {

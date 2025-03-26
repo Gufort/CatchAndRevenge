@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a086fbcfcb88ee42b8e26f302977e2f
+guid: 7b24a757bfb947c47bf7be39f5ba4de0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,11 +110,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: underground_0
+      name: underground_third_variant_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 390
+        y: 217
         width: 1200
         height: 600
       alignment: 0
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 127748f8bb20ee64eb97c47330e63e8b
-      internalID: -1296223069
+      spriteID: 4464501a4f38e96418ec8e2eb359a4ba
+      internalID: -349667146
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      underground_0: -1296223069
+      underground_third_variant_0: -349667146
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
