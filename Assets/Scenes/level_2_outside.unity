@@ -25976,6 +25976,53 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1267643139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1267643141}
+  - component: {fileID: 1267643140}
+  m_Layer: 0
+  m_Name: Change
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1267643140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267643139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e816429d67d713e4a9a74b43f00c2d05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 1122114214}
+  Collider1: {fileID: 1351636245}
+  Collider2: {fileID: 1232420600}
+--- !u!4 &1267643141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267643139}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1275305859 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3955121223373900131, guid: 15b9435996636fc4f9de7682e000493d, type: 3}
@@ -43871,6 +43918,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushrooms Basket
       objectReference: {fileID: 0}
+    - target: {fileID: 87467596647077182, guid: 2de718087323d6a4c8a5494f1f8aa4f4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873368495133420783, guid: 2de718087323d6a4c8a5494f1f8aa4f4, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1275305859}
     - target: {fileID: 7163193165715163816, guid: 2de718087323d6a4c8a5494f1f8aa4f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.51
@@ -43947,3 +44002,4 @@ SceneRoots:
   - {fileID: 71155568}
   - {fileID: 1674403645}
   - {fileID: 4980621532422608243}
+  - {fileID: 1267643141}

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Arrow
   - MushroomsBasket
+  - Mushroom
   layers:
   - Default
   - TransparentFX

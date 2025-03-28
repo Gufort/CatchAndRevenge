@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CheckInventoryState : MonoBehaviour
 {
-    public Inventory inventory;
+    public GameObject inventory;
     public GameObject Collider1;
     public GameObject Collider2;
     private bool IsTriggered;
@@ -20,13 +20,18 @@ public class CheckInventoryState : MonoBehaviour
     {
         if (!IsTriggered)
         {
-            foreach (var x in inventory.slots)
+            foreach (var x in inventory.GetComponentsInChildren<Transform>())
             {
-                if (x.CompareTag("MushroomsBasket"))
+                Transform[] AllChildren = x.GetComponentsInChildren<Transform>();
+                if (AllChildren.Length > 0)
                 {
-                    Collider1.SetActive(false);
-                    Collider2.SetActive(true);
-                    IsTriggered = true;
+
+                    if (AllChildren[0].CompareTag("Mushroom"))
+                    {
+                        IsTriggered = true;
+                        Collider1.SetActive(false);
+                        Collider2.SetActive(true);
+                    }
                 }
             }
         }
