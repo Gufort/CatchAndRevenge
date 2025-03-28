@@ -27,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     private Sprite sprite1;
     private Sprite sprite2;
     public bool isTrueEnd = false;
+    public Rigidbody2D rigidbody2d;
     private void Start()
     {
         sentences = new Queue<string>();
@@ -77,6 +78,7 @@ public class DialogueManager : MonoBehaviour
             playerAnimator.SetFloat("Vertical", 0);
             playerAnimator.SetFloat("Speed", 0);
             player.canMove = false;
+            rigidbody2d.simulated = false;
             soundMaster.StopSound();
             soundMaster.enabled = false;
             if (isTrueDialogue)
@@ -162,6 +164,7 @@ public class DialogueManager : MonoBehaviour
         if (freezePersons)
         {
             player.canMove = true;
+            rigidbody2d.simulated = true;
             soundMaster.enabled = true;
             if (isTrueDialogue)
             {
