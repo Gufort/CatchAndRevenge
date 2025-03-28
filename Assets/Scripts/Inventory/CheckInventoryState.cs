@@ -25,7 +25,6 @@ public class CheckInventoryState : MonoBehaviour
                 Transform[] AllChildren = x.GetComponentsInChildren<Transform>();
                 if (AllChildren.Length > 0)
                 {
-
                     if (AllChildren[0].CompareTag("Mushroom"))
                     {
                         IsTriggered = true;
