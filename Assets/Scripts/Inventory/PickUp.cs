@@ -18,10 +18,11 @@ public class PickUp : MonoBehaviour
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {
-                if (!inventory.isFull[i])
+                if (!inventory.isFull[i] && PlayerPrefs.GetInt($"Inventory{slotButton.name}", 0) == 0)
                 {
                     inventory.isFull[i] = true;
                     Instantiate(slotButton, inventory.slots[i].transform);
+                    PlayerPrefs.SetInt($"Inventory{slotButton.name}", 1);
                     Destroy(gameObject);
                     break;
                 }
