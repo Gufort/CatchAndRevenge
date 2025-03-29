@@ -8,18 +8,12 @@ public class CreateQuest : MonoBehaviour
     public GameObject dialogueBox;
     public GameObject MushroomsBasket;
     private bool IsTriggered;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if (!IsTriggered)
         {
-            if (dm.isDialogueEnd()&&(dialogueBox.activeInHierarchy))
+            if (dm.isDialogueEnd() && (dialogueBox.activeInHierarchy))
             {
                 IsTriggered = true;
                 MushroomsBasket.SetActive(true);
