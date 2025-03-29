@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -14,6 +14,7 @@ public class UI_MysteryInputWindow : MonoBehaviour
     public Animator animator;
     public PlayerController playerController;
     public DialogueTrigger dialogueTrigger;
+    public GameObject giveList;
     public Rigidbody2D rigidbody2d;
 
     public static string answer = "ответственность";
@@ -37,6 +38,7 @@ public class UI_MysteryInputWindow : MonoBehaviour
                 rigidbody2d.simulated = true;
                 playerController.canMove = true;
                 dialogueTrigger.TriggerDialogue();
+                giveList.SetActive(true);
             }
         }
     }
