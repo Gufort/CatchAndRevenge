@@ -12247,7 +12247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level_number: 4
-  position: {x: 0, y: 0, z: 0}
+  position: {x: -103.05, y: 17.76, z: 0}
   playerStorage: {fileID: 11400000, guid: 9691c5b417cb4e0469a1a863a5862ee9, type: 2}
 --- !u!95 &1648526529
 Animator:

@@ -25,11 +25,7 @@ public class PlayerDeath : MonoBehaviour
 
     public void playerDie(){
         _fade.SetActive(true);
-        FadeAfterDie();
         StartCoroutine(DelayForFade(_delay));
     }
 
-    private void FadeAfterDie(){
-        _animator.SetTrigger("Fade");
-    }
 }

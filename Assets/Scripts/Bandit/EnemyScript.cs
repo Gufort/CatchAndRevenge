@@ -134,27 +134,36 @@ public class EnemyScript : MonoBehaviour
         else if (_isChasing && distanceToPlayer <= _chasingDistance) {
             newState = State.Chasing;
         }
-        else if (newState != State.Idle) {
+        else if (distanceToPlayer > _chasingDistance) {
             newState = State.Roaming;
         }
 
         if (newState != _currentState) {
-            if (newState == State.Chasing) {
-                _navMeshAgent.ResetPath();
-                _navMeshAgent.speed = _chasingSpeed;
-            } 
-            else if (newState == State.Roaming) {
-                _roamingTimer = 0f;
-                _navMeshAgent.speed = _roamingSpeed;
-            } 
-            else if (newState == State.Attacking) {
-                _navMeshAgent.ResetPath();
+            switch (newState) {
+                case State.Chasing:
+                    _navMeshAgent.ResetPath();
+                    _navMeshAgent.speed = _chasingSpeed;
+                    break;
+                case State.Roaming:
+                    _roamingTimer = 0f;
+                    _navMeshAgent.speed = _roamingSpeed;
+                    break;
+                case State.Attacking:
+                    _navMeshAgent.ResetPath();
+                    ChangeFacingDirection(transform.position, PlayerController.instance.transform.position);
+                    break;
             }
             _currentState = newState;
         }
     }
 
     private void AttackingTarget() {
+        float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
+        if (distanceToPlayer > _attackingDistance) {
+            _currentState = State.Chasing;
+            return;
+        }
+
         if (Time.time > _nextTimeAttack) {
             OnAttack?.Invoke(this, EventArgs.Empty);
             
