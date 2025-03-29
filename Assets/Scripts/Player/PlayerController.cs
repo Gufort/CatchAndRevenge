@@ -16,12 +16,13 @@ public class PlayerController : SoundMaster
     private Vector2 direction;
     private Rigidbody2D rb;
     private bool isMoving = false;
-    public int curr_hp;
+    public int curr_hp = 100;
     public VectorValue pos;
     public Transform attackCollider;
     public bool canMove = true;
 
     private void Awake() {
+        curr_hp = 100;
         instance = this;
         rb = GetComponent<Rigidbody2D>();
         _playerDeath = GetComponent<PlayerDeath>();
@@ -38,10 +39,6 @@ public class PlayerController : SoundMaster
     {
         if (canMove)
         {
-            if (curr_hp <= 0) {
-            _playerDeath.playerDie(); 
-            }
-
             curr_hp_to_renderer = curr_hp;
             direction.x = Input.GetAxisRaw("Horizontal");
             direction.y = Input.GetAxisRaw("Vertical");

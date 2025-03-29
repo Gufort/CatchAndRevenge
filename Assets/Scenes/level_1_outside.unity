@@ -3561,6 +3561,8 @@ MonoBehaviour:
   - {fileID: 1261936650}
   - {fileID: 1092762929}
   - {fileID: 845083008}
+  isTrueEnd: 0
+  rigidbody2d: {fileID: 275020811705376908}
 --- !u!4 &973084879
 Transform:
   m_ObjectHideFlags: 0
@@ -8205,6 +8207,11 @@ MonoBehaviour:
   _animator: {fileID: 80724535}
   _fade: {fileID: 80724534}
   _delay: 1.1
+--- !u!50 &275020811705376908 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6276234996156510431, guid: 15b9435996636fc4f9de7682e000493d, type: 3}
+  m_PrefabInstance: {fileID: 275020811705376900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4106914049375859780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8331,7 +8338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2254245034169209873, guid: 9aa1d913f83a82a4faa3572cc238bff4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2902117746136104910, guid: 9aa1d913f83a82a4faa3572cc238bff4, type: 3}
       propertyPath: m_Pivot.x
@@ -8430,6 +8437,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 175827672097154028, guid: 833b5bcb1c83ddf4aaa67f95ee7582e6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 472a25d22c4dad2438073ae165368fb5, type: 3}
     - target: {fileID: 1316271220489396562, guid: 833b5bcb1c83ddf4aaa67f95ee7582e6, type: 3}
       propertyPath: m_Name
       value: House_Trigger

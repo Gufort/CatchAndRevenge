@@ -55,12 +55,12 @@ public class EnemyHP : MonoBehaviour
             _polygonCollider.enabled = false;
             _capsuleCollider.enabled = false;
             _boxCollider2D.enabled = false;
-            _navMeshAgent.enabled = false;
             
             _enemy.SetDeath();
             OnDeath?.Invoke(this, EventArgs.Empty);
             PlayerPrefs.SetInt(_enemySO.enemy_name + "_curr_hp", 0);
             PlayerPrefs.Save();
+            _navMeshAgent.enabled = false;
             Debug.Log("Enemy die!");
         }
     }

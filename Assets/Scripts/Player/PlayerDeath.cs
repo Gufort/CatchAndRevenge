@@ -13,6 +13,7 @@ public class PlayerDeath : MonoBehaviour
     private void Update()
     {
         _playerController = GetComponent<PlayerController>();
+        if(_playerController.curr_hp <= 0) playerDie();
     }
 
     private IEnumerator DelayForFade(float delay){
