@@ -12,8 +12,12 @@ public class WrongDoorTeleporter : MonoBehaviour
     public PolygonCollider2D newBounds;
     static public bool dialogTrigger = false;
 
+    public AudioClip soundClip;
+    private AudioSource audioSource;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         if (confiner != null)
         {
             confiner.m_BoundingShape2D = newBounds;
@@ -24,6 +28,11 @@ public class WrongDoorTeleporter : MonoBehaviour
     {
         player.transform.position = teleport;
         dialogTrigger = true;
+        if (audioSource != null && soundClip != null)
+        {
+            audioSource.clip = soundClip;
+            audioSource.Play();
+        }
         Debug.Log("Игрок телепортирован в начало");
 
         if (confiner != null && newBounds != null)

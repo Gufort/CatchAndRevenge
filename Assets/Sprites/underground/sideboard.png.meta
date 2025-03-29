@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a086fbcfcb88ee42b8e26f302977e2f
+guid: 47ddc32e71288e74fa91fb8928dc4f71
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: underground_0
+      name: sideboard_0
       rect:
         serializedVersion: 2
-        x: 568
-        y: 261
-        width: 1200
-        height: 600
+        x: 1565
+        y: 295
+        width: 193
+        height: 331
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 127748f8bb20ee64eb97c47330e63e8b
-      internalID: -1296223069
+      spriteID: a65b5492b0f468743ab2fff23725360e
+      internalID: 816503693
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      underground_0: -1296223069
+      sideboard_0: 816503693
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

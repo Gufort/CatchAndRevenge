@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class InterractWithChest : MonoBehaviour
 {
+    public GameObject InteractInviteBox;
     public TMP_Text InteractInviteText;
     public GameObject PuzzleActivate;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            InteractInviteBox.SetActive(true);
             InteractInviteText.gameObject.SetActive(true);
         }
     }
@@ -20,6 +22,7 @@ public class InterractWithChest : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             InteractInviteText.gameObject.SetActive(false);
+            InteractInviteBox.SetActive(false);
         }
     }
 

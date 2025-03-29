@@ -14,13 +14,15 @@ public class UI_MysteryInputWindow : MonoBehaviour
     public Animator animator;
     public PlayerController playerController;
     public DialogueTrigger dialogueTrigger;
+    public Rigidbody2D rigidbody2d;
 
-    public static string answer = "лепреконы";
+    public static string answer = "ответственность";
     void Update()
     {
         if (dialogueManager != null && dialogueManager.isTrueEnd && !activatedYet)
         {
             mysteryInputWindow.SetActive(true);
+            rigidbody2d.simulated = false;
             activatedYet = true;
             animator.SetFloat("Horizontal", 0);
             animator.SetFloat("Vertical", 0);
@@ -32,6 +34,7 @@ public class UI_MysteryInputWindow : MonoBehaviour
             if (mysteryInputField.text.ToLower() == answer)
             {
                 mysteryInputWindow.SetActive(false);
+                rigidbody2d.simulated = true;
                 playerController.canMove = true;
                 dialogueTrigger.TriggerDialogue();
             }
