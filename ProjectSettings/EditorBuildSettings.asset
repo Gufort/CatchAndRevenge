@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level_2_underground.unity
     guid: cce99f60564924344bf300a5fef65190
+  - enabled: 1
+    path: Assets/Scenes/BlackScene.unity
+    guid: 3fb6eb53647faed8d84bb23b895a8664
   m_configObjects: {}
