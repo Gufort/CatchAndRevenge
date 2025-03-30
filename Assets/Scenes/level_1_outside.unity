@@ -2541,8 +2541,28 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _dialogueManager
+      value: 
+      objectReference: {fileID: 973084878}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _dialogueTrigger
+      value: 
+      objectReference: {fileID: 1097825586}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingTimerMax
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _attackingDistance
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingDistanceMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingDistanceMin
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4573366698218494904, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: m_Name
@@ -3290,7 +3310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _ChasingDist
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _startingState
@@ -3301,8 +3321,28 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _dialogueManager
+      value: 
+      objectReference: {fileID: 973084878}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _dialogueTrigger
+      value: 
+      objectReference: {fileID: 1097825586}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingTimerMax
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _attackingDistance
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingDistanceMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingDistanceMin
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4573366698218494904, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: m_Name
@@ -3995,7 +4035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _ChasingDist
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _startingState
@@ -4006,8 +4046,28 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _dialogueManager
+      value: 
+      objectReference: {fileID: 973084878}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _dialogueTrigger
+      value: 
+      objectReference: {fileID: 1097825586}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingTimerMax
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _attackingDistance
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingDistanceMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingDistanceMin
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4573366698218494904, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: m_Name
@@ -4111,6 +4171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce5716b9c2debe349589249313ef6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alreadyTriggered: 0
   dialogue:
     twoPerson: 1
     sprite: {fileID: 21300000, guid: 20ec1657c1bcb0246b71465734e89d34, type: 3}
@@ -4343,8 +4404,20 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _dialogueManager
+      value: 
+      objectReference: {fileID: 973084878}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _dialogueTrigger
+      value: 
+      objectReference: {fileID: 1097825586}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _roamimgTimerMax
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingTimerMax
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _attackingDistance
@@ -4352,6 +4425,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: chasing_speed_mult
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingDistanceMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingDistanceMin
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4573366698218494904, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
@@ -5398,6 +5479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce5716b9c2debe349589249313ef6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alreadyTriggered: 0
   dialogue:
     twoPerson: 0
     sprite: {fileID: 21300000, guid: 20ec1657c1bcb0246b71465734e89d34, type: 3}
@@ -8241,8 +8323,28 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _dialogueManager
+      value: 
+      objectReference: {fileID: 973084878}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _dialogueTrigger
+      value: 
+      objectReference: {fileID: 1097825586}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingTimerMax
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _attackingDistance
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingDistanceMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _roamingDistanceMin
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4573366698218494904, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: m_Name

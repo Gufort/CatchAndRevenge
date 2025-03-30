@@ -316,13 +316,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dm: {fileID: 0}
+  _dialogueTrigger: {fileID: 0}
   _startingState: 1
   _roamingDistanceMax: 7
   _roamingDistanceMin: 3
   _roamingTimerMax: 2
   _ChasingDist: 4
   _isChasing: 1
-  _chasingSpeedMultiplier: 2
+  _chasingSpeedMultiplier: 1.5
   _isAttacking: 1
   _attackingDistance: 3
   _attackRate: 1
@@ -356,6 +357,8 @@ MonoBehaviour:
   _enemy: {fileID: 2172077673470124115}
   _capsuleCollider: {fileID: 0}
   _polygonCollider: {fileID: 1030059619847672594}
+  _boxCollider2D: {fileID: 0}
+  _isDead: 0
 --- !u!114 &89355853406610098
 MonoBehaviour:
   m_ObjectHideFlags: 0

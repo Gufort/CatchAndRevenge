@@ -9,6 +9,7 @@ public class EnemyScript : MonoBehaviour
 {
     [Header("Настройки характеристик бандита: \n")]
     [SerializeField] private DialogueManager _dm;
+    [SerializeField] private DialogueTrigger _dialogueTrigger;
     [SerializeField] private State _startingState;
     [SerializeField] private float _roamingDistanceMax = 7f;
     [SerializeField] private float _roamingDistanceMin = 3f;
@@ -58,6 +59,8 @@ public class EnemyScript : MonoBehaviour
         _navMeshAgent.updateUpAxis = false;
         _currentState = _startingState;
 
+        _chasingDistance = _ChasingDist;
+
         _roamingSpeed = _navMeshAgent.speed;
         _chasingSpeed = _navMeshAgent.speed * _chasingSpeedMultiplier;
     }
@@ -68,9 +71,8 @@ public class EnemyScript : MonoBehaviour
     }
 
     private void Update() {
-        isDialogueEnded = _dm.isDialogueEnd();
-        if(isDialogueEnded) _chasingDistance = _ChasingDist;
-        else _chasingDistance = 0f;
+        isDialogueEnded = _dm.isTrueEnd && _dialogueTrigger.alreadyTriggered;
+       
 
         MovementDirectionHandler();
         StateHandler();
@@ -125,36 +127,39 @@ public class EnemyScript : MonoBehaviour
     }
 
     private void CheckCurrentState() {
-        float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
-        State newState = _currentState;
+        if(isDialogueEnded){
+            float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
+            State newState = _currentState;
 
-        if (_isAttacking && distanceToPlayer <= _attackingDistance) {
-            newState = State.Attacking;
-        }
-        else if (_isChasing && distanceToPlayer <= _chasingDistance) {
-            newState = State.Chasing;
-        }
-        else if (distanceToPlayer > _chasingDistance) {
-            newState = State.Roaming;
-        }
-
-        if (newState != _currentState) {
-            switch (newState) {
-                case State.Chasing:
-                    _navMeshAgent.ResetPath();
-                    _navMeshAgent.speed = _chasingSpeed;
-                    break;
-                case State.Roaming:
-                    _roamingTimer = 0f;
-                    _navMeshAgent.speed = _roamingSpeed;
-                    break;
-                case State.Attacking:
-                    _navMeshAgent.ResetPath();
-                    ChangeFacingDirection(transform.position, PlayerController.instance.transform.position);
-                    break;
+            if (_isAttacking && distanceToPlayer <= _attackingDistance) {
+                newState = State.Attacking;
             }
-            _currentState = newState;
+            else if (_isChasing && distanceToPlayer <= _chasingDistance) {
+                newState = State.Chasing;
+            }
+            else if (distanceToPlayer > _chasingDistance) {
+                newState = State.Roaming;
+            }
+
+            if (newState != _currentState) {
+                switch (newState) {
+                    case State.Chasing:
+                        _navMeshAgent.ResetPath();
+                        _navMeshAgent.speed = _chasingSpeed;
+                        break;
+                    case State.Roaming:
+                        _roamingTimer = 0f;
+                        _navMeshAgent.speed = _roamingSpeed;
+                        break;
+                    case State.Attacking:
+                        _navMeshAgent.ResetPath();
+                        ChangeFacingDirection(transform.position, PlayerController.instance.transform.position);
+                        break;
+                }
+                _currentState = newState;
+            }
         }
+        
     }
 
     private void AttackingTarget() {
