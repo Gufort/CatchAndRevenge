@@ -537,6 +537,8 @@ MonoBehaviour:
   playerFight: {fileID: 0}
   soundMaster: {fileID: 0}
   enemies: []
+  isTrueEnd: 0
+  rigidbody2d: {fileID: 0}
 --- !u!4 &612809473
 Transform:
   m_ObjectHideFlags: 0
@@ -821,7 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -829,7 +831,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_Font: {fileID: 12800000, guid: 2d3bc8536a0d7ea498ad99239599aa72, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
@@ -1482,6 +1484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce5716b9c2debe349589249313ef6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alreadyTriggered: 0
   dialogue:
     twoPerson: 0
     sprite: {fileID: 21300000, guid: 00dc666dcaf44104ca4db4f3824ecf06, type: 3}
@@ -1700,7 +1703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2358,7 +2361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2366,8 +2369,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-    m_FontSize: 28
+    m_Font: {fileID: 12800000, guid: 2d3bc8536a0d7ea498ad99239599aa72, type: 3}
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
