@@ -8,6 +8,7 @@ public class KeyTrigger : MonoBehaviour
     public GameObject panel;
     public GameObject imageComponent; 
     public GameObject canvas;
+    public GameObject textBox;
     private bool trigger;
 
     private void OnTriggerEnter2D(Collider2D other){
@@ -22,7 +23,6 @@ public class KeyTrigger : MonoBehaviour
         if(other.CompareTag("Player")){
             panel.SetActive(false);
             trigger = false;
-            canvas.SetActive(false);
         }
     }
 
@@ -34,6 +34,7 @@ public class KeyTrigger : MonoBehaviour
    private void Update(){
         if (trigger && Input.GetKeyDown(KeyCode.E))
         {
+            textBox.SetActive(false);
             imageComponent.SetActive(true);
         }
         if (ImageAnimator.animationFinished) {
