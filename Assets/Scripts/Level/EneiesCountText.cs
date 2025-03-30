@@ -9,6 +9,6 @@ public class EneiesCountText : MonoBehaviour
     [SerializeField] private EnemiesCounter _enemiesCounter;
     void Update()
     {
-       if (_count != null) _count.text = "Кол-во врагов: " + _enemiesCounter.getCount(); 
+       if (_count != null) _count.text = "" + _enemiesCounter.getCount(); 
     }
 }
