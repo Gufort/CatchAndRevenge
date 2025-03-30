@@ -22,6 +22,7 @@ public class KeyTrigger : MonoBehaviour
         if(other.CompareTag("Player")){
             panel.SetActive(false);
             trigger = false;
+            canvas.SetActive(false);
         }
     }
 
