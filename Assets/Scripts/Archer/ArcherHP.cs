@@ -12,6 +12,7 @@ public class ArcherHP : MonoBehaviour
     [SerializeField] CapsuleCollider2D _capsuleCollider2D;
     [SerializeField] BoxCollider2D _boxCollider2D;
     public event EventHandler OnArcherDeath;
+    public bool _isDie;
 
     private void Awake(){
         _archerMove = GetComponent<ArcherMove>();
@@ -38,6 +39,7 @@ public class ArcherHP : MonoBehaviour
 
             _archerMove.SetDeath();
             OnArcherDeath?.Invoke(this,EventArgs.Empty);
+            _isDie = true;
             PlayerPrefs.SetInt(_archerSO.archer_name + "_currentHP", 0);
             PlayerPrefs.Save();
             Debug.Log("Archer die!");

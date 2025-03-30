@@ -17,7 +17,7 @@ public class EnemyHP : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     public event EventHandler OnDeath;
     public static int curr_hp_to_renderer;
-    private bool _isDead = false;
+    public bool _isDead = false;
 
     void Awake()
     {
