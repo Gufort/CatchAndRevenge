@@ -6,6 +6,8 @@ public class EnemyAnimations : MonoBehaviour
 {
     [SerializeField] private EnemyScript _enemy1;
     [SerializeField] private EnemyHP _enemy2;
+    [SerializeField] private AudioClip _audioClip;
+    [SerializeField] private AudioSource _audioSource;
     private Animator animator;
     private string IS_RUNNING = "IsRunning";
     private string CHASING_SPEED = "ChasingSpeed";
@@ -14,6 +16,7 @@ public class EnemyAnimations : MonoBehaviour
 
     void Awake(){
         animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Start(){
@@ -33,6 +36,8 @@ public class EnemyAnimations : MonoBehaviour
 
     public void TriggerAttackAnimationsOn(){
         _enemy2.PolygonCollider2DOn();
+        _audioSource.clip = _audioClip;
+        _audioSource.Play();
     }
 
     public void TriggerAttackAnimationsOff(){

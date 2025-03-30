@@ -171,7 +171,6 @@ public class EnemyScript : MonoBehaviour
 
         if (Time.time > _nextTimeAttack) {
             OnAttack?.Invoke(this, EventArgs.Empty);
-            
             Vector3 playerPosition = PlayerController.instance.transform.position;
             Vector3 direction = (playerPosition - transform.position).normalized;
 
