@@ -18,9 +18,13 @@ public class ArcherHP : MonoBehaviour
         _archerMove = GetComponent<ArcherMove>();
         _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
-        _currentHP = PlayerPrefs.GetInt(_archerSO.archer_name + "_curr_hp", _archerSO.archer_curr_hp);
+        _currentHP = PlayerPrefs.GetInt(_archerSO.archer_name + "_currentHP", _archerSO.archer_curr_hp);
 
         Debug.Log($"Archer current HP - {_currentHP}");
+
+        if(_currentHP <= 0){
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(int damage){
