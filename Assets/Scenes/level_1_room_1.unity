@@ -1815,7 +1815,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041C\u0423\u0417\u042B\u041A\u0410"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 97c54112387c3ad489e411af0d2b7cd6, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_margin: {x: 21.908356, y: 0, z: 22.346527, w: 42.940426}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &320432307
@@ -12247,7 +12247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level_number: 4
-  position: {x: -103.05, y: 17.76, z: 0}
+  position: {x: 0, y: 0, z: 0}
   playerStorage: {fileID: 11400000, guid: 9691c5b417cb4e0469a1a863a5862ee9, type: 2}
 --- !u!95 &1648526529
 Animator:
@@ -13402,7 +13402,7 @@ MonoBehaviour:
   panel: {fileID: 393397441}
   imageComponent: {fileID: 1552164333}
   canvas: {fileID: 1648526526}
-  textBox: {fileID: 0}
+  textBox: {fileID: 1181598363}
 --- !u!58 &1890422997
 CircleCollider2D:
   m_ObjectHideFlags: 0
