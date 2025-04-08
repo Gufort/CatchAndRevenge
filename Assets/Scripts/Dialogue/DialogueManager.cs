@@ -81,6 +81,7 @@ public class DialogueManager : MonoBehaviour
             rigidbody2d.simulated = false;
             soundMaster.StopSound();
             soundMaster.enabled = false;
+            playerFight.enabled = false;
             if (isTrueDialogue)
             {
                 foreach(EnemyScript enemy in enemies)
@@ -166,6 +167,7 @@ public class DialogueManager : MonoBehaviour
             player.canMove = true;
             rigidbody2d.simulated = true;
             soundMaster.enabled = true;
+            playerFight.enabled = true;
             if (isTrueDialogue)
             {
                 foreach(EnemyScript enemy in enemies)
