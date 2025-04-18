@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   i: 2
-  Player: {fileID: 0}
+  Player: {fileID: 1063760471}
   Panel: {fileID: 1367530690}
 --- !u!1 &142175304
 GameObject:
@@ -3185,7 +3185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   i: 0
-  Player: {fileID: 0}
+  Player: {fileID: 1063760471}
   Panel: {fileID: 1367530690}
 --- !u!1 &285898415
 GameObject:
@@ -4975,7 +4975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   i: 1
-  Player: {fileID: 0}
+  Player: {fileID: 1063760471}
   Panel: {fileID: 1367530690}
 --- !u!1 &439360733
 GameObject:
@@ -5311,7 +5311,7 @@ MonoBehaviour:
     twoPerson: 1
     sprite: {fileID: 21300000, guid: 20ec1657c1bcb0246b71465734e89d34, type: 3}
     spriteSecond: {fileID: 21300000, guid: 898a5aad36cc2d149a6b1132d32f87b7, type: 3}
-    order: 0100000000000000010000000000000001000000010000000000000001000000000000000100000000000000010000000100000000000000010000000100000001000000010000000100000001000000010000000100000000000000
+    order: 010000000000000001000000010000000100000000000000010000000100000001000000000000000000000001000000000000000100000000000000010000000100000000000000010000000100000001000000010000000100000001000000010000000100000000000000
     sentences:
     - "(\u043D\u0435\u043C\u043D\u043E\u0433\u043E \u0441\u043C\u0435\u044F\u0441\u044C)
       \u0418 \u043A\u0443\u0434\u0430 \u0436\u0435 \u0442\u044B \u0441\u043E\u0431\u0440\u0430\u043B\u0441\u044F,
@@ -5326,18 +5326,20 @@ MonoBehaviour:
       \u043A\u0430\u043A-\u0442\u043E..."
     - "\u0422\u0430\u043A \u0442\u044B \u043D\u0435 \u0437\u043D\u0430\u0435\u0448\u044C...
       \u041C\u043D\u043E\u0433\u0438\u0435 \u043B\u044E\u0434\u0438 \u043F\u0440\u0438\u0445\u043E\u0434\u0438\u043B\u0438
-      \u0441\u044E\u0434\u0430. \u041A\u0442\u043E-\u0442\u043E \u043F\u044B\u0442\u0430\u043B\u0441\u044F
+      \u0441\u044E\u0434\u0430. "
+    - "\u041A\u0442\u043E-\u0442\u043E \u043F\u044B\u0442\u0430\u043B\u0441\u044F
       \u043D\u0430\u0439\u0442\u0438 \u0437\u0434\u0435\u0441\u044C \u0447\u0442\u043E-\u0442\u043E
       \u0446\u0435\u043D\u043D\u043E\u0435, \u0441\u043E\u043A\u0440\u043E\u0432\u0438\u0449\u0430,
       \u043A\u0430\u043A\u043E\u0432\u044B\u0445 \u043D\u0435 \u0432\u0438\u0434\u0430\u043B
-      \u0441\u0432\u0435\u0442. \u041A\u0442\u043E-\u0442\u043E \u0438\u0441\u043A\u0430\u043B
-      \u043E\u0442\u0432\u0435\u0442\u044B \u043D\u0430 \u0441\u0432\u043E\u0438
-      \u0432\u043E\u043F\u0440\u043E\u0441\u044B, \u0430 \u043A\u0442\u043E-\u0442\u043E
-      \u0432\u043E\u043E\u0431\u0449\u0435 \u043D\u0435 \u043F\u043E\u043D\u0438\u043C\u0430\u043B,
-      \u0447\u0442\u043E \u0434\u0432\u0438\u0436\u0435\u0442 \u0438\u043C \u0438
-      \u043F\u044B\u0442\u0430\u043B\u0441\u044F \u0443\u0439\u0442\u0438 \u043A\u0430\u043A
-      \u043C\u043E\u0436\u043D\u043E \u0434\u0430\u043B\u044C\u0448\u0435 \u043E\u0442
-      \u044D\u0442\u043E\u0433\u043E \u043C\u0438\u0440\u0430."
+      \u0441\u0432\u0435\u0442. \r"
+    - "\u041A\u0442\u043E-\u0442\u043E \u0438\u0441\u043A\u0430\u043B \u043E\u0442\u0432\u0435\u0442\u044B
+      \u043D\u0430 \u0441\u0432\u043E\u0438 \u0432\u043E\u043F\u0440\u043E\u0441\u044B,
+      \u0430 \u043A\u0442\u043E-\u0442\u043E \u0432\u043E\u043E\u0431\u0449\u0435
+      \u043D\u0435 \u043F\u043E\u043D\u0438\u043C\u0430\u043B, \u0447\u0442\u043E
+      \u0434\u0432\u0438\u0436\u0435\u0442 \u0438\u043C \u0438 \u043F\u044B\u0442\u0430\u043B\u0441\u044F
+      \u0443\u0439\u0442\u0438 \u043A\u0430\u043A \u043C\u043E\u0436\u043D\u043E
+      \u0434\u0430\u043B\u044C\u0448\u0435 \u043E\u0442 \u044D\u0442\u043E\u0433\u043E
+      \u043C\u0438\u0440\u0430.\r"
     - "\u0425\u043E\u043B\u0435\u0440\u0430... \u0418 \u0447\u0435\u043C \u0436\u0435
       \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u043B\u0438\u0441\u044C \u0438\u0445,
       \u0441\u043A\u0430\u0436\u0435\u043C \u0442\u0430\u043A, \u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F?"
@@ -5353,29 +5355,30 @@ MonoBehaviour:
       \u0443 \u043A\u043E\u0433\u043E-\u0442\u043E \u0430\u043B\u0447\u043D\u043E\u0435
       \u0436\u0435\u043B\u0430\u043D\u0438\u0435 \u0447\u0435\u0433\u043E-\u0442\u043E,
       \u0443 \u043A\u043E\u0433\u043E-\u0442\u043E \u044F\u0432\u043D\u043E \u0432\u0438\u0434\u043D\u0435\u043B\u0430\u0441\u044C
-      \u0432\u0441\u0435\u043B\u0435\u043D\u0441\u043A\u0430\u044F \u043F\u0443\u0441\u0442\u043E\u0442\u0430.
-      \u041D\u043E \u043D\u0438 \u0442\u043E\u0433\u043E, \u043D\u0438 \u0434\u0440\u0443\u0433\u043E\u0433\u043E
+      \u0432\u0441\u0435\u043B\u0435\u043D\u0441\u043A\u0430\u044F \u043F\u0443\u0441\u0442\u043E\u0442\u0430. "
+    - "\u041D\u043E \u043D\u0438 \u0442\u043E\u0433\u043E, \u043D\u0438 \u0434\u0440\u0443\u0433\u043E\u0433\u043E
       \u044F \u043D\u0435 \u0432\u0438\u0436\u0443 \u0432 \u0442\u0435\u0431\u0435.
       \u0422\u044B \u043D\u0435 \u0438\u0449\u0435\u0448\u044C \u0441\u043E\u043A\u0440\u043E\u0432\u0438\u0449,
       \u0442\u044B \u043E\u0447\u0435\u043D\u044C \u0437\u043E\u043B \u043D\u0430
       \u0447\u0442\u043E-\u0442\u043E, \u0447\u0442\u043E-\u0442\u043E \u0432\u043E\u043B\u043D\u0443\u0435\u0442
       \u0442\u0435\u0431\u044F, \u043D\u043E \u0447\u0442\u043E \u0438\u043C\u0435\u043D\u043D\u043E...
       (\u0441\u043C\u043E\u0442\u0440\u0438\u0442 \u0432 \u0433\u043B\u0430\u0437\u0430
-      \u0440\u044B\u0446\u0430\u0440\u044E)"
+      \u0440\u044B\u0446\u0430\u0440\u044E)\r"
     - "(\u0432\u0437\u0434\u044B\u0445\u0430\u0435\u0442) \u041C\u0435\u043D\u044F
       \u043F\u0440\u0438\u0432\u0435\u043B\u0430 \u0441\u044E\u0434\u0430 \u043A\u0430\u0440\u0442\u0430,
       \u0441 \u043E\u0442\u043C\u0435\u0442\u043A\u043E\u0439. \u0415\u0435 \u043E\u0441\u0442\u0430\u0432\u0438\u043B\u0438
       \u0432 \u043C\u043E\u0435\u043C \u0434\u043E\u043C\u0435 \u0442\u0435, \u043A\u0442\u043E
       \u0440\u0430\u0437\u0433\u0440\u043E\u043C\u0438\u043B \u0435\u0433\u043E,
-      \u043D\u0438 \u043E\u0441\u0442\u0430\u0432\u0438\u043B \u043D\u0438\u0447\u0435\u0433\u043E
-      \u043D\u0430 \u0441\u0432\u043E\u0435\u043C \u043C\u0435\u0441\u0442\u0435.
-      \u041E\u0441\u043A\u043E\u0440\u0431\u0438\u043B\u0438 \u043C\u043E\u044E \u0447\u0435\u0441\u0442\u044C,
-      \u0438 \u0447\u0435\u0441\u0442\u044C \u043C\u043E\u0435\u0433\u043E \u043F\u043E\u043A\u043E\u0439\u043D\u043E\u0433\u043E
-      \u043E\u0442\u0446\u0430. \u0430 \u0441\u0430\u043C\u043E\u0435 \u0433\u043B\u0430\u0432\u043D\u043E\u0435,
+      \u043D\u0435 \u043E\u0441\u0442\u0430\u0432\u0438\u0432 \u043D\u0438\u0447\u0435\u0433\u043E
+      \u043D\u0430 \u0441\u0432\u043E\u0435\u043C \u043C\u0435\u0441\u0442\u0435. "
+    - "\u041E\u0441\u043A\u043E\u0440\u0431\u0438\u043B\u0438 \u043C\u043E\u044E
+      \u0447\u0435\u0441\u0442\u044C, \u0438 \u0447\u0435\u0441\u0442\u044C \u043C\u043E\u0435\u0433\u043E
+      \u043F\u043E\u043A\u043E\u0439\u043D\u043E\u0433\u043E \u043E\u0442\u0446\u0430,
+      \u0430 \u0441\u0430\u043C\u043E\u0435 \u0433\u043B\u0430\u0432\u043D\u043E\u0435,
       \u043E\u0442\u043D\u044F\u043B\u0438 \u0443 \u043C\u0435\u043D\u044F \u0432\u0441\u0435,
       \u0447\u0442\u043E \u043D\u0430\u043F\u043E\u043C\u0438\u043D\u0430\u043B\u043E
       \u043C\u043D\u0435 \u043E \u043D\u0435\u043C - \u0435\u0433\u043E \u0440\u044B\u0446\u0430\u0440\u0441\u043A\u0438\u0439
-      \u0434\u043E\u0441\u043F\u0435\u0445."
+      \u0434\u043E\u0441\u043F\u0435\u0445.\r"
     - "(\u0432\u0437\u0434\u044B\u0445\u0430\u0435\u0442) \u0422\u044B \u0441\u043E\u0432\u0441\u0435\u043C
       \u043D\u0435 \u043F\u043E\u0445\u043E\u0436 \u043D\u0430 \u0442\u0435\u0445,
       \u043A\u0442\u043E \u043F\u0440\u0438\u0445\u043E\u0434\u0438\u043B \u0441\u044E\u0434\u0430
@@ -9449,18 +9452,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945258700}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1087195679}
+  m_Father: {fileID: 1367530694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 885.2, y: 466}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -15, y: -14}
   m_SizeDelta: {x: 120, y: 120}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &945258702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9644,7 +9647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   i: 4
-  Player: {fileID: 0}
+  Player: {fileID: 1063760471}
   Panel: {fileID: 1367530690}
 --- !u!1 &946694818
 GameObject:
@@ -11038,13 +11041,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 387206661}
-  - {fileID: 945258701}
   m_Father: {fileID: 1367530694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1124231196
 GameObject:
@@ -13999,6 +14001,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 945258701}
   - {fileID: 1087195679}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14961,6 +14964,10 @@ PrefabInstance:
     - target: {fileID: 2508404254036861548, guid: 5da7b1912ca6f1640a219dbfd4f88bb2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207130084045838989, guid: 5da7b1912ca6f1640a219dbfd4f88bb2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 16.69226
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18199,7 +18206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   i: 3
-  Player: {fileID: 0}
+  Player: {fileID: 1063760471}
   Panel: {fileID: 1367530690}
 --- !u!1 &1877025329
 GameObject:
