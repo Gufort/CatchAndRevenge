@@ -316,8 +316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1bc738f00d840e4fbe246eb93e293e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioClip: {fileID: 8300000, guid: 5901f2efbd2e0fe48b36a145f5876c0f, type: 3}
-  _audioSource: {fileID: 0}
   _dm: {fileID: 0}
   _dialogueTrigger: {fileID: 0}
   _startingState: 1
@@ -329,7 +327,7 @@ MonoBehaviour:
   _chasingSpeedMultiplier: 1.5
   _isAttacking: 1
   _attackingDistance: 3
-  _attackRate: 1
+  _attackRate: 2
   isDialogueEnded: 0
 --- !u!114 &2120257272505013053
 MonoBehaviour:

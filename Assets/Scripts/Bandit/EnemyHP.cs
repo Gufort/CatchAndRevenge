@@ -75,8 +75,13 @@ public class EnemyHP : MonoBehaviour
         _polygonCollider.enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D other){
-        if(other.transform.TryGetComponent(out PlayerController player) && !_isDead){
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Проверяем, что столкновение происходит с полигональным коллайдером
+        if (other.transform.TryGetComponent(out PlayerController player) && 
+            !_isDead && 
+            other.IsTouching(_polygonCollider))
+        {
             player.TakeDamage(transform, _enemySO.damage);
             Vector3 playerPosition = PlayerController.instance.transform.position;
             Vector3 direction = (playerPosition - transform.position).normalized;
