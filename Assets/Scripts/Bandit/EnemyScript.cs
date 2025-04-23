@@ -21,6 +21,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private float _attackingDistance = 1f;
     [SerializeField] private float _attackRate = 2f;
+    [SerializeField] private float _maxDistanceToPlayer = 1f;
     private PlayerController _player;
     private float _nextTimeAttack = 0f;
     private float _chasingDistance;
@@ -122,8 +123,16 @@ public class EnemyScript : MonoBehaviour
     }
 
     private void ChasingTarget() {
-        _navMeshAgent.SetDestination(PlayerController.instance.transform.position);
-        ChangeFacingDirection(transform.position, PlayerController.instance.transform.position);
+        Vector3 playerPosition = PlayerController.instance.transform.position;
+        float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
+
+        if (distanceToPlayer > _maxDistanceToPlayer) {
+            _navMeshAgent.SetDestination(playerPosition); 
+        } else {
+            _navMeshAgent.ResetPath();
+        }
+
+        ChangeFacingDirection(transform.position, playerPosition);
     }
 
     private void CheckCurrentState() {

@@ -7,13 +7,13 @@ using UnityEngine.EventSystems;
 
 public class EnemyHP : MonoBehaviour
 {
-    [SerializeField] EnemyScriptableObjects _enemySO;
+    [SerializeField] private EnemyScriptableObjects _enemySO;
     [SerializeField] private int curr_hp;
 
-    [SerializeField] EnemyScript _enemy;
-    [SerializeField] CapsuleCollider2D _capsuleCollider;
-    [SerializeField] PolygonCollider2D _polygonCollider;
-    [SerializeField] BoxCollider2D _boxCollider2D;
+    [SerializeField] private EnemyScript _enemy;
+    [SerializeField] private CapsuleCollider2D _capsuleCollider;
+    [SerializeField] private PolygonCollider2D _polygonCollider;
+    [SerializeField] private BoxCollider2D _boxCollider2D;
     private NavMeshAgent _navMeshAgent;
     public event EventHandler OnDeath;
     public static int curr_hp_to_renderer;
@@ -77,17 +77,11 @@ public class EnemyHP : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Проверяем, что столкновение происходит с полигональным коллайдером
         if (other.transform.TryGetComponent(out PlayerController player) && 
             !_isDead && 
             other.IsTouching(_polygonCollider))
         {
             player.TakeDamage(transform, _enemySO.damage);
-            Vector3 playerPosition = PlayerController.instance.transform.position;
-            Vector3 direction = (playerPosition - transform.position).normalized;
-
-            UnityEngine.Vector2 pushDirection = direction; 
-            player.transform.position += (UnityEngine.Vector3)(pushDirection * 0.1f);
         }
     }
 }

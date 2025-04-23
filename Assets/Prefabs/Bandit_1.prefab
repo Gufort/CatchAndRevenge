@@ -326,8 +326,9 @@ MonoBehaviour:
   _isChasing: 1
   _chasingSpeedMultiplier: 1.5
   _isAttacking: 1
-  _attackingDistance: 3
-  _attackRate: 2
+  _attackingDistance: 2
+  _attackRate: 3
+  _maxDistanceToPlayer: 2
   isDialogueEnded: 0
 --- !u!114 &2120257272505013053
 MonoBehaviour:

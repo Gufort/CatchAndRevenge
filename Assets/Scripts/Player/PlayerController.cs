@@ -6,7 +6,7 @@ public class PlayerController : SoundMaster
 {
     [SerializeField] private int max_hp;
     [SerializeField] private float _damageRecoveryTime = 0.5f;
-    [SerializeField] private bool _canTakeDamage;
+    public bool _canTakeDamage;
     private PlayerDeath _playerDeath;
     static public int curr_hp_to_renderer;
 
