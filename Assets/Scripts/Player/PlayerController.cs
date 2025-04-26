@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class PlayerController : SoundMaster
@@ -13,13 +14,14 @@ public class PlayerController : SoundMaster
     public static PlayerController instance{get;private set;}
     public float speed;
     public Animator animator;
-    private Vector2 direction;
+    private UnityEngine.Vector2 direction;
     private Rigidbody2D rb;
     private bool isMoving = false;
     public int curr_hp = 100;
     public VectorValue pos;
     public Transform attackCollider;
     public bool canMove = true;
+    private UnityEngine.Vector2 _lastDirection;
 
     private void Awake() {
         curr_hp = 100;
@@ -47,15 +49,16 @@ public class PlayerController : SoundMaster
             animator.SetFloat("Vertical", direction.y);
             animator.SetFloat("Speed", direction.sqrMagnitude);
 
-
             if (direction.sqrMagnitude > 0)
             {
+                _lastDirection = direction.normalized;
                 if (!isMoving)
                 {
                     PlaySound(sounds[0], volume: 0.4f, loop: true, p1: 0.9f, p2: 1f);
                     isMoving = true;
                 }
             }
+
             else
             {
                 if (isMoving)
@@ -67,34 +70,37 @@ public class PlayerController : SoundMaster
 
             if (direction.y > 0)
             {
-                attackCollider.rotation = Quaternion.Euler(0, 0, 90);
-                attackCollider.position = new Vector2(transform.position.x, transform.position.y + 1f);
+                attackCollider.rotation = UnityEngine.Quaternion.Euler(0, 0, 90);
+                attackCollider.position = new UnityEngine.Vector2(transform.position.x, transform.position.y + 1f);
             }
             else if (direction.y < 0)
             {
-                attackCollider.rotation = Quaternion.Euler(0, 0, -90);
-                attackCollider.position = new Vector2(transform.position.x, transform.position.y - 1f);
+                attackCollider.rotation = UnityEngine.Quaternion.Euler(0, 0, -90);
+                attackCollider.position = new UnityEngine.Vector2(transform.position.x, transform.position.y - 1f);
             }
             else if (direction.x < 0)
             {
-                attackCollider.rotation = Quaternion.Euler(0, 0, 180);
-                attackCollider.position = new Vector2(transform.position.x - 1f, transform.position.y);
+                attackCollider.rotation = UnityEngine.Quaternion.Euler(0, 0, 180);
+                attackCollider.position = new UnityEngine.Vector2(transform.position.x - 1f, transform.position.y);
             }
             else if (direction.x > 0)
             {
-                attackCollider.rotation = Quaternion.Euler(0, 0, 0);
-                attackCollider.position = new Vector2(transform.position.x + 1f, transform.position.y);
+                attackCollider.rotation = UnityEngine.Quaternion.Euler(0, 0, 0);
+                attackCollider.position = new UnityEngine.Vector2(transform.position.x + 1f, transform.position.y);
             }
 
             if (direction.x < 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new UnityEngine.Vector3(-1, 1, 1);
             }
 
             else if (direction.x > 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new UnityEngine.Vector3(1, 1, 1);
             }
+
+            animator.SetFloat("HorizontalStay", _lastDirection.x);
+            animator.SetFloat("VerticalStay", _lastDirection.y);
         }
         else
         {
