@@ -40,6 +40,16 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+        GameObject player = GameObject.FindWithTag("Player");
+        Debug.Log("!Exiting to menu, saving information!");
+        int scene = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Current scene: " + scene);
+        PlayerPrefs.SetInt("SceneContinue", scene);
+        Debug.Log("Player X pos: " + player.transform.position.x);
+        // PlayerPrefs.SetFloat("PosX", player.transform.position.x);
+        // PlayerPrefs.SetFloat("PosY", player.transform.position.y);
+        // PlayerPrefs.SetFloat("PosZ", player.transform.position.z);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("Menu");
     }
 }
