@@ -44,12 +44,33 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("!Exiting to menu, saving information!");
         int scene = SceneManager.GetActiveScene().buildIndex;
         Debug.Log("Current scene: " + scene);
+        Debug.Log("Trying to save inventory...");
+        SaveInventory();
         PlayerPrefs.SetInt("SceneContinue", scene);
-        Debug.Log("Player X pos: " + player.transform.position.x);
-        // PlayerPrefs.SetFloat("PosX", player.transform.position.x);
-        // PlayerPrefs.SetFloat("PosY", player.transform.position.y);
-        // PlayerPrefs.SetFloat("PosZ", player.transform.position.z);
-        PlayerPrefs.Save();
         SceneManager.LoadScene("Menu");
+    }
+
+    private void SaveInventory()
+    {
+        Transform child;
+        Inventory inventory = GameObject.Find("Player").GetComponent<Inventory>();
+        if (!(inventory == null))
+        {
+            Debug.Log("Inventory was found!");
+            for (int i = 0; i < inventory.slots.Length; i++)
+                {
+                    Debug.Log("Parent: " + inventory.slots[i].gameObject.name);
+                    if (inventory.isFull[i])
+                    {
+                        if (inventory.slots[i].transform.childCount > 0) {
+                            child = inventory.slots[i].transform.GetChild(0);
+                            Debug.Log("Child: " + child.gameObject.name);
+                            string clearName = child.gameObject.name.Replace("(Clone)", "");
+                            PlayerPrefs.SetInt($"Inventory{clearName}", 1);
+                        }
+                        break;
+                    }
+                }
+        }
     }
 }

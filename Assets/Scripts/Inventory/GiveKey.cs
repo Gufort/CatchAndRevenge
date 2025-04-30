@@ -10,6 +10,7 @@ public class GiveKey : MonoBehaviour
     [SerializeField] private DialogueTrigger _dialogueTrigger;
     [SerializeField] private GameObject _levelChange;
     [SerializeField] private GameObject _textUnderLevelChange;
+    private int _dialogueID = 9;
     private Inventory _inventory;
     private bool _isTriggered;
  
@@ -20,7 +21,7 @@ public class GiveKey : MonoBehaviour
  
     void Update()
     {
-        if (_dialogueManager != null && _dialogueManager.isTrueEnd && !_isTriggered && _dialogueTrigger.alreadyTriggered)
+        if (_dialogueManager != null && _dialogueManager.isTrueEnd && !_isTriggered && (PlayerPrefs.GetInt($"DialogueTriggered+{_dialogueID}") == 1))
         {
             _isTriggered = true;
             _textUnderLevelChange.SetActive(true);

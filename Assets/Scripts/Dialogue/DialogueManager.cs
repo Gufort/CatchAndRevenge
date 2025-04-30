@@ -31,6 +31,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         sentences = new Queue<string>();
+        isTrueEnd = PlayerPrefs.GetInt("DialogueEnd", 0) == 0 ? false : true;
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -98,6 +99,7 @@ public class DialogueManager : MonoBehaviour
         if (isDialogueEnd())
         {
             isTrueEnd = true;
+            PlayerPrefs.SetInt("DialogueEnd", 1);
             EndDialogue();
             return;
         }

@@ -16,11 +16,13 @@ public class UI_MysteryInputWindow : MonoBehaviour
     public DialogueTrigger dialogueTrigger;
     public GameObject giveList;
     public Rigidbody2D rigidbody2d;
+    private int _dialogueID = 10;
 
     public static string answer = "ответственность";
     void Update()
     {
-        if (dialogueManager != null && dialogueManager.isTrueEnd && !activatedYet)
+        //Debug.Log("Dialogue 10 is triggered: " + PlayerPrefs.GetInt($"DialogueTriggered+{_dialogueID}", 0));
+        if (dialogueManager != null && dialogueManager.isTrueEnd && !activatedYet && (PlayerPrefs.GetInt($"DialogueTriggered+{_dialogueID}", 0) == 1))
         {
             mysteryInputWindow.SetActive(true);
             rigidbody2d.simulated = false;

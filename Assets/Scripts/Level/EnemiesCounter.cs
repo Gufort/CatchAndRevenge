@@ -18,24 +18,26 @@ public class EnemiesCounter : MonoBehaviour
 
     private void Update()
     {
-        foreach(var archer in _arrayOfArcher.ToArray())
-            if(archer._isDie){
-                _arrayOfArcher.Remove(archer);
-                countOfEnemies--;
-                PlayerPrefs.SetInt("CountEnemy",countOfEnemies);
-                PlayerPrefs.Save();
-                if(countOfEnemies == 0) _collider.SetActive(true);
-            }
-        
-        foreach(var bandit in _arrayOfBandits.ToArray())
-            if(bandit._isDead){
-                _arrayOfBandits.Remove(bandit);
-                countOfEnemies--;
-                PlayerPrefs.SetInt("CountEnemy",countOfEnemies);  
-                PlayerPrefs.Save(); 
-                if(countOfEnemies == 0) _collider.SetActive(true);           
-            }
-        
+        if (countOfEnemies == 0)
+            _collider.SetActive(true);
+        else
+        {
+            foreach(var archer in _arrayOfArcher.ToArray())
+                if(archer._isDie){
+                    _arrayOfArcher.Remove(archer);
+                    countOfEnemies--;
+                    PlayerPrefs.SetInt("CountEnemy",countOfEnemies);
+                    PlayerPrefs.Save();
+                }
+            
+            foreach(var bandit in _arrayOfBandits.ToArray())
+                if(bandit._isDead){
+                    _arrayOfBandits.Remove(bandit);
+                    countOfEnemies--;
+                    PlayerPrefs.SetInt("CountEnemy",countOfEnemies);  
+                    PlayerPrefs.Save();      
+                }
+        }
     }
 
     public int getCount() { return countOfEnemies; }
