@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BlackScene.unity
     guid: 3fb6eb53647faed8d84bb23b895a8664
+  - enabled: 1
+    path: Assets/Scenes/level_3_bridge.unity
+    guid: dff348af412da434a909880eca5bdc13
+  - enabled: 1
+    path: Assets/Scenes/level_3_wasteland.unity
+    guid: fb93f86a8c946db488107f566d0260b9
   m_configObjects: {}
