@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3bf95af12fc2284449292eeffbfdb43f
+guid: 449245feb2b6318468a23b1d1644bd89
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: desert_down_right_0
+      name: third_ruined_building_0
       rect:
         serializedVersion: 2
-        x: 444
-        y: 217
-        width: 1200
-        height: 600
+        x: 895
+        y: 402
+        width: 205
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d3099a803a664f4e9cced60e9248653
-      internalID: 1892706114
+      spriteID: 72af6189cdc481d438c8afd14e0d4972
+      internalID: 1835301628
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      desert_down_right_0: 1892706114
+      third_ruined_building_0: 1835301628
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
