@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 449245feb2b6318468a23b1d1644bd89
+guid: 9d680edfb5e7e3d4f94837fa9427cc07
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: third_ruined_building_0
+      name: second_desert_tree_0
       rect:
         serializedVersion: 2
-        x: 895
-        y: 402
-        width: 205
-        height: 125
+        x: 945
+        y: 204
+        width: 454
+        height: 509
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bfde52387f432b43938bee0929bb1ed
-      internalID: 1292000918
+      spriteID: 9364ee7af771da343b9087808e6e7694
+      internalID: -580338171
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      third_ruined_building_0: 1292000918
+      second_desert_tree_0: 354112126
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
