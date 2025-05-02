@@ -10,7 +10,7 @@ public class GiveKey : MonoBehaviour
     [SerializeField] private DialogueTrigger _dialogueTrigger;
     [SerializeField] private GameObject _levelChange;
     [SerializeField] private GameObject _textUnderLevelChange;
-    private int _dialogueID = 9;
+    [SerializeField] private int _dialogueID = 9;
     private Inventory _inventory;
     private bool _isTriggered;
  

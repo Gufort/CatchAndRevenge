@@ -8,7 +8,7 @@ public class CreateQuest : MonoBehaviour
     public GameObject dialogueBox;
     public GameObject MushroomsBasket;
     private bool IsTriggered;
-    private int _dialogueID = 7;
+    [SerializeField] private int _dialogueID = 7;
 
     void Update()
     {
