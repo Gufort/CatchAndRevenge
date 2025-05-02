@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &3422287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7561950446626175421, guid: bac6062aeb1884d479e2b6df4e3f7064, type: 3}
+  m_PrefabInstance: {fileID: 1707461712}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &29952005
 GameObject:
   m_ObjectHideFlags: 0
@@ -9750,7 +9761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 1040824532}
-  volumeSlider: {fileID: 0}
+  volumeSlider: {fileID: 3422287}
 --- !u!82 &1040824532
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13868,7 +13879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9207130084045838989, guid: 5da7b1912ca6f1640a219dbfd4f88bb2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 16.69226
+      value: 16.692139
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

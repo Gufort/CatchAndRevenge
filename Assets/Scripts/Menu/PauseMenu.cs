@@ -54,7 +54,7 @@ public class PauseMenu : MonoBehaviour
     {
         Transform child;
         Inventory inventory = GameObject.Find("Player").GetComponent<Inventory>();
-        if (!(inventory == null))
+        if (!(inventory == null) && (inventory.slots.Length > 0) && !(inventory.slots[0] == null))
         {
             Debug.Log("Inventory was found!");
             for (int i = 0; i < inventory.slots.Length; i++)
@@ -72,5 +72,6 @@ public class PauseMenu : MonoBehaviour
                     }
                 }
         }
+        else { Debug.Log("Inventory is missing on this scene"); }
     }
 }
