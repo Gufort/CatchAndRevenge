@@ -14,6 +14,7 @@ public class EnemyHP : MonoBehaviour
     [SerializeField] private CapsuleCollider2D _capsuleCollider;
     [SerializeField] private GameObject _attackZone;
     [SerializeField] private BoxCollider2D _boxCollider2D;
+    private Animator _animator;
     private PolygonCollider2D _polygonCollider;
     private NavMeshAgent _navMeshAgent;
     public event EventHandler OnDeath;
@@ -22,6 +23,7 @@ public class EnemyHP : MonoBehaviour
 
     void Awake()
     {
+        _animator = GetComponent<Animator>();
         _enemy = GetComponent<EnemyScript>();
         _capsuleCollider = GetComponent<CapsuleCollider2D>();
         _polygonCollider = _attackZone.GetComponent<PolygonCollider2D>();
@@ -46,6 +48,14 @@ public class EnemyHP : MonoBehaviour
         Debug.Log("Enemy take damage!");
 
         Die();
+        _animator.SetBool("TakeDamage", true);
+        StartCoroutine(DamageRecoveryRoutine());
+    }
+
+    private IEnumerator DamageRecoveryRoutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _animator.SetBool("TakeDamage", false);
     }
 
     private void Die()

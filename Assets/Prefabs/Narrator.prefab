@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3590276798090708197}
   - component: {fileID: 1112310138418415490}
   - component: {fileID: 5784917451289567237}
+  - component: {fileID: 1583984937358088230}
   m_Layer: 0
   m_Name: Narrator
   m_TagString: Untagged
@@ -294,6 +295,7 @@ MonoBehaviour:
   _attackPoint: {fileID: 5108549675016369293}
   _prefabFireBoll: {fileID: 3210850678159083106, guid: 9fdbf81de4601d74097e238a5df3077b, type: 3}
   _soundClip: {fileID: 8300000, guid: 02a9e98104d241d4fbccc93f73946b42, type: 3}
+  _spreedAngle: 30
 --- !u!82 &5784917451289567237
 AudioSource:
   m_ObjectHideFlags: 0
@@ -390,6 +392,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1583984937358088230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317423450820702376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e686bd5ed69b344a170903c6e05345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _narratorSO: {fileID: 11400000, guid: f3a4dce18a5271046871cbb1f1103fa6, type: 2}
+  _currentHP: 100
+  _narratorMove: {fileID: 0}
+  _capsuleCollider2D: {fileID: 0}
+  _boxCollider2D: {fileID: 0}
+  _isDie: 0
 --- !u!1 &6435304783460062694
 GameObject:
   m_ObjectHideFlags: 0
