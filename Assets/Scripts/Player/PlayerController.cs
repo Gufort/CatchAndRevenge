@@ -107,18 +107,25 @@ public class PlayerController : SoundMaster
             return;
         }
     }
-    public void TakeDamage(Transform source, int damage){
-        if(_canTakeDamage){
+   public void TakeDamage(Transform source, int damage)
+    {
+        if(_canTakeDamage)
+        {
+            animator.SetBool("TakeDamage", true);
             _canTakeDamage = false;
-            curr_hp = Mathf.Max(0,curr_hp-=damage);
+            curr_hp = Mathf.Max(0, curr_hp - damage);
             Debug.Log($"Current Health - {curr_hp}");
 
             StartCoroutine(DamageRecoveryRoutine());
         }
     }
 
-    private IEnumerator DamageRecoveryRoutine(){
-        yield return new WaitForSeconds(_damageRecoveryTime);
+    private IEnumerator DamageRecoveryRoutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("TakeDamage", false);
+        
+        yield return new WaitForSeconds(_damageRecoveryTime - 0.1f);
         _canTakeDamage = true;
     }
 

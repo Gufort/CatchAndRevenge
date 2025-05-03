@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5d9ce210bb55c6a44838691f444b072b
+guid: b08242f3123693b4b93b4b91160f1951
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: first_desert_tree_0
+      name: down_left_corner_0
       rect:
         serializedVersion: 2
-        x: 965
-        y: 243
-        width: 414
-        height: 477
+        x: 255
+        y: 258
+        width: 1201
+        height: 602
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73ff6bf64b7807f4caf9bab3ad04e3cc
-      internalID: 958035465
+      spriteID: 22cfd17bd29fcef4aa2e2de6e298dd21
+      internalID: 1038407715
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      first_desert_tree_0: 958035465
+      down_left_corner_0: 1038407715
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

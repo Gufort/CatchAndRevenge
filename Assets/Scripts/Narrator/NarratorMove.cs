@@ -133,6 +133,12 @@ public class NarratorMove : MonoBehaviour
         ChangeFacingDirection(transform.position, playerPosition);
     }
 
+    public void setDeath(){
+        _navMeshAgent.ResetPath();
+        _currentState = State.Death;
+    }
+
+
     private void CheckCurrentState() {
         float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
         State newState = _currentState;

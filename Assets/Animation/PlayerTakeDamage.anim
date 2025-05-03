@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ArcherDamage
+  m_Name: PlayerTakeDamage
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 1f6622b313ce5d64ba7bf08677dfe74d, type: 3}
-    - time: 0.18333334
-      value: {fileID: 21300000, guid: d98949ec15934284aac87365ed3a972a, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: efefca043bc1aeb42bda09841972f278, type: 3}
-    - time: 0.41666666
-      value: {fileID: 21300000, guid: efefca043bc1aeb42bda09841972f278, type: 3}
+      value: {fileID: 21300000, guid: de646ffc0a288d644a55da5a82945d2d, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: 3c4b0ff1a0170ea40bb0cf37cd23dcae, type: 3}
+    - time: 0.2
+      value: {fileID: 21300000, guid: 1319bd012a61a264fb581481809ce82a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,16 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 1f6622b313ce5d64ba7bf08677dfe74d, type: 3}
-    - {fileID: 21300000, guid: d98949ec15934284aac87365ed3a972a, type: 3}
-    - {fileID: 21300000, guid: efefca043bc1aeb42bda09841972f278, type: 3}
-    - {fileID: 21300000, guid: efefca043bc1aeb42bda09841972f278, type: 3}
+    - {fileID: 21300000, guid: de646ffc0a288d644a55da5a82945d2d, type: 3}
+    - {fileID: 21300000, guid: 3c4b0ff1a0170ea40bb0cf37cd23dcae, type: 3}
+    - {fileID: 21300000, guid: 1319bd012a61a264fb581481809ce82a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.43333334
+    m_StopTime: 0.21666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
