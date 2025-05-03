@@ -6,12 +6,14 @@ using UnityEngine;
 public class NarratorHP : MonoBehaviour
 {
     [Header("Настройки показателей здоровья рассказчика: \n")]
-    [SerializeField] NarratorScriptableObjects _narratorSO;
+    [SerializeField] private NarratorScriptableObjects _narratorSO;
+    [SerializeField] private NarratorMove _narratorMove;
+    [SerializeField] private CapsuleCollider2D _capsuleCollider2D;
     [SerializeField] private int _currentHP;
-    [SerializeField] NarratorMove _narratorMove;
-    [SerializeField] CapsuleCollider2D _capsuleCollider2D;
-    [SerializeField] BoxCollider2D _boxCollider2D;
+    [SerializeField] private BoxCollider2D _boxCollider2D;
+    public static int curr_hp_to_renderer;
     public event EventHandler OnDeath;
+    private bool _canTakeDamage = true;
     private Animator _animator;
     public bool _isDie;
 
@@ -29,21 +31,29 @@ public class NarratorHP : MonoBehaviour
         }
     }
 
+
     public void TakeDamage(int damage){
+        if(!_canTakeDamage || _isDie) return;
+        
+        _canTakeDamage = false;
         _animator.SetBool("TakeDamage", true);
         _currentHP -= damage;
         PlayerPrefs.SetInt("Narrator", _currentHP);
         PlayerPrefs.Save();
-        Debug.Log("Narrator take damage!");
-
+        
         Die();
         StartCoroutine(DamageRecoveryRoutine());
     }
 
-    private IEnumerator DamageRecoveryRoutine()
-    {
+    private IEnumerator DamageRecoveryRoutine(){
         yield return new WaitForSeconds(0.1f);
         _animator.SetBool("TakeDamage", false);
+        _canTakeDamage = true;
+    }
+
+    private void Update()
+    {
+        curr_hp_to_renderer = _currentHP;
     }
 
     public void Die(){
@@ -57,7 +67,7 @@ public class NarratorHP : MonoBehaviour
             _isDie = true;
             PlayerPrefs.SetInt("Narrator", 0);
             PlayerPrefs.Save();
-            Debug.Log("Archer die!");
+            Debug.Log("Narrator die!");
         }
     }
 }

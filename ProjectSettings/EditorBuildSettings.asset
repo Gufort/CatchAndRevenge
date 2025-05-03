@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level_3_wasteland.unity
     guid: fb93f86a8c946db488107f566d0260b9
+  - enabled: 1
+    path: Assets/Scenes/final_arena.unity
+    guid: c11358e9114471c479e669ce9b56492c
+  - enabled: 1
+    path: Assets/Scenes/final_house.unity
+    guid: 7e04ef57d9d7e2755acf0f8927c4a628
   m_configObjects: {}

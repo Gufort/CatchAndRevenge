@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: NarratorSO
   m_EditorClassIdentifier: 
   damage: 10
-  curr_hp: 100
+  curr_hp: 1000
+  max_hp: 1000
