@@ -132,5 +132,12 @@ public class PlayerFight : SoundMaster
                 StartCoroutine(DelayBeforePushAwayAndPush(archer.transform, pushDirection));
             }
         }
+
+        else if(isAttacking && collider2D.transform.TryGetComponent(out NarratorHP narrator)){
+            narrator.TakeDamage(damage);
+
+            Vector2 pushDirection = (narrator.transform.position - transform.position).normalized; 
+            StartCoroutine(DelayBeforePushAwayAndPush(narrator.transform, pushDirection));
+        }
     }
 }

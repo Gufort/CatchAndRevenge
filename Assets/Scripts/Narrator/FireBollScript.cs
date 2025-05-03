@@ -39,7 +39,7 @@ public class FireBollScript : MonoBehaviour
             UnityEngine.Vector2 pushDirection = _direction.normalized; 
             player.transform.position += (UnityEngine.Vector3)(pushDirection * _pushDistance);
             Destroy(gameObject);
-            Debug.Log("Arrow destroyed");
+            Debug.Log("Fireboll destroyed");
             player.TakeDamage(transform, _damage);
         }
     }
