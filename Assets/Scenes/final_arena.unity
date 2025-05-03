@@ -149,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1112310138418415490, guid: 7acc722a5a67335488237fa92bf253a2, type: 3}
       propertyPath: _attackCoolDown
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1112310138418415490, guid: 7acc722a5a67335488237fa92bf253a2, type: 3}
       propertyPath: _prefabFireBall
@@ -1912,7 +1912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e5315e9dbd64143b9a2b7174aa3d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _narratorSO: {fileID: 1242345478}
   healthText: {fileID: 2007765740}
 --- !u!114 &889919281
 MonoBehaviour:
@@ -2086,17 +2085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1242345478 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1583984937358088230, guid: 7acc722a5a67335488237fa92bf253a2, type: 3}
-  m_PrefabInstance: {fileID: 65435589}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e686bd5ed69b344a170903c6e05345, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1242888208
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,7 +2117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 854780667}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &1242888210
@@ -2154,7 +2142,7 @@ MonoBehaviour:
   m_Follow: {fileID: 476187109}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 4
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -3053,7 +3041,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class NarratorAttack : MonoBehaviour
 {
      [Header("Настройки атаки: \n")]
@@ -14,6 +13,7 @@ public class NarratorAttack : MonoBehaviour
     [SerializeField] private float _countOfFireBall = 9f;
     [SerializeField] private float _rangeForSplashAttack = 5f;
     [SerializeField] private NarratorScriptableObjects _narratorSO;
+    private int _countOfAttack;
     private Animator _animator;
     private bool _isAttacking = false;
     private AudioSource _audioSource;
@@ -88,16 +88,17 @@ public class NarratorAttack : MonoBehaviour
 
     
     private void DifferentStates(){
-        if(_narratorSO.curr_hp > _narratorSO.max_hp * 0.8){
+        if(NarratorHP.curr_hp_to_renderer > _narratorSO.max_hp * 0.8){
             if(UnityEngine.Random.Range(1,3) == 1)
                 StandartAttack();
             else FanAttack();
         }
-        else if(_narratorSO.curr_hp < _narratorSO.max_hp * 0.8 
-            && _narratorSO.curr_hp > _narratorSO.max_hp * 0.4){
+        else if(NarratorHP.curr_hp_to_renderer < _narratorSO.max_hp * 0.8 
+            && NarratorHP.curr_hp_to_renderer > _narratorSO.max_hp * 0.4){
             if(UnityEngine.Random.Range(1,3) == 1)
                 FanAttack();
             else CircleAttack();
+            _attackCoolDown--;
         }
         else{
             int rand = UnityEngine.Random.Range(1,4);
@@ -105,6 +106,16 @@ public class NarratorAttack : MonoBehaviour
                 FanAttack();
             else if(rand == 2) CircleAttack();
             else SplashAttack();
+            _attackCoolDown--;
+        }
+
+        if(_countOfAttack != 2){
+            _attackCoolDown = 1f;
+            _countOfAttack++;
+        }
+        else {
+            _attackCoolDown = 5f;
+            _countOfAttack = 0;
         }
     }
 
