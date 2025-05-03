@@ -9,7 +9,7 @@ public class EnemiesCounter : MonoBehaviour
     [SerializeField] private List<ArcherHP> _arrayOfArcher;
     [SerializeField] private GameObject _collider;
     [SerializeField] private GameObject _colliderOld;
-    private int countOfEnemies = 12;
+    [SerializeField] private int countOfEnemies = 12;
 
     private void Start()
     {
