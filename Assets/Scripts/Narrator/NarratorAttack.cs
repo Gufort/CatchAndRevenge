@@ -8,9 +8,10 @@ public class NarratorAttack : MonoBehaviour
     [SerializeField] private float _attackRange = 15f;
     [SerializeField] private float _attackCoolDown = 5f;
     [SerializeField] private Transform _attackPoint;
-    [SerializeField] private GameObject _prefabFireBoll;
+    [SerializeField] private GameObject _prefabFireBall;
     [SerializeField] private AudioClip _soundClip;
     [SerializeField] private float _spreedAngle = 30f;
+    [SerializeField] private float _countOfFireBall = 9f;
     private Animator _animator;
     private bool _isAttacking = false;
     private AudioSource _audioSource;
@@ -26,7 +27,7 @@ public class NarratorAttack : MonoBehaviour
 
     private void StandartAttack(){
         _lastShotTime = Time.time;
-        GameObject fireBoll = Instantiate(_prefabFireBoll,_attackPoint.position, Quaternion.identity);
+        GameObject fireBoll = Instantiate(_prefabFireBall,_attackPoint.position, Quaternion.identity);
         FireBollScript boll = fireBoll.GetComponent<FireBollScript>();
 
         Vector2 direction = (PlayerController.instance.transform.position - _attackPoint.position).normalized;
@@ -44,7 +45,20 @@ public class NarratorAttack : MonoBehaviour
         for(int i = 0; i < 3; ++i){
             float angle = _spreedAngle*(i/2f - 0.5f); //угол между фаерболами
             Vector2 devDirection = Quaternion.Euler(0,0,angle) * direction;
-            GameObject fireBoll = Instantiate(_prefabFireBoll,_attackPoint.position, Quaternion.identity);
+            GameObject fireBoll = Instantiate(_prefabFireBall,_attackPoint.position, Quaternion.identity);
+            FireBollScript boll = fireBoll.GetComponent<FireBollScript>();
+            boll.setDirection(devDirection);
+        }
+        _animator.SetBool("Attack", false);
+    }
+
+    private void CircleAttack(){
+        _lastShotTime = Time.time;
+        Vector2 direction = (PlayerController.instance.transform.position - _attackPoint.position).normalized;
+        for(int i = 0; i < _countOfFireBall; ++i){
+             float angle = i * (360f / _countOfFireBall);
+            Vector2 devDirection = Quaternion.Euler(0,0,angle) * direction;
+            GameObject fireBoll = Instantiate(_prefabFireBall,_attackPoint.position, Quaternion.identity);
             FireBollScript boll = fireBoll.GetComponent<FireBollScript>();
             boll.setDirection(devDirection);
         }
@@ -54,11 +68,12 @@ public class NarratorAttack : MonoBehaviour
     private IEnumerator WaitForSoundAndAttack()
     {
         yield return new WaitForSeconds(0.8f);
-        FanAttack();
+        CircleAttack();
         _isAttacking = false; 
     }
 
-    public bool waitForAttack(){
+    public bool waitForAttack()
+    {
         return _isAttacking;
     }
     public void tryAttack(){
