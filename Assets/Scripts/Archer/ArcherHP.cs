@@ -37,6 +37,13 @@ public class ArcherHP : MonoBehaviour
         Debug.Log("Archer take damage!");
 
         Die();
+        StartCoroutine(DamageRecoveryRoutine());
+    }
+
+    private IEnumerator DamageRecoveryRoutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _animator.SetBool("TakeDamage", false);
     }
 
     public void Die(){
