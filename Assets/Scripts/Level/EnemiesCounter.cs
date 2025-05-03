@@ -8,6 +8,7 @@ public class EnemiesCounter : MonoBehaviour
     [SerializeField] private List<EnemyHP> _arrayOfBandits;
     [SerializeField] private List<ArcherHP> _arrayOfArcher;
     [SerializeField] private GameObject _collider;
+    [SerializeField] private GameObject _colliderOld;
     private int countOfEnemies = 12;
 
     private void Start()
@@ -19,7 +20,10 @@ public class EnemiesCounter : MonoBehaviour
     private void Update()
     {
         if (countOfEnemies == 0)
+        {
+            _colliderOld.SetActive(false);
             _collider.SetActive(true);
+        }
         else
         {
             foreach(var archer in _arrayOfArcher.ToArray())

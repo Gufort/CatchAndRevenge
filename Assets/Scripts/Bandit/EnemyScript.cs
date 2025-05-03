@@ -72,7 +72,7 @@ public class EnemyScript : MonoBehaviour
     }
 
     private void Update() {
-        isDialogueEnded = _dm.isTrueEnd && _dialogueTrigger.alreadyTriggered;
+        isDialogueEnded = (_dm.isTrueEnd && _dialogueTrigger.alreadyTriggered);
        
 
         MovementDirectionHandler();

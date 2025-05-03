@@ -19,7 +19,7 @@ public class UI_MysteryInputWindow : MonoBehaviour
     private GameObject inventoryButton;
     private GameObject pauseButton;
     private GameObject playerHP;
-    private int _dialogueID = 10;
+    private int _dialogueID = 11;
 
     public static string answer = "ответственность";
 

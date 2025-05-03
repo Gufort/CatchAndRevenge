@@ -5266,7 +5266,6 @@ MonoBehaviour:
   playerAnimator: {fileID: 0}
   playerFight: {fileID: 0}
   soundMaster: {fileID: 0}
-  enemies: []
   isTrueEnd: 0
   rigidbody2d: {fileID: 0}
 --- !u!4 &400248676
@@ -21815,6 +21814,10 @@ PrefabInstance:
       propertyPath: _dm
       value: 
       objectReference: {fileID: 400248675}
+    - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
+      propertyPath: _dialogueTrigger
+      value: 
+      objectReference: {fileID: 2036732319}
     - target: {fileID: 4573366698218494904, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: m_Name
       value: Bandit_17
@@ -26834,6 +26837,57 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!1 &2036732318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2036732320}
+  - component: {fileID: 2036732319}
+  m_Layer: 0
+  m_Name: DialogueTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2036732319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036732318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce5716b9c2debe349589249313ef6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alreadyTriggered: 1
+  dialogue:
+    twoPerson: 0
+    sprite: {fileID: 0}
+    spriteSecond: {fileID: 0}
+    order: 
+    sentences: []
+--- !u!4 &2036732320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036732318}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 132.8115, y: -38.83773, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2043407788
 GameObject:
   m_ObjectHideFlags: 0
@@ -30400,3 +30454,4 @@ SceneRoots:
   - {fileID: 4593271089173354754}
   - {fileID: 1578792688}
   - {fileID: 2097510766}
+  - {fileID: 2036732320}

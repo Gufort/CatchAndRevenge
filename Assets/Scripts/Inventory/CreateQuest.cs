@@ -8,13 +8,14 @@ public class CreateQuest : MonoBehaviour
     public GameObject dialogueBox;
     public GameObject MushroomsBasket;
     private bool IsTriggered;
-    [SerializeField] private int _dialogueID = 7;
+    [SerializeField] private int _dialogueID = 8;
 
     void Update()
     {
         if (!IsTriggered)
         {
-            if (dm.isTrueEnd && (PlayerPrefs.GetInt($"DialogueTriggered+{_dialogueID}") == 1))
+            if (dm.isTrueEnd && ((PlayerPrefs.GetInt($"DialogueTriggered+{_dialogueID}") == 1)
+             || (PlayerPrefs.GetInt($"DialogueTriggered+{_dialogueID + 1}") == 1)))
             {
                 IsTriggered = true;
                 MushroomsBasket.SetActive(true);

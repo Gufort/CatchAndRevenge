@@ -2407,7 +2407,7 @@ Transform:
   m_GameObject: {fileID: 250069925}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.776407, y: -0.046429873, z: -10.010944}
+  m_LocalPosition: {x: 2.2090273, y: -0.0007278919, z: -10.010944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5081,7 +5081,6 @@ MonoBehaviour:
   playerAnimator: {fileID: 1063760469}
   playerFight: {fileID: 1063760468}
   soundMaster: {fileID: 1063760470}
-  enemies: []
   isTrueEnd: 0
   rigidbody2d: {fileID: 1063760466}
 --- !u!4 &451622244
@@ -16936,7 +16935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73fea2cb81ce186d96266f8f380542c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueID: 10
+  DialogueID: 11
   isAutostart: 0
   dt: {fileID: 448420696}
 --- !u!1 &1877020542
