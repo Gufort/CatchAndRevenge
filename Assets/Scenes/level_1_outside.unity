@@ -1740,7 +1740,7 @@ Transform:
   m_GameObject: {fileID: 787287495}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.480262, y: 8.12, z: 10.150398}
+  m_LocalPosition: {x: 8.515821, y: 8.12, z: 10.150398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2990,12 +2990,12 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 2
+  m_StandbyUpdate: 0
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1479079281}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 4.2
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -5438,7 +5438,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.2
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5463,7 +5463,7 @@ Transform:
   m_GameObject: {fileID: 1495080250}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.0024447, y: 0.6612539, z: -10.010944}
+  m_LocalPosition: {x: 5.6468453, y: 0.46118948, z: -10.010944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5682,6 +5682,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9207130084045838989, guid: 5da7b1912ca6f1640a219dbfd4f88bb2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 16.692383
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5878,7 +5882,7 @@ Transform:
   m_GameObject: {fileID: 1654495942}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.22026, y: 8.17, z: 10.150398}
+  m_LocalPosition: {x: 28.25582, y: 8.17, z: 10.150398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
