@@ -7,10 +7,10 @@ public class NarratorHP : MonoBehaviour
 {
     [Header("Настройки показателей здоровья рассказчика: \n")]
     [SerializeField] NarratorScriptableObjects _narratorSO;
-    [SerializeField] private int _currentHP;
     [SerializeField] NarratorMove _narratorMove;
     [SerializeField] CapsuleCollider2D _capsuleCollider2D;
     [SerializeField] BoxCollider2D _boxCollider2D;
+    public int _currentHP;
     public event EventHandler OnDeath;
     private Animator _animator;
     public bool _isDie;
