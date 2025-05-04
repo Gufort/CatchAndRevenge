@@ -8,13 +8,14 @@ public class EnemiesCounter : MonoBehaviour
     [SerializeField] private List<EnemyHP> _arrayOfBandits;
     [SerializeField] private List<ArcherHP> _arrayOfArcher;
     [SerializeField] private GameObject _collider;
-    [SerializeField] private GameObject _colliderOld;
+    [SerializeField] private GameObject _colliderOld = null;
     [SerializeField] private int countOfEnemies = 12;
+    [SerializeField] private int getInt = 12;
 
     private void Start()
     {
         _collider.SetActive(false);
-        countOfEnemies = PlayerPrefs.GetInt("CountEnemy", 12);  
+        countOfEnemies = PlayerPrefs.GetInt("CountEnemy", getInt);  
     }
 
     private void Update()
