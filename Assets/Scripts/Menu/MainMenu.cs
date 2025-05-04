@@ -13,9 +13,21 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayNewGame()
     {
+        float volume = PlayerPrefs.GetFloat("BackgroundVolume", 1f);
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetFloat("BackgroundVolume", volume);
         pos.initialValue = Vector3.zero;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    }
+
+    public void ContinueGame()
+    {
+        if (PlayerPrefs.HasKey("SceneContinue"))
+        {
+            int sceneInd = PlayerPrefs.GetInt("SceneContinue");
+            pos.initialValue = Vector3.zero;
+            SceneManager.LoadScene(sceneInd);
+        }
     }
 
 }

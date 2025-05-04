@@ -113,10 +113,10 @@ TextureImporter:
       name: first_ruined_building_0
       rect:
         serializedVersion: 2
-        x: 619
-        y: 562
-        width: 342
-        height: 125
+        x: 657
+        y: 217
+        width: 81
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

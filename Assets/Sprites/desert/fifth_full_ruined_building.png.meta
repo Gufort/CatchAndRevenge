@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 449245feb2b6318468a23b1d1644bd89
+guid: 823b2c1f72fd046f7bc4e1b48490a347
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 594, y: 218, z: 748, w: 563}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -110,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: third_ruined_building_0
+      name: fifth_full_ruined_building_0
       rect:
         serializedVersion: 2
-        x: 1341
-        y: 389
-        width: 262
+        x: 594
+        y: 217
+        width: 457
         height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bfde52387f432b43938bee0929bb1ed
-      internalID: 1292000918
+      spriteID: 79298e91db682c002be018b9e5ce6a35
+      internalID: 1046666338
       vertices: []
       indices: 
       edges: []
@@ -134,14 +134,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      third_ruined_building_0: 1292000918
+      fifth_full_ruined_building_0: 1046666338
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

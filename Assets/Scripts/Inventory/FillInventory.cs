@@ -21,7 +21,6 @@ public class FillInventory : MonoBehaviour
                     {
                         inventory.isFull[i] = true;
                         Instantiate(item, inventory.slots[i].transform);
-                        PlayerPrefs.SetInt($"Inventory{item.name}", 1);
                         break;
                     }
                 }

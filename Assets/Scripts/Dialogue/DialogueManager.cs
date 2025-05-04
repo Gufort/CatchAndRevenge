@@ -16,7 +16,6 @@ public class DialogueManager : MonoBehaviour
     public Animator playerAnimator;
     public PlayerFight playerFight;
     public SoundMaster soundMaster;
-    public EnemyScript[] enemies;
     private Queue<string> sentences;
     private Queue<int> order;
     private int sizeDif = 120;
@@ -28,9 +27,14 @@ public class DialogueManager : MonoBehaviour
     private Sprite sprite2;
     public bool isTrueEnd = false;
     public Rigidbody2D rigidbody2d;
+    private GameObject inventoryButton;
+    private GameObject pauseButton;
+    private GameObject playerHP;
+
     private void Start()
     {
         sentences = new Queue<string>();
+        isTrueEnd = PlayerPrefs.GetInt("DialogueEnd", 0) == 0 ? false : true;
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -82,13 +86,14 @@ public class DialogueManager : MonoBehaviour
             soundMaster.StopSound();
             soundMaster.enabled = false;
             playerFight.enabled = false;
-            if (isTrueDialogue)
-            {
-                foreach(EnemyScript enemy in enemies)
-                    enemy.enabled = false;
-            }
         }
-        
+
+        inventoryButton = GameObject.Find("Inventory");
+        pauseButton = GameObject.Find("Pause");
+        playerHP = GameObject.Find("PlayerHP");
+        inventoryButton?.SetActive(false);
+        pauseButton?.SetActive(false);
+        playerHP?.SetActive(false);
         DisplayNextSentence();
     }
 
@@ -98,6 +103,7 @@ public class DialogueManager : MonoBehaviour
         if (isDialogueEnd())
         {
             isTrueEnd = true;
+            PlayerPrefs.SetInt("DialogueEnd", 1);
             EndDialogue();
             return;
         }
@@ -168,11 +174,9 @@ public class DialogueManager : MonoBehaviour
             rigidbody2d.simulated = true;
             soundMaster.enabled = true;
             playerFight.enabled = true;
-            if (isTrueDialogue)
-            {
-                foreach(EnemyScript enemy in enemies)
-                    enemy.enabled = true;
-            }
         }
+        inventoryButton?.SetActive(true);
+        pauseButton?.SetActive(true);
+        playerHP?.SetActive(true);
     }
 }
