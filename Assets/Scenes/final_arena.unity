@@ -1498,7 +1498,7 @@ PrefabInstance:
     - target: {fileID: 6105737234679453760, guid: bac6062aeb1884d479e2b6df4e3f7064, type: 3}
       propertyPath: _player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 476187113}
     - target: {fileID: 6105737234679453760, guid: bac6062aeb1884d479e2b6df4e3f7064, type: 3}
       propertyPath: tMP_Text
       value: 
