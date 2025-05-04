@@ -1725,7 +1725,7 @@ Transform:
   m_GameObject: {fileID: 208370045}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.87, y: -0.95, z: -0.0822}
+  m_LocalPosition: {x: 35.68, y: -1.72, z: -0.0822}
   m_LocalScale: {x: 1.1923, y: 1.2330934, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2382,7 +2382,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2407,7 +2407,7 @@ Transform:
   m_GameObject: {fileID: 250069925}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10.010944}
+  m_LocalPosition: {x: 28.776407, y: -0.046429873, z: -10.010944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15362,7 +15362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 1207801693}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &1643586942
@@ -15387,7 +15387,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1063760474}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 6
+    OrthographicSize: 3
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -16960,7 +16960,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.22435665, y: 0.32875884}
+  m_Offset: {x: -0.25870645, y: 0.16404617}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16971,7 +16971,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.32823, y: 2.9140332}
+  m_Size: {x: 3.1176956, y: 2.5846078}
   m_EdgeRadius: 0
 --- !u!4 &1862852877
 Transform:
