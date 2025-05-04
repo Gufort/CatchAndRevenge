@@ -8,6 +8,8 @@ using System;
 public class NarratorMove : MonoBehaviour
 {
     [Header("Настройки передвижения рассказчика: \n")]
+    [SerializeField] private DialogueManager _dm;
+    [SerializeField] private DialogueTrigger _dialogueTrigger;
     [SerializeField] private State _startingState;
     [SerializeField] private float _roamingDistanceMax = 7f;
     [SerializeField] private float _roamingDistanceMin = 3f;
@@ -16,7 +18,7 @@ public class NarratorMove : MonoBehaviour
     [SerializeField] private float _chasingSpeedMultiplier = 2f;
     [SerializeField] private float _chasingDistance = 10f;
     [SerializeField] private float _maxDistanceToPlayer = 4f;
-
+    public bool isDialogueEnded;
 
     private Animator animator;
     private NavMeshAgent _navMeshAgent;
@@ -62,6 +64,7 @@ public class NarratorMove : MonoBehaviour
     }
 
     private void Update() {
+        isDialogueEnded = (_dm.isTrueEnd && _dialogueTrigger.alreadyTriggered);
         MovementDirectionHandler();
         StateHandler();
 
@@ -140,32 +143,34 @@ public class NarratorMove : MonoBehaviour
 
 
     private void CheckCurrentState() {
-        float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
-        State newState = _currentState;
+        if(isDialogueEnded){
+            float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
+            State newState = _currentState;
 
-        if (_isAttacking && distanceToPlayer <= narratorAttack.getAttackRange()) {
-            newState = State.Attack;
-        }
-        else if (_isChasing && distanceToPlayer <= _chasingDistance && !narratorAttack.waitForAttack()) {
-            newState = State.Chasing;
-        }
-        else if (newState != State.Idle) {
-            newState = State.Roaming;
-        }
-
-        if (newState != _currentState) {
-            if (newState == State.Chasing) {
-                _navMeshAgent.ResetPath();
-                _navMeshAgent.speed = _chasingSpeed;
-            } 
-            else if (newState == State.Roaming) {
-                _roamingTimer = 0f;
-                _navMeshAgent.speed = _roamingSpeed;
-            } 
-            else if (newState == State.Attack) {
-                _navMeshAgent.ResetPath();
+            if (_isAttacking && distanceToPlayer <= narratorAttack.getAttackRange()) {
+                newState = State.Attack;
             }
-            _currentState = newState;
+            else if (_isChasing && distanceToPlayer <= _chasingDistance && !narratorAttack.waitForAttack()) {
+                newState = State.Chasing;
+            }
+            else if (newState != State.Idle) {
+                newState = State.Roaming;
+            }
+
+            if (newState != _currentState) {
+                if (newState == State.Chasing) {
+                    _navMeshAgent.ResetPath();
+                    _navMeshAgent.speed = _chasingSpeed;
+                } 
+                else if (newState == State.Roaming) {
+                    _roamingTimer = 0f;
+                    _navMeshAgent.speed = _roamingSpeed;
+                } 
+                else if (newState == State.Attack) {
+                    _navMeshAgent.ResetPath();
+                }
+                _currentState = newState;
+            }
         }
     }
 
