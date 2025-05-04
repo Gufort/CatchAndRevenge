@@ -8,11 +8,14 @@ using System;
 public class LittleBoyMove : MonoBehaviour
 {
     [Header("Настройки передвижения мальчика: \n")]
+    [SerializeField] private DialogueManager _dm;
+    [SerializeField] private DialogueTrigger _dialogueTrigger;
     [SerializeField] private State _startingState;
     [SerializeField] private bool _isChasing = false;
     [SerializeField] private float _chasingSpeedMultiplier = 2f;
     [SerializeField] private float _chasingDistance = 10f;
     [SerializeField] private float _maxDistanceToPlayer = 4f;
+    public bool isDialogueEnded;
 
 
     private Animator animator;
@@ -41,6 +44,7 @@ public class LittleBoyMove : MonoBehaviour
     }
 
     private void Update() {
+        isDialogueEnded = (_dm.isTrueEnd && _dialogueTrigger.alreadyTriggered);
         CheckCurrentState();
         MovementDirectionHandler();
         StateHandler();
@@ -80,16 +84,18 @@ public class LittleBoyMove : MonoBehaviour
     }
 
     private void CheckCurrentState() {
-        float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
-        State newState = (distanceToPlayer <= _chasingDistance) ? State.Chasing : State.Idle;
+        if(isDialogueEnded){
+            float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
+            State newState = (distanceToPlayer <= _chasingDistance) ? State.Chasing : State.Idle;
 
-        if (newState != _currentState)
-        {
-            _currentState = newState;
-            if (_currentState == State.Chasing)
-                _navMeshAgent.speed = _chasingSpeed;
-            else
-                _navMeshAgent.speed = _chasingSpeed / _chasingSpeedMultiplier;
+            if (newState != _currentState)
+            {
+                _currentState = newState;
+                if (_currentState == State.Chasing)
+                    _navMeshAgent.speed = _chasingSpeed;
+                else
+                    _navMeshAgent.speed = _chasingSpeed / _chasingSpeedMultiplier;
+            }
         }
     }
 

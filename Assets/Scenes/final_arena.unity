@@ -145,16 +145,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1112310138418415490, guid: 7acc722a5a67335488237fa92bf253a2, type: 3}
       propertyPath: _spreedAngle
-      value: 90
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 1112310138418415490, guid: 7acc722a5a67335488237fa92bf253a2, type: 3}
       propertyPath: _attackCoolDown
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1112310138418415490, guid: 7acc722a5a67335488237fa92bf253a2, type: 3}
       propertyPath: _prefabFireBall
       value: 
       objectReference: {fileID: 3210850678159083106, guid: 9fdbf81de4601d74097e238a5df3077b, type: 3}
+    - target: {fileID: 1112310138418415490, guid: 7acc722a5a67335488237fa92bf253a2, type: 3}
+      propertyPath: _countOfFireBall
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112310138418415490, guid: 7acc722a5a67335488237fa92bf253a2, type: 3}
+      propertyPath: _rangeForSplashAttack
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2317423450820702376, guid: 7acc722a5a67335488237fa92bf253a2, type: 3}
       propertyPath: m_Name
       value: Narrator
@@ -2449,8 +2457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 2.619873, y: 9.914442, z: 4}
-  m_Center: {x: 4.0699606, y: -2.457221, z: 0}
+  m_Size: {x: 5.054122, y: 9.914442, z: 4}
+  m_Center: {x: 2.8528361, y: -2.457221, z: 0}
   m_Area: 1
   m_AffectedAgents: ffffffff
 --- !u!114 &1407793152
@@ -3550,8 +3558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 3.1831896, y: 10.80855, z: 4}
-  m_Center: {x: -3.9572983, y: 3.175665, z: 0}
+  m_Size: {x: 4.6351976, y: 10.80855, z: 4}
+  m_Center: {x: -3.2312942, y: 3.175665, z: 0}
   m_Area: 1
   m_AffectedAgents: ffffffff
 --- !u!114 &1881394794

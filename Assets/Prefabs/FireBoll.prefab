@@ -172,6 +172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 25
-  _timer: 5
+  _timer: 2
   _damage: 20
   _pushDistance: 0.5

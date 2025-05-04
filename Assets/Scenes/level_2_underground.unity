@@ -2382,7 +2382,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2407,7 +2407,7 @@ Transform:
   m_GameObject: {fileID: 250069925}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2090273, y: -0.0007278919, z: -10.010944}
+  m_LocalPosition: {x: 0, y: 0, z: -10.010944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12090,6 +12090,7 @@ GameObject:
   - component: {fileID: 1215439446}
   - component: {fileID: 1215439445}
   - component: {fileID: 1215439447}
+  - component: {fileID: 1215439448}
   m_Layer: 0
   m_Name: TeleportTrigger
   m_TagString: Untagged
@@ -12172,6 +12173,21 @@ MonoBehaviour:
   DialogueID: 99
   isAutostart: 0
   dt: {fileID: 321511578}
+--- !u!114 &1215439448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215439444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fa19adcdfcf6845b7ff06d610e61fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueManager: {fileID: 451622243}
+  _dialogueID: 99
+  _collider: {fileID: 1680599126}
 --- !u!1 &1223888379
 GameObject:
   m_ObjectHideFlags: 0
@@ -15297,7 +15313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 2031222720}
+  m_BoundingShape2D: {fileID: 0}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &1643586942
@@ -15322,7 +15338,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1063760474}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 3
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -15688,7 +15704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1680599128
 Transform:
   m_ObjectHideFlags: 0
@@ -15736,7 +15752,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.7471542, y: -2.1902714}
+  m_Offset: {x: -0.08022308, y: -2.1902714}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -15747,7 +15763,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2154083, y: 5.3805428}
+  m_Size: {x: 5.870163, y: 5.3805428}
   m_EdgeRadius: 0
 --- !u!114 &1680599131
 MonoBehaviour:
