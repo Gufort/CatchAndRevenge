@@ -977,52 +977,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 216872093}
-  - component: {fileID: 216872092}
-  - component: {fileID: 216872091}
+  - component: {fileID: 216872094}
+  - component: {fileID: 216872095}
   m_Layer: 0
   m_Name: EnemiesCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &216872091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216872090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5121dc2d51d0c4f89b90dfba376777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _count: {fileID: 1490038421}
-  _enemiesCounter: {fileID: 216872092}
---- !u!114 &216872092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216872090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2057680dac1f494395d0c09d58f367f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _arrayOfBandits:
-  - {fileID: 4106914049375859791}
-  - {fileID: 1055638355}
-  - {fileID: 1261936660}
-  - {fileID: 1649197692}
-  - {fileID: 845083008}
-  _arrayOfArcher: []
-  _collider: {fileID: 6382055823168034495}
-  _colliderOld: {fileID: 1061631373}
-  countOfEnemies: 5
-  getInt: 5
+  m_IsActive: 0
 --- !u!4 &216872093
 Transform:
   m_ObjectHideFlags: 0
@@ -1039,6 +1002,42 @@ Transform:
   - {fileID: 36426008}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &216872094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216872090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e97228e7bfe6699c8108d0aef32f992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _arrayOfBandits:
+  - {fileID: 4106914049375859791}
+  - {fileID: 1055638355}
+  - {fileID: 1261936660}
+  - {fileID: 1649197692}
+  - {fileID: 845083008}
+  _collider: {fileID: 6382055823168034495}
+  _colliderOld: {fileID: 1061631373}
+  countOfEnemies: 5
+  getInt: 5
+--- !u!114 &216872095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216872090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ad412a99e3edfeebed34e715745f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _count: {fileID: 1490038421}
+  _enemiesCounter: {fileID: 216872094}
 --- !u!1 &287453886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7246450657578527664, guid: 833b5bcb1c83ddf4aaa67f95ee7582e6, type: 3}
@@ -6304,6 +6303,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxFactor: -0.1
+--- !u!1 &1678773199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1678773201}
+  - component: {fileID: 1678773200}
+  m_Layer: 0
+  m_Name: EnemiesCounterEnabler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1678773200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678773199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091e12018db131952b9f4b87132cd7c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueManager: {fileID: 973084878}
+  _dialogueID: 2
+  _enemyCounter: {fileID: 216872090}
+--- !u!4 &1678773201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678773199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -110.51292, y: 24.058432, z: -0.4791505}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1693472578
 GameObject:
   m_ObjectHideFlags: 0
@@ -7660,4 +7706,5 @@ SceneRoots:
   - {fileID: 6239610155749250646}
   - {fileID: 918944423}
   - {fileID: 216872093}
+  - {fileID: 1678773201}
   - {fileID: 1651346450}
