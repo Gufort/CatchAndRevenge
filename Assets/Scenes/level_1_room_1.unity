@@ -10906,8 +10906,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 488a7b473f881964ebca0b8d94125c8d, type: 3}
   frameDelay: 0.7
   fadeDuration: 1
-  playerController: {fileID: 0}
-  playerCombat: {fileID: 0}
+  playerController: {fileID: 526536775}
+  playerCombat: {fileID: 526536782}
   animationFinished: 0
   imageComponent: {fileID: 0}
   soundClip: {fileID: 8300000, guid: ccbb5ad67d1905a40908c93f916bfb80, type: 3}
