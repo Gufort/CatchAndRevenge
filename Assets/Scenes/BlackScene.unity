@@ -1474,7 +1474,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 78748a83e80ea75a68484dfddd8640d9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c188939ec4f0d5e47beb9e8c20591b35, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.05
   m_Pitch: 1
@@ -1974,8 +1974,11 @@ MonoBehaviour:
     spriteSecond: {fileID: 21300000, guid: 20ec1657c1bcb0246b71465734e89d34, type: 3}
     order: 
     sentences:
-    - "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0435\u043D\u0438\u0435 \u0441\u043B\u0435\u0434\u0443\u0435\u0442..."
-    - ' '
+    - "\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043E \u0441\u0442\u0443\u0434\u0435\u043D\u0442\u0430\u043C\u0438
+      1-2 \u043A\u0443\u0440\u0441\u0430."
+    - "\u0421\u043F\u0430\u0441\u0438\u0431\u043E, \u0447\u0442\u043E \u0443\u0434\u0435\u043B\u0438\u043B\u0438
+      \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u0435 \u043D\u0430\u0448\u0435\u0439
+      \u0438\u0433\u0440\u0435!"
 --- !u!114 &1845562319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2273,7 +2276,6 @@ MonoBehaviour:
   playerAnimator: {fileID: 0}
   playerFight: {fileID: 0}
   soundMaster: {fileID: 0}
-  enemies: []
   isTrueEnd: 0
   rigidbody2d: {fileID: 0}
 --- !u!4 &2064671641
