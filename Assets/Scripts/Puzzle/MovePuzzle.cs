@@ -38,7 +38,7 @@ public class MovePuzzle : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         move = false;
 
-        if (Vector2.Distance((Vector2)this.GetComponent<RectTransform>().position, (Vector2)form.GetComponent<RectTransform>().position) <= 25f && !finish)
+        if (Vector2.Distance((Vector2)this.GetComponent<RectTransform>().position, (Vector2)form.GetComponent<RectTransform>().position) <= 75f && !finish)
         {
             this.GetComponent<RectTransform>().position = form.GetComponent<RectTransform>().position;
             finish = true;
@@ -68,7 +68,7 @@ public class MovePuzzle : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             foreach (Transform child in transform.parent)
             {
                 MovePuzzle childPuzzle = child.GetComponent<MovePuzzle>();
-                if (child != transform && !childPuzzle.finish && Vector2.Distance(child.position, transform.position) < 50f)
+                if (child != transform && !childPuzzle.finish && Vector2.Distance(child.position, transform.position) < 125f)
                 {
                     Vector2 direction = (child.position - transform.position).normalized;
                     child.position += (Vector3)(direction * 500f * Time.deltaTime);

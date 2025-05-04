@@ -8,7 +8,7 @@ public class ImageAnimator : MonoBehaviour
     public float frameDelay = 0.7f; 
     public float fadeDuration = 1.0f;
 
-    public static bool animationFinished = false;
+    public bool animationFinished = false;
 
     public Image imageComponent; 
     public AudioClip soundClip;
@@ -16,6 +16,7 @@ public class ImageAnimator : MonoBehaviour
 
     void Start()
     {
+        animationFinished = false;
         audioSource = GetComponent<AudioSource>();
         imageComponent = GetComponent<Image>(); 
         imageComponent.color = new Color(imageComponent.color.r, imageComponent.color.g, imageComponent.color.b, 0);

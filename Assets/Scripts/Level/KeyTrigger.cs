@@ -9,6 +9,7 @@ public class KeyTrigger : MonoBehaviour
     public GameObject imageComponent; 
     public GameObject canvas;
     public GameObject textBox;
+    [SerializeField] ImageAnimator _imageAnimator;
     private bool trigger;
 
     private void OnTriggerEnter2D(Collider2D other){
@@ -37,7 +38,7 @@ public class KeyTrigger : MonoBehaviour
             textBox.SetActive(false);
             imageComponent.SetActive(true);
         }
-        if (ImageAnimator.animationFinished) {
+        if (_imageAnimator.animationFinished) {
             LevelChange.FadeToLevel();
         }
     }

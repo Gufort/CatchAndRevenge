@@ -17,6 +17,8 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetFloat("BackgroundVolume", volume);
         pos.initialValue = Vector3.zero;
+        MovePuzzle.end = false;
+        PuzzleComplete.curElement = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
