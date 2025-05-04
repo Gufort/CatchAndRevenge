@@ -30,6 +30,8 @@ public class InterractWithChest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && InteractInviteText.gameObject.activeSelf == true)
         {
+            MovePuzzle.end = false;
+            PuzzleComplete.curElement = 0;
             PuzzleActivate.SetActive(true);
         }
     }
