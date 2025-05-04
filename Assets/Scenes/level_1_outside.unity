@@ -6185,7 +6185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b63c330f805c99e882d5515bea31bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounds: 3
+  bounds: 4
   confiner: {fileID: 1002206645}
   virtualCamera: {fileID: 1002206643}
   newBounds: {fileID: 872577468}
