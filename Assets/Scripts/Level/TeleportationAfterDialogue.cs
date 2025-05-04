@@ -7,7 +7,7 @@ public class TeleportationAfterDialogue : MonoBehaviour
     [SerializeField] private DialogueManager dialogueManager;
     public GameObject dialogueTrigger;
     private bool isTriggered;
-    private int _dialogueID = 34;
+    [SerializeField ]private int _dialogueID;
 
     // Start is called before the first frame update
     void Start()
