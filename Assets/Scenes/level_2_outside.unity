@@ -904,7 +904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2254245034169209873, guid: 9aa1d913f83a82a4faa3572cc238bff4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2902117746136104910, guid: 9aa1d913f83a82a4faa3572cc238bff4, type: 3}
       propertyPath: m_Pivot.x
@@ -3802,9 +3802,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 4, y: 3, z: 4}
-  m_Center: {x: 0, y: 1, z: 0}
-  m_Area: 0
+  m_Size: {x: 23.943249, y: 1.2813647, z: 4}
+  m_Center: {x: 0.68705606, y: 1.8593177, z: 0}
+  m_Area: 1
   m_AffectedAgents: ffffffff
 --- !u!1 &175953746
 GameObject:
@@ -10152,9 +10152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 4, y: 3, z: 4}
-  m_Center: {x: 0, y: 1, z: 0}
-  m_Area: 0
+  m_Size: {x: 37.450302, y: 1.7082629, z: 4}
+  m_Center: {x: 9.946022, y: 1.6458685, z: 0}
+  m_Area: 1
   m_AffectedAgents: ffffffff
 --- !u!114 &505978684
 MonoBehaviour:
@@ -11484,15 +11484,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.80768585, y: 17.733532}
-      - {x: -141.98868, y: 17.59731}
-      - {x: -141.89752, y: -33.75276}
-      - {x: -36.97981, y: -33.32374}
-      - {x: -0.29771805, y: -33.36535}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: -0.77289426, y: -0.638932}
-      - {x: -0.83483505, y: 0.81927204}
-      - {x: -0.834836, y: 2.0098667}
+    - - {x: -0.9199524, y: 18.093794}
+      - {x: -141.602, y: 17.495369}
+      - {x: -141.54665, y: -33.961357}
+      - {x: -0.64007413, y: -34.206936}
+      - {x: -0.7679529, y: -6.075878}
   m_UseDelaunayMesh: 0
 --- !u!1 &560296946
 GameObject:
@@ -11931,7 +11927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _startingState
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: isDialogueEnded
@@ -12488,7 +12484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _startingState
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: isDialogueEnded
@@ -15598,7 +15594,7 @@ Transform:
   m_GameObject: {fileID: 717040824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.939269, y: -0.29267073, z: -10.010944}
+  m_LocalPosition: {x: 7.318857, y: -0.39457083, z: -10.010944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20102,7 +20098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _startingState
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: isDialogueEnded
@@ -21743,8 +21739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 10.907747, y: 0.7424593, z: 4}
-  m_Center: {x: 0.5268595, y: -1.5180247, z: 0}
+  m_Size: {x: 23.685705, y: 1.6196024, z: 4}
+  m_Center: {x: -5.8621206, y: -1.9565963, z: 0}
   m_Area: 1
   m_AffectedAgents: ffffffff
 --- !u!114 &1008237877
@@ -24028,7 +24024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _startingState
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: isDialogueEnded
@@ -25374,7 +25370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _startingState
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: isDialogueEnded
@@ -42174,7 +42170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: _startingState
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2172077673470124115, guid: ce557d777b8c07c40affc396e1f14563, type: 3}
       propertyPath: isDialogueEnded
