@@ -41145,6 +41145,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1847131462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1847131464}
+  - component: {fileID: 1847131463}
+  m_Layer: 0
+  m_Name: InstanceCameraBounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1847131463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847131462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b63c330f805c99e882d5515bea31bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounds: 6
+  confiner: {fileID: 1765555593}
+  virtualCamera: {fileID: 1765555594}
+  newBounds: {fileID: 556752932}
+  player: {fileID: 1944489647}
+--- !u!4 &1847131464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847131462}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -110.51292, y: 24.058432, z: -0.4791505}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1859557996
 GameObject:
   m_ObjectHideFlags: 0
@@ -41574,6 +41623,8 @@ MonoBehaviour:
   - {fileID: 2008361719}
   _collider: {fileID: 305729763}
   _colliderOld: {fileID: 39731797}
+  countOfEnemies: 12
+  getInt: 12
 --- !u!4 &1889163056
 Transform:
   m_ObjectHideFlags: 0
@@ -47030,3 +47081,4 @@ SceneRoots:
   - {fileID: 51112367}
   - {fileID: 39731799}
   - {fileID: 723427633}
+  - {fileID: 1847131464}
