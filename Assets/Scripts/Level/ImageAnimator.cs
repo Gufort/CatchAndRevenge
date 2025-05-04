@@ -8,11 +8,17 @@ public class ImageAnimator : MonoBehaviour
     public float frameDelay = 0.7f; 
     public float fadeDuration = 1.0f;
 
+    public PlayerController playerController;
+    public PlayerFight playerCombat;
+
     public bool animationFinished = false;
 
     public Image imageComponent; 
     public AudioClip soundClip;
-    private AudioSource audioSource; 
+    private AudioSource audioSource;
+
+    private GameObject pauseButton;
+    private GameObject playerHP;
 
     void Start()
     {
@@ -25,6 +31,15 @@ public class ImageAnimator : MonoBehaviour
 
     private IEnumerator PlayAnimation()
     {
+        playerCombat.enabled = false;
+        playerController.enabled = false;
+
+        pauseButton = GameObject.Find("Pause");
+        playerHP = GameObject.Find("PlayerHP");
+
+        pauseButton?.SetActive(false);
+        playerHP?.SetActive(false);
+
         yield return StartCoroutine(FadeIn());
 
         for (int i = 0; i < frames.Length; i++)

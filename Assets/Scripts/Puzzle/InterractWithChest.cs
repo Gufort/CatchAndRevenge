@@ -8,8 +8,9 @@ public class InterractWithChest : MonoBehaviour
     public GameObject InteractInviteBox;
     public TMP_Text InteractInviteText;
     public GameObject PuzzleActivate;
-    public GameObject pauseButton;
-    public GameObject playerHP;
+
+    private GameObject pauseButton;
+    private GameObject playerHP;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
