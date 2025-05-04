@@ -1644,7 +1644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 251959196}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &463311637
@@ -6003,7 +6003,7 @@ Transform:
   m_GameObject: {fileID: 1605882438}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10.010944}
+  m_LocalPosition: {x: -0.039056778, y: -0.0057148933, z: -10.010944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
