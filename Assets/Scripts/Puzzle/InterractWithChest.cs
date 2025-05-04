@@ -8,6 +8,9 @@ public class InterractWithChest : MonoBehaviour
     public GameObject InteractInviteBox;
     public TMP_Text InteractInviteText;
     public GameObject PuzzleActivate;
+    public GameObject pauseButton;
+    public GameObject playerHP;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -33,6 +36,11 @@ public class InterractWithChest : MonoBehaviour
             MovePuzzle.end = false;
             PuzzleComplete.curElement = 0;
             PuzzleActivate.SetActive(true);
+
+            pauseButton = GameObject.Find("Pause");
+            playerHP = GameObject.Find("PlayerHP");
+            pauseButton?.SetActive(false);
+            playerHP?.SetActive(false);
         }
     }
 }
